@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<liberty-plugin-config>
+    <activeBuildProfiles>
+        <profileId>liberty</profileId>
+    </activeBuildProfiles>
+    <installDirectory>/home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp</installDirectory>
+    <serverDirectory>/home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer</serverDirectory>
+    <userDirectory>/home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr</userDirectory>
+    <serverOutputDirectory>/home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer</serverOutputDirectory>
+    <serverName>defaultServer</serverName>
+    <configDirectory>/home/wiktor/company-jakartaee-servlet/company/src/main/liberty/config</configDirectory>
+    <configFile>/home/wiktor/company-jakartaee-servlet/company/src/main/liberty/config/server.xml</configFile>
+    <appsDirectory>dropins</appsDirectory>
+    <looseApplication>true</looseApplication>
+    <stripVersion>false</stripVersion>
+    <installAppPackages>project</installAppPackages>
+    <applicationFilename>company-1.0-SNAPSHOT.war.xml</applicationFilename>
+    <assemblyArtifact>
+        <groupId>io.openliberty</groupId>
+        <artifactId>openliberty-kernel</artifactId>
+        <version>24.0.0.10</version>
+        <type>zip</type>
+    </assemblyArtifact>
+    <assemblyArchive>/home/wiktor/.m2/repository/io/openliberty/openliberty-kernel/24.0.0.10/openliberty-kernel-24.0.0.10.zip</assemblyArchive>
+    <assemblyInstallDirectory>/home/wiktor/company-jakartaee-servlet/company/target/liberty</assemblyInstallDirectory>
+    <refresh>false</refresh>
+    <installAppsConfigDropins>/home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/configDropins/defaults/install_apps_configuration_1491924271.xml</installAppsConfigDropins>
+    <projectType>war</projectType>
+</liberty-plugin-config>

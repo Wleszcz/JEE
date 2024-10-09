@@ -1,0 +1,126 @@
+# Get all devices.
+
+GET http://localhost:9080/company/api/devices
+
+###
+
+# Get single device.
+
+GET http://localhost:9080/company/api/devices/525d3e7b-bb1f-4c13-bf17-926d1a12e4c0
+
+###
+
+# Get single device. Not existing, created later.
+
+GET http://localhost:9080/company/api/devices/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+
+###
+
+# Get single device image.
+
+GET http://localhost:9080/company/api/devices/525d3e7b-bb1f-4c13-bf17-926d1a12e4c0/image
+
+###
+
+# Get single device image. Not existing, created later.
+
+GET http://localhost:9080/company/api/devices/3c6f1eb1-8069-44ab-988f-d7fed2b65d87/image
+
+###
+
+# Create new device.
+
+PUT http://localhost:9080/company/api/devices/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+Content-Type: application/json
+
+{
+  "name": "nowy TV",
+  "background": "No one special.",
+  "deviceType": "TV",
+  "price": 1000,
+  "mass": 1500,
+  "brand": "f5875513-bf7b-4ae1-b8a5-5b70a1b90e76"
+}
+
+###
+
+# Create device image.
+
+PUT http://localhost:9080/company/api/devices/3c6f1eb1-8069-44ab-988f-d7fed2b65d87/image
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="image"; filename="newTV.png'
+
+< src/main/resources/company/configuration/avatar/newTV.png
+--boundary--
+
+###
+
+# Create new device. Not existing brand.
+
+PUT http://localhost:9080/company/api/devices/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+Content-Type: application/json
+
+{
+  "name": "nowy TV",
+  "background": "No one special.",
+  "deviceType": "TV",
+  "price": 1000,
+  "mass": 1500,
+  "brand": "3bb5b0d5-7e22-466f-8c3f-be4baa3d3b8c"
+}
+
+###
+
+# Update device.
+
+PATCH http://localhost:9080/company/api/devices/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+Content-Type: application/json
+
+{
+  "name": "nowy nowy tvvt",
+  "price": 800
+}
+
+###
+
+# Delete device.
+
+DELETE http://localhost:9080/company/api/devices/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+
+###
+
+# Get all brands.
+
+GET http://localhost:9080/company/api/brands
+
+###
+
+# Get all brand devices.
+
+GET http://localhost:9080/company/api/brands/f5875513-bf7b-4ae1-b8a5-5b70a1b90e76/devices
+
+###
+
+# Get all brand devices. Not existing.
+
+GET http://localhost:9080/company/api/brands/d8b50a43-ed45-4441-9bcb-5db7782b47f6/devices
+
+###
+
+# Get all user devices.
+
+GET http://localhost:9080/company/api/users/81e1c2a9-7f57-439b-b53d-6db88b071e4e/devices
+
+###
+
+# Get all user devices. Empty.
+
+GET http://localhost:9080/company/api/users/c4804e0f-769e-4ab9-9ebe-0578fb4f00a6/devices
+
+###
+
+# Get all user devices. Not existing.
+
+GET http://localhost:9080/company/api/users/c07cab55-a56f-4d67-b351-175bb7a94b7a/devices
