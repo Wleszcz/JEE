@@ -1,4 +1,4 @@
-Cache-WriteTime=1728493827906;17
+Cache-WriteTime=1728495735156;17
 com.ibm.ws.javaee.version/[1.0.0,1.1.0)=file:/home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/lib/com.ibm.ws.javaee.version_1.0.94.jar;12@PARALLEL
 io.openliberty.java11.internal/[1.0.0,1.1.0)=file:/home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/lib/io.openliberty.java11.internal_1.0.94.jar;12@PARALLEL
 com.ibm.ws.artifact/[1.0.0,1.1.0)=file:/home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/lib/com.ibm.ws.artifact_1.0.94.jar;11@PARALLEL
