@@ -5,4 +5,5 @@
         <feature>servlet-6.0</feature>
         <feature>jsonb-3.0</feature>
     </featureManager>
+    <variable name="FILE_STORAGE_DIR" value=""/>
 </server>

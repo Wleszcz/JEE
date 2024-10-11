@@ -3,6 +3,9 @@ package company.controller.servlet;
 import company.device.controller.api.DeviceController;
 import company.device.dto.PatchDeviceRequest;
 import company.device.dto.PutDeviceRequest;
+import company.user.controller.api.UserController;
+import company.user.dto.PatchUserRequest;
+import company.user.dto.PutUserRequest;
 import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;
 import jakarta.servlet.ServletException;
@@ -36,7 +39,12 @@ public class ApiServlet extends HttpServlet {
     /**
      * Controller for managing collections Brands' representations.
      */
-    private BrandController BrandController;
+    private BrandController brandController;
+
+    /**
+     * Controller for managing Users.
+     */
+    private UserController userController;
 
     /**
      * Definition of paths supported by this servlet. Separate inner class provides composition for static fields.
@@ -90,6 +98,22 @@ public class ApiServlet extends HttpServlet {
          */
         public static final Pattern USER_DEVICES = Pattern.compile("/users/(%s)/devices/?".formatted(UUID.pattern()));
 
+
+        /**
+         * Single user.
+         */
+        public static final Pattern USER_IMAGE = Pattern.compile("/users/(%s)/image".formatted(UUID.pattern()));
+
+        /**
+         * All users.
+         */
+        public static final Pattern USERS = Pattern.compile("/users/?");
+
+        /**
+         * Single user.
+         */
+        public static final Pattern USER = Pattern.compile("/users/(%s)".formatted(UUID.pattern()));
+
     }
 
     /**
@@ -112,7 +136,8 @@ public class ApiServlet extends HttpServlet {
     public void init() throws ServletException {
         super.init();
         deviceController = (DeviceController) getServletContext().getAttribute("deviceController");
-        BrandController = (BrandController) getServletContext().getAttribute("brandController");
+        brandController = (BrandController) getServletContext().getAttribute("brandController");
+        userController = (UserController) getServletContext().getAttribute("userController");
     }
 
     @SuppressWarnings("RedundantThrows")
@@ -132,7 +157,7 @@ public class ApiServlet extends HttpServlet {
                 return;
             } else if (path.matches(Patterns.BRANDS.pattern())) {
                 response.setContentType("application/json");
-                response.getWriter().write(jsonb.toJson(BrandController.getBrands()));
+                response.getWriter().write(jsonb.toJson(brandController.getBrands()));
                 return;
             } else if (path.matches(Patterns.BRAND_DEVICES.pattern())) {
                 response.setContentType("application/json");
@@ -148,6 +173,22 @@ public class ApiServlet extends HttpServlet {
                 response.setContentType("image/png");//could be dynamic but atm we support only one format
                 UUID uuid = extractUuid(Patterns.DEVICE_IMAGE, path);
                 byte[] image = deviceController.getDeviceImage(uuid);
+                response.setContentLength(image.length);
+                response.getOutputStream().write(image);
+                return;
+            } else if (path.matches(Patterns.USER.pattern())) {
+                response.setContentType("application/json");
+                UUID uuid = extractUuid(Patterns.USER, path);
+                response.getWriter().write(jsonb.toJson(userController.getUser(uuid)));
+                return;
+            } else if (path.matches(Patterns.USERS.pattern())) {
+                response.setContentType("application/json");
+                response.getWriter().write(jsonb.toJson(userController.getUsers()));
+                return;
+            } else if (path.matches(Patterns.USER_IMAGE.pattern())) {
+                response.setContentType("image/png");//could be dynamic but atm we support only one format
+                UUID uuid = extractUuid(Patterns.USER_IMAGE, path);
+                byte[] image = userController.getUserImage(uuid);
                 response.setContentLength(image.length);
                 response.getOutputStream().write(image);
                 return;
@@ -169,6 +210,15 @@ public class ApiServlet extends HttpServlet {
                 UUID uuid = extractUuid(Patterns.DEVICE_IMAGE, path);
                 deviceController.putDeviceImage(uuid, request.getPart("image").getInputStream());
                 return;
+            } else if (path.matches(Patterns.USER.pattern())) {
+                UUID uuid = extractUuid(Patterns.USER, path);
+                userController.putUser(uuid, jsonb.fromJson(request.getReader(), PutUserRequest.class));
+                response.addHeader("Location", createUrl(request, Paths.API, "users", uuid.toString()));
+                return;
+            } else if (path.matches(Patterns.USER_IMAGE.pattern())) {
+                UUID uuid = extractUuid(Patterns.USER_IMAGE, path);
+                userController.putUserImage(uuid, request.getPart("image").getInputStream());
+                return;
             }
         }
         response.sendError(HttpServletResponse.SC_BAD_REQUEST);
@@ -183,6 +233,14 @@ public class ApiServlet extends HttpServlet {
             if (path.matches(Patterns.DEVICE.pattern())) {
                 UUID uuid = extractUuid(Patterns.DEVICE, path);
                 deviceController.deleteDevice(uuid);
+                return;
+            } else if (path.matches(Patterns.USER_IMAGE.pattern())) {
+                UUID uuid = extractUuid(Patterns.USER_IMAGE, path);
+                userController.deleteUserImage(uuid);
+                return;
+            } else if (path.matches(Patterns.USER.pattern())) {
+                UUID uuid = extractUuid(Patterns.USER, path);
+                userController.deleteUser(uuid);
                 return;
             }
         }
@@ -205,6 +263,11 @@ public class ApiServlet extends HttpServlet {
             if (path.matches(Patterns.DEVICE.pattern())) {
                 UUID uuid = extractUuid(Patterns.DEVICE, path);
                 deviceController.patchDevice(uuid, jsonb.fromJson(request.getReader(), PatchDeviceRequest.class));
+                return;
+            }
+            if (path.matches(Patterns.USER.pattern())) {
+                UUID uuid = extractUuid(Patterns.USER, path);
+                userController.patchUser(uuid, jsonb.fromJson(request.getReader(), PatchUserRequest.class));
                 return;
             }
         }

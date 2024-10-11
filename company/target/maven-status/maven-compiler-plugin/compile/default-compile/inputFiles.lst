@@ -27,6 +27,7 @@
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/device/controller/api/DeviceController.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/controller/servlet/package-info.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/dto/function/RequestToUserFunction.java
+/home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/repository/api/FileRepository.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/device/repository/memory/DeviceInMemoryRepository.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/device/dto/function/BrandsToResponseFunction.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/dto/GetUsersResponse.java
@@ -44,6 +45,7 @@
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/dto/PutUserRequest.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/dto/function/package-info.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/repository/api/UserRepository.java
+/home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/controller/api/UserController.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/device/service/package-info.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/serialization/component/CloningUtility.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/controller/servlet/exception/NotFoundException.java
@@ -52,6 +54,7 @@
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/repository/api/package-info.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/entity/package-info.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/datastore/component/DataStore.java
+/home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/controller/simple/UserSimpleController.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/device/controller/api/BrandController.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/device/entity/DeviceType.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/controller/servlet/ApiServlet.java
@@ -68,6 +71,7 @@
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/device/entity/Brand.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/repository/memory/UserInMemoryRepository.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/controller/package-info.java
+/home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/repository/memory/SimpleFileRepository.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/device/repository/api/DeviceRepository.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/entity/UserRoles.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/device/dto/GetBrandResponse.java
@@ -85,5 +89,6 @@
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/device/dto/function/BrandToResponseFunction.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/device/repository/memory/package-info.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/device/dto/GetDevicesResponse.java
+/home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/controller/package-info.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/repository/memory/package-info.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/device/controller/simple/BrandSimpleController.java

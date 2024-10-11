@@ -192,4 +192,16 @@ public class DataStore {
         return entity;
     }
 
+    /**
+     * Deletes existing user.
+     *
+     * @param id id of user to be deleted
+     * @throws IllegalArgumentException if user with provided id does not exist
+     */
+    public synchronized void deleteUser(UUID id) throws IllegalArgumentException {
+        if (!users.removeIf(user -> user.getId().equals(id))) {
+            throw new IllegalArgumentException("The user with id \"%s\" does not exist".formatted(id));
+        }
+    }
+
 }

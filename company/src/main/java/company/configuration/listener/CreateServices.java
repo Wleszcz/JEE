@@ -2,6 +2,8 @@ package company.configuration.listener;
 
 import company.device.repository.api.DeviceRepository;
 import company.device.service.DeviceService;
+import company.user.repository.api.FileRepository;
+import company.user.repository.memory.SimpleFileRepository;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
@@ -30,7 +32,7 @@ public class CreateServices implements ServletContextListener {
         BrandRepository brandRepository = new BrandInMemoryRepository(dataSource);
         DeviceRepository deviceRepository = new DeviceInMemoryRepository(dataSource);
 
-        event.getServletContext().setAttribute("userService", new UserService(userRepository, new Pbkdf2PasswordHash()));
+        event.getServletContext().setAttribute("userService", new UserService(userRepository, new SimpleFileRepository("") ,new Pbkdf2PasswordHash()));
         event.getServletContext().setAttribute("deviceService", new DeviceService(deviceRepository, brandRepository, userRepository));
         event.getServletContext().setAttribute("brandService", new BrandService(brandRepository));
     }

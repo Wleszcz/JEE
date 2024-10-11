@@ -101,12 +101,7 @@ public class DeviceSimpleController implements DeviceController {
 
     @Override
     public void putDeviceImage(UUID id, InputStream image) {
-        service.find(id).ifPresentOrElse(
-                entity -> service.updatePortrait(id, image),
-                () -> {
-                    throw new NotFoundException();
-                }
-        );
+        service.updatePortrait(id, image);
     }
 
 }

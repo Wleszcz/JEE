@@ -1,3 +1,74 @@
+# Get all users.
+
+GET http://localhost:9080/company/api/users/
+###
+
+# Get single user.
+
+GET http://localhost:9080/company/api/users/81e1c2a9-7f57-439b-b53d-6db88b071e4e
+###
+
+# Get user's image.
+
+GET http://localhost:9080/company/api/users/3c6f1eb1-8069-44ab-988f-d7fed2b65d87/image
+###
+
+# Delete user's image.
+
+DELETE http://localhost:9080/company/api/users/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+###
+
+# Create user image.
+
+PUT http://localhost:9080/company/api/users/c4804e0f-769e-4ab9-9ebe-0578fb4f00a6/image
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="image"; filename="newTV.png'
+
+< src/main/resources/company/configuration/avatar/newTV.png
+--boundary--
+
+###
+
+
+# Create new user.
+PUT http://localhost:9080/company/api/users/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+Content-Type: application/json
+
+{
+  "name": "Janusz",
+  "surname": "Sum",
+  "login": "jasum",
+  "password": "useruser",
+  "email": "jasum@pg.edu.pl"
+}
+
+###
+
+# updafe user.
+
+PATCH http://localhost:9080/company/api/users/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+Content-Type: application/json
+
+{
+  "surname": "Soom"
+}
+
+
+### -----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
 # Get all devices.
 
 GET http://localhost:9080/company/api/devices
@@ -35,7 +106,6 @@ Content-Type: application/json
 
 {
   "name": "nowy TV",
-  "background": "No one special.",
   "deviceType": "TV",
   "price": 1000,
   "mass": 1500,
@@ -64,7 +134,6 @@ Content-Type: application/json
 
 {
   "name": "nowy TV",
-  "background": "No one special.",
   "deviceType": "TV",
   "price": 1000,
   "mass": 1500,
