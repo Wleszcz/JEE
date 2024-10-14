@@ -17,4 +17,8 @@
         <listener-class>company.configuration.listener.CreateControllers</listener-class>
     </listener>
 
+    <context-param>
+        <param-name>imagePath</param-name>
+        <param-value>avatars</param-value>
+    </context-param>
 </web-app>

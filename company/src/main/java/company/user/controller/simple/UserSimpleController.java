@@ -94,6 +94,9 @@ public class UserSimpleController implements UserController {
 
     @Override
     public void deleteUserImage(UUID id) {
+        if (service.getImage(id) == null) {
+            throw new NotFoundException();
+        }
         service.deleteUserImage(id);
     }
 
