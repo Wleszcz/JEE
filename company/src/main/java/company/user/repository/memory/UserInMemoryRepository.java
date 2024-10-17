@@ -3,6 +3,8 @@ package company.user.repository.memory;
 import company.datastore.component.DataStore;
 import company.user.entity.User;
 import company.user.repository.api.UserRepository;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,6 +13,7 @@ import java.util.UUID;
 /**
  * Repository for User entity. Repositories should be used in business layer (e.g.: in services).
  */
+@RequestScoped
 public class UserInMemoryRepository implements UserRepository {
 
     /**
@@ -21,6 +24,7 @@ public class UserInMemoryRepository implements UserRepository {
     /**
      * @param store data store
      */
+    @Inject
     public UserInMemoryRepository(DataStore store) {
         this.store = store;
     }

@@ -5,6 +5,8 @@ import company.device.entity.Device;
 import company.datastore.component.DataStore;
 import company.device.repository.api.DeviceRepository;
 import company.user.entity.User;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,6 +16,7 @@ import java.util.stream.Collectors;
 /**
  * Repository for device entity. Repositories should be used in business layer (e.g.: in services).
  */
+@RequestScoped
 public class DeviceInMemoryRepository implements DeviceRepository {
 
     /**
@@ -24,6 +27,7 @@ public class DeviceInMemoryRepository implements DeviceRepository {
     /**
      * @param store data store
      */
+    @Inject
     public DeviceInMemoryRepository(DataStore store) {
         this.store = store;
     }

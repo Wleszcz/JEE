@@ -10,7 +10,7 @@ GET http://localhost:9080/company/api/users/81e1c2a9-7f57-439b-b53d-6db88b071e4e
 
 # Get user's image.
 
-GET http://localhost:9080/company/api/users/3c6f1eb1-8069-44ab-988f-d7fed2b65d87/image
+GET http://localhost:9080/company/api/users/c4804e0f-769e-4ab9-9ebe-0578fb4f00a6/image
 ###
 
 # Delete user's image.
@@ -83,25 +83,17 @@ GET http://localhost:9080/company/api/devices/525d3e7b-bb1f-4c13-bf17-926d1a12e4
 
 # Get single device. Not existing, created later.
 
-GET http://localhost:9080/company/api/devices/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+GET http://localhost:9080/company/api/devices/8c2ea220-c28c-4e2e-97b3-61d32496cc13
 
 ###
 
-# Get single device image.
 
-GET http://localhost:9080/company/api/devices/525d3e7b-bb1f-4c13-bf17-926d1a12e4c0/image
-
-###
-
-# Get single device image. Not existing, created later.
-
-GET http://localhost:9080/company/api/devices/3c6f1eb1-8069-44ab-988f-d7fed2b65d87/image
 
 ###
 
 # Create new device.
 
-PUT http://localhost:9080/company/api/devices/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+PUT http://localhost:9080/company/api/devices/8c2ea220-c28c-4e2e-97b3-61d32496cc13
 Content-Type: application/json
 
 {
@@ -111,19 +103,6 @@ Content-Type: application/json
   "mass": 1500,
   "brand": "f5875513-bf7b-4ae1-b8a5-5b70a1b90e76"
 }
-
-###
-
-# Create device image.
-
-PUT http://localhost:9080/company/api/devices/3c6f1eb1-8069-44ab-988f-d7fed2b65d87/image
-Content-Type: multipart/form-data; boundary=boundary
-
---boundary
-Content-Disposition: form-data; name="image"; filename="newTV.png'
-
-< src/main/resources/company/configuration/avatar/newTV.png
---boundary--
 
 ###
 
@@ -144,7 +123,7 @@ Content-Type: application/json
 
 # Update device.
 
-PATCH http://localhost:9080/company/api/devices/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+PATCH http://localhost:9080/company/api/devices/8c2ea220-c28c-4e2e-97b3-61d32496cc13
 Content-Type: application/json
 
 {

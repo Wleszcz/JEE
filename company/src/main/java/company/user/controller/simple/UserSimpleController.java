@@ -16,6 +16,8 @@ import company.user.dto.PatchUserRequest;
 import company.user.dto.PutUserRequest;
 import company.user.entity.User;
 import company.user.service.UserService;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
 
 import java.io.InputStream;
 import java.util.UUID;
@@ -23,6 +25,7 @@ import java.util.UUID;
 /**
  * Simple framework agnostic implementation of controller.
  */
+@RequestScoped
 public class UserSimpleController implements UserController {
 
     /**
@@ -40,6 +43,7 @@ public class UserSimpleController implements UserController {
      * @param service User service
      * @param factory factory producing functions for conversion between DTO and entities
      */
+    @Inject
     public UserSimpleController(UserService service, DtoFunctionFactory factory) {
         this.service = service;
         this.factory = factory;

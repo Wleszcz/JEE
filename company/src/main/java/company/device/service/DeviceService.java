@@ -5,6 +5,9 @@ import company.device.repository.api.DeviceRepository;
 import company.device.repository.api.BrandRepository;
 import company.user.entity.User;
 import company.user.repository.api.UserRepository;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import lombok.NoArgsConstructor;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,6 +18,8 @@ import java.util.UUID;
 /**
  * Service layer for all business actions regarding device entity.
  */
+@ApplicationScoped
+@NoArgsConstructor(force = true)
 public class DeviceService {
 
     /**
@@ -37,6 +42,7 @@ public class DeviceService {
      * @param brandRepository repository for Brand entity
      * @param userRepository repository for user entity
      */
+    @Inject
     public DeviceService(DeviceRepository deviceRepository, BrandRepository brandRepository, UserRepository userRepository) {
         this.deviceRepository = deviceRepository;
         this.brandRepository = brandRepository;

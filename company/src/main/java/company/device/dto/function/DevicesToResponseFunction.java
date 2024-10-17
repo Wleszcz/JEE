@@ -2,6 +2,7 @@ package company.device.dto.function;
 
 import company.device.dto.GetDevicesResponse;
 import company.device.entity.Device;
+import jakarta.enterprise.context.Dependent;
 
 import java.util.List;
 import java.util.function.Function;
@@ -9,6 +10,7 @@ import java.util.function.Function;
 /**
  * Coverts {@link List<Device>} to {@link GetDevicesResponse}.
  */
+@Dependent
 public class DevicesToResponseFunction implements Function<List<Device>, GetDevicesResponse> {
 
     @Override

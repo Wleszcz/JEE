@@ -2,6 +2,7 @@ package company.user.dto.function;
 
 import company.user.dto.PutPasswordRequest;
 import company.user.entity.User;
+import jakarta.enterprise.context.Dependent;
 
 import java.util.function.BiFunction;
 
@@ -9,6 +10,7 @@ import java.util.function.BiFunction;
  * Updates password in {@link User} based on {@link PutPasswordRequest}. Caution, password should be hashed in business
  * logic.
  */
+@Dependent
 public class UpdateUserPasswordWithRequestFunction implements BiFunction<User, PutPasswordRequest, User> {
 
     @Override

@@ -1,6 +1,9 @@
 package company.datastore.component;
 
 import company.device.entity.Device;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import lombok.NoArgsConstructor;
 import lombok.extern.java.Log;
 import company.device.entity.Brand;
 import company.serialization.component.CloningUtility;
@@ -20,6 +23,8 @@ import java.util.stream.Collectors;
  * usage.
  */
 @Log
+@ApplicationScoped
+@NoArgsConstructor(force = true)
 public class DataStore {
 
     /**
@@ -45,6 +50,7 @@ public class DataStore {
     /**
      * @param cloningUtility component used for creating deep copies
      */
+    @Inject
     public DataStore(CloningUtility cloningUtility) {
         this.cloningUtility = cloningUtility;
     }

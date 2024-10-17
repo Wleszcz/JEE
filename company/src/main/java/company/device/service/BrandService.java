@@ -2,6 +2,9 @@ package company.device.service;
 
 import company.device.entity.Brand;
 import company.device.repository.api.BrandRepository;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,6 +13,8 @@ import java.util.UUID;
 /**
  * Service layer for all business actions regarding device's Brand entity.
  */
+@ApplicationScoped
+@NoArgsConstructor(force = true)
 public class BrandService {
 
     /**
@@ -20,6 +25,7 @@ public class BrandService {
     /**
      * @param repository repository for Brand entity
      */
+    @Inject
     public BrandService(BrandRepository repository) {
         this.repository = repository;
     }

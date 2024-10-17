@@ -28,19 +28,18 @@
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/controller/servlet/package-info.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/dto/function/RequestToUserFunction.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/repository/api/FileRepository.java
+/home/wiktor/company-jakartaee-servlet/company/src/main/java/company/configuration/observer/InitializedData.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/device/repository/memory/DeviceInMemoryRepository.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/device/dto/function/BrandsToResponseFunction.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/dto/GetUsersResponse.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/repository/package-info.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/controller/servlet/exception/package-info.java
-/home/wiktor/company-jakartaee-servlet/company/src/main/java/company/configuration/listener/CreateDataSource.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/dto/function/UserToResponseFunction.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/device/dto/GetDeviceResponse.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/crypto/package-info.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/repository/package-info.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/dto/function/UsersToResponseFunction.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/dto/PutPasswordRequest.java
-/home/wiktor/company-jakartaee-servlet/company/src/main/java/company/configuration/listener/package-info.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/service/package-info.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/dto/PutUserRequest.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/dto/function/package-info.java
@@ -49,7 +48,7 @@
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/device/service/package-info.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/serialization/component/CloningUtility.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/controller/servlet/exception/NotFoundException.java
-/home/wiktor/company-jakartaee-servlet/company/src/main/java/company/configuration/listener/InitializedData.java
+/home/wiktor/company-jakartaee-servlet/company/src/main/java/company/configuration/observer/package-info.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/package-info.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/repository/api/package-info.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/entity/package-info.java
@@ -59,7 +58,6 @@
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/device/entity/DeviceType.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/controller/servlet/ApiServlet.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/device/dto/function/DeviceToResponseFunction.java
-/home/wiktor/company-jakartaee-servlet/company/src/main/java/company/configuration/listener/CreateControllers.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/controller/servlet/exception/HttpRequestException.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/repository/api/Repository.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/datastore/package-info.java
@@ -67,7 +65,6 @@
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/dto/function/UpdateUserPasswordWithRequestFunction.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/device/repository/memory/BrandInMemoryRepository.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/controller/servlet/exception/BadRequestException.java
-/home/wiktor/company-jakartaee-servlet/company/src/main/java/company/configuration/listener/CreateServices.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/device/entity/Brand.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/user/repository/memory/UserInMemoryRepository.java
 /home/wiktor/company-jakartaee-servlet/company/src/main/java/company/controller/package-info.java

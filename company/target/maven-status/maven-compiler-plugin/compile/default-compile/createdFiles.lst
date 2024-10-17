@@ -15,10 +15,10 @@ company/device/dto/GetDeviceResponse$Brand$BrandBuilder.class
 company/device/dto/GetBrandsResponse$Brand$BrandBuilder.class
 company/user/dto/function/UsersToResponseFunction.class
 company/user/repository/memory/SimpleFileRepository.class
-company/configuration/listener/CreateDataSource.class
 company/device/dto/function/RequestToDeviceFunction.class
 company/controller/servlet/exception/BadRequestException.class
 company/device/entity/Device$DeviceBuilder.class
+company/configuration/observer/InitializedData.class
 company/user/dto/GetUserResponse$GetUserResponseBuilder.class
 company/user/controller/api/UserController.class
 company/device/entity/Brand.class
@@ -54,13 +54,10 @@ company/user/dto/GetUsersResponse$User$UserBuilder.class
 company/device/dto/GetDevicesResponse.class
 company/device/dto/PatchDeviceRequest.class
 company/user/dto/PutPasswordRequest$PutPasswordRequestBuilder.class
-company/configuration/listener/CreateServices.class
 company/device/dto/function/BrandsToResponseFunction.class
-company/configuration/listener/CreateControllers.class
 company/user/dto/function/RequestToUserFunction.class
 company/user/entity/User.class
 company/device/service/BrandService.class
-company/configuration/listener/InitializedData.class
 company/user/dto/PutUserRequest.class
 company/device/dto/GetBrandsResponse.class
 company/user/repository/memory/UserInMemoryRepository.class

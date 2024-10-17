@@ -3,6 +3,7 @@ package company.device.dto.function;
 import company.device.dto.PutDeviceRequest;
 import company.device.entity.Device;
 import company.device.entity.Brand;
+import jakarta.enterprise.context.Dependent;
 
 import java.util.UUID;
 import java.util.function.BiFunction;
@@ -11,6 +12,7 @@ import java.util.function.BiFunction;
  * Converts {@link PutDeviceRequest} to {@link Device}. Caution, some fields are not set as they should be updated
  * by business logic.
  */
+@Dependent
 public class RequestToDeviceFunction implements BiFunction<UUID, PutDeviceRequest, Device> {
 
     @Override

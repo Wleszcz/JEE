@@ -4,10 +4,13 @@ import company.device.controller.api.BrandController;
 import company.device.dto.GetBrandsResponse;
 import company.device.service.BrandService;
 import company.component.DtoFunctionFactory;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
 
 /**
  * Simple framework agnostic implementation of controller.
  */
+@RequestScoped
 public class BrandSimpleController implements BrandController {
 
     /**
@@ -25,6 +28,7 @@ public class BrandSimpleController implements BrandController {
      * @param service Brand service
      * @param factory factory producing functions for conversion between DTO and entities
      */
+    @Inject
     public BrandSimpleController(BrandService service, DtoFunctionFactory factory) {
         this.service = service;
         this.factory = factory;

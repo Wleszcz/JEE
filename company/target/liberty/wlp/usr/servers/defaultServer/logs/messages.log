@@ -5,59 +5,54 @@ java.home = /usr/lib/jvm/java-17-openjdk-amd64
 java.version = 17.0.12
 java.runtime = OpenJDK Runtime Environment (17.0.12+7-Ubuntu-1ubuntu224.04)
 os = Linux (6.8.0-45-generic; amd64) (en_US)
-process = 26260@wiktor-Vostro-15-3510
+process = 20900@wiktor-Vostro-15-3510
 Classpath = /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/bin/tools/ws-server.jar
 Java Library path = /usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
 ********************************************************************************
-[10/11/24, 16:00:00:931 CEST] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0001I: The server defaultServer has been launched.
-[10/11/24, 16:00:01:451 CEST] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           I CWWKE0002I: The kernel started after 0.663 seconds
-[10/11/24, 16:00:01:465 CEST] 00000028 com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0007I: Feature update started.
-[10/11/24, 16:00:01:839 CEST] 0000001c com.ibm.ws.app.manager.internal.monitor.DropinMonitor        A CWWKZ0058I: Monitoring dropins for applications.
-[10/11/24, 16:00:02:039 CEST] 00000030 com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application company-1.0-SNAPSHOT.
-[10/11/24, 16:00:02:040 CEST] 00000030 bm.ws.app.manager.war.internal.WARDeployedAppInfoFactoryImpl I CWWKZ0134I: The company-1.0-SNAPSHOT application is using the loose application definition at the /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/dropins/company-1.0-SNAPSHOT.war.xml location.
-[10/11/24, 16:00:02:240 CEST] 00000030 com.ibm.ws.session.WASSessionCore                            I SESN8501I: The session manager did not find a persistent storage location; HttpSession objects will be stored in the local application server's memory.
-[10/11/24, 16:00:02:248 CEST] 00000030 com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: company-1.0-SNAPSHOT.
-[10/11/24, 16:00:02:251 CEST] 00000030 com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module company-1.0-SNAPSHOT has been bound to default_host.
-[10/11/24, 16:00:02:251 CEST] 00000030 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://localhost:9080/company/
-[10/11/24, 16:00:02:305 CEST] 00000032 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/company
-[10/11/24, 16:00:02:315 CEST] 00000032 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
-[10/11/24, 16:00:02:337 CEST] 00000032 SystemOut                                                    O null
-[10/11/24, 16:00:02:445 CEST] 00000029 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
-[10/11/24, 16:00:02:505 CEST] 00000032 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0001I: Application company-1.0-SNAPSHOT started in 0.465 seconds.
-[10/11/24, 16:00:02:526 CEST] 00000028 com.ibm.ws.tcpchannel.internal.TCPPort                       I CWWKO0219I: TCP Channel defaultHttpEndpoint has been started and is now listening for requests on host localhost  (IPv4: 127.0.0.1) port 9080.
-[10/11/24, 16:00:02:532 CEST] 00000028 com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0012I: The server installed the following features: [jsonb-3.0, jsonp-2.1, servlet-6.0].
-[10/11/24, 16:00:02:533 CEST] 00000028 com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0008I: Feature update completed in 1.083 seconds.
-[10/11/24, 16:00:02:533 CEST] 00000028 com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0011I: The defaultServer server is ready to run a smarter planet. The defaultServer server started in 1.746 seconds.
-[10/11/24, 16:00:05:209 CEST] 00000035 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://localhost:9080/company/
-[10/11/24, 16:00:05:216 CEST] 00000035 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0009I: The application company-1.0-SNAPSHOT has stopped successfully.
-[10/11/24, 16:00:05:219 CEST] 00000035 com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application company-1.0-SNAPSHOT.
-[10/11/24, 16:00:05:219 CEST] 00000035 bm.ws.app.manager.war.internal.WARDeployedAppInfoFactoryImpl I CWWKZ0134I: The company-1.0-SNAPSHOT application is using the loose application definition at the /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/dropins/company-1.0-SNAPSHOT.war.xml location.
-[10/11/24, 16:00:05:254 CEST] 0000003b com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
-[10/11/24, 16:00:05:284 CEST] 00000035 com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: company-1.0-SNAPSHOT.
-[10/11/24, 16:00:05:285 CEST] 00000035 com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module company-1.0-SNAPSHOT has been bound to default_host.
-[10/11/24, 16:00:05:285 CEST] 00000035 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://localhost:9080/company/
-[10/11/24, 16:00:05:291 CEST] 0000003c com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/company
-[10/11/24, 16:00:05:292 CEST] 0000003c com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
-[10/11/24, 16:00:05:297 CEST] 0000003c SystemOut                                                    O null
-[10/11/24, 16:00:05:302 CEST] 0000002b com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
-[10/11/24, 16:00:05:342 CEST] 0000003c com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0003I: The application company-1.0-SNAPSHOT updated in 0.123 seconds.
-[10/11/24, 16:00:22:237 CEST] 00000030 com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [company-1.0-SNAPSHOT] [/company] [company.controller.servlet.ApiServlet]: Initialization successful.
-[10/11/24, 16:00:22:261 CEST] 00000030 com.ibm.ws.webcontainer.util.ApplicationErrorUtils           E SRVE0777E: Exception thrown by application class 'java.util.Objects.requireNonNull:209'
-java.lang.NullPointerException
-	at java.base/java.util.Objects.requireNonNull(Objects.java:209)
-	at java.base/sun.nio.fs.UnixFileSystem.getPath(UnixFileSystem.java:263)
-	at java.base/java.nio.file.Path.of(Path.java:147)
-	at java.base/java.nio.file.Paths.get(Paths.java:69)
-	at company.user.repository.memory.SimpleFileRepository.save(SimpleFileRepository.java:39)
-	at company.user.service.UserService.lambda$updateImage$1(UserService.java:119)
-	at java.base/java.util.Optional.ifPresent(Optional.java:178)
-	at company.user.service.UserService.updateImage(UserService.java:117)
-	at company.user.controller.simple.UserSimpleController.lambda$putUserImage$2(UserSimpleController.java:88)
-	at java.base/java.util.Optional.ifPresentOrElse(Optional.java:196)
-	at company.user.controller.simple.UserSimpleController.putUserImage(UserSimpleController.java:87)
-	at company.controller.servlet.ApiServlet.doPut(ApiServlet.java:220)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:550)
-	at company.controller.servlet.ApiServlet.service(ApiServlet.java:131)
+[10/17/24, 19:16:50:631 CEST] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0001I: The server defaultServer has been launched.
+[10/17/24, 19:16:51:070 CEST] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           I CWWKE0002I: The kernel started after 0.572 seconds
+[10/17/24, 19:16:51:084 CEST] 00000028 com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0007I: Feature update started.
+[10/17/24, 19:16:51:542 CEST] 0000001c com.ibm.ws.app.manager.internal.monitor.DropinMonitor        A CWWKZ0058I: Monitoring dropins for applications.
+[10/17/24, 19:16:51:679 CEST] 0000001e org.jboss.weld.Version                                       I WELD-000900: 5.1.1 (SP2)
+[10/17/24, 19:16:51:804 CEST] 00000031 com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application company-1.0-SNAPSHOT.
+[10/17/24, 19:16:51:804 CEST] 00000031 bm.ws.app.manager.war.internal.WARDeployedAppInfoFactoryImpl I CWWKZ0134I: The company-1.0-SNAPSHOT application is using the loose application definition at the /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/dropins/company-1.0-SNAPSHOT.war.xml location.
+[10/17/24, 19:16:52:408 CEST] 00000031 com.ibm.ws.session.WASSessionCore                            I SESN8501I: The session manager did not find a persistent storage location; HttpSession objects will be stored in the local application server's memory.
+[10/17/24, 19:16:52:412 CEST] 00000031 com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: company-1.0-SNAPSHOT.
+[10/17/24, 19:16:52:414 CEST] 00000031 com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module company-1.0-SNAPSHOT has been bound to default_host.
+[10/17/24, 19:16:52:415 CEST] 00000031 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://localhost:9080/company/
+[10/17/24, 19:16:52:431 CEST] 0000002a com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/company
+[10/17/24, 19:16:52:437 CEST] 0000002a com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[10/17/24, 19:16:52:596 CEST] 0000002c com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
+[10/17/24, 19:16:52:745 CEST] 0000002a com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0001I: Application company-1.0-SNAPSHOT started in 0.941 seconds.
+[10/17/24, 19:16:52:760 CEST] 00000028 com.ibm.ws.tcpchannel.internal.TCPPort                       I CWWKO0219I: TCP Channel defaultHttpEndpoint has been started and is now listening for requests on host localhost  (IPv4: 127.0.0.1) port 9080.
+[10/17/24, 19:16:52:771 CEST] 00000028 com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0012I: The server installed the following features: [cdi-4.0, jndi-1.0, jsonb-3.0, jsonp-2.1, servlet-6.0].
+[10/17/24, 19:16:52:772 CEST] 00000028 com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0008I: Feature update completed in 1.703 seconds.
+[10/17/24, 19:16:52:772 CEST] 00000028 com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0011I: The defaultServer server is ready to run a smarter planet. The defaultServer server started in 2.274 seconds.
+[10/17/24, 19:16:55:398 CEST] 00000028 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://localhost:9080/company/
+[10/17/24, 19:16:55:410 CEST] 00000028 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0009I: The application company-1.0-SNAPSHOT has stopped successfully.
+[10/17/24, 19:16:55:413 CEST] 00000028 com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application company-1.0-SNAPSHOT.
+[10/17/24, 19:16:55:413 CEST] 00000028 bm.ws.app.manager.war.internal.WARDeployedAppInfoFactoryImpl I CWWKZ0134I: The company-1.0-SNAPSHOT application is using the loose application definition at the /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/dropins/company-1.0-SNAPSHOT.war.xml location.
+[10/17/24, 19:16:55:433 CEST] 0000003c com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
+[10/17/24, 19:16:55:529 CEST] 00000028 com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: company-1.0-SNAPSHOT.
+[10/17/24, 19:16:55:529 CEST] 00000028 com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module company-1.0-SNAPSHOT has been bound to default_host.
+[10/17/24, 19:16:55:529 CEST] 00000028 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://localhost:9080/company/
+[10/17/24, 19:16:55:530 CEST] 00000034 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/company
+[10/17/24, 19:16:55:530 CEST] 00000034 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[10/17/24, 19:16:55:542 CEST] 00000028 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
+[10/17/24, 19:16:55:602 CEST] 00000034 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0003I: The application company-1.0-SNAPSHOT updated in 0.189 seconds.
+[10/17/24, 19:17:07:494 CEST] 00000035 com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [company-1.0-SNAPSHOT] [/company] [company.controller.servlet.ApiServlet]: Initialization successful.
+[10/17/24, 19:17:41:447 CEST] 00000035 com.ibm.ws.webcontainer.util.ApplicationErrorUtils           E SRVE0777E: Exception thrown by application class 'java.util.Optional.orElseThrow:403'
+company.controller.servlet.exception.NotFoundException
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at company.device.controller.simple.DeviceSimpleController.getDevice(DeviceSimpleController.java:68)
+	at jdk.internal.reflect.GeneratedMethodAccessor437.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.jboss.weld.bean.proxy.AbstractBeanInstance.invoke(AbstractBeanInstance.java:38)
+	at org.jboss.weld.bean.proxy.ProxyMethodHandler.invoke(ProxyMethodHandler.java:106)
+	at company.device.controller.api.DeviceController$977532396$Proxy$_$$_WeldClientProxy.getDevice(Unknown Source)
+	at company.controller.servlet.ApiServlet.doGet(ApiServlet.java:157)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:527)
+	at company.controller.servlet.ApiServlet.service(ApiServlet.java:140)
 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:614)
 	at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1266)
 	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:754)
@@ -93,9 +88,32 @@ java.lang.NullPointerException
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:840)
 
-[10/11/24, 16:00:22:354 CEST] 00000030 com.ibm.ws.logging.internal.impl.IncidentImpl                I FFDC1015I: An FFDC Incident has been created: "java.lang.NullPointerException com.ibm.ws.webcontainer.filter.WebAppFilterManager.invokeFilters 1105" at ffdc_24.10.11_16.00.22.0.log
-[10/11/24, 16:00:22:357 CEST] 00000030 com.ibm.ws.webcontainer.webapp                               E SRVE0315E: An exception occurred: java.lang.Throwable: java.lang.NullPointerException
-	at com.ibm.ws.webcontainer.webapp.WebApp.handleRequest(WebApp.java:5154)
+[10/17/24, 19:17:51:869 CEST] 00000038 com.ibm.ws.webcontainer.util.ApplicationErrorUtils           E SRVE0777E: Exception thrown by application class 'java.util.Optional.orElseThrow:403'
+company.controller.servlet.exception.NotFoundException
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at company.device.controller.simple.DeviceSimpleController.getDeviceImage(DeviceSimpleController.java:103)
+	at jdk.internal.reflect.GeneratedMethodAccessor439.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.jboss.weld.bean.proxy.AbstractBeanInstance.invoke(AbstractBeanInstance.java:38)
+	at org.jboss.weld.bean.proxy.ProxyMethodHandler.invoke(ProxyMethodHandler.java:106)
+	at company.device.controller.api.DeviceController$977532396$Proxy$_$$_WeldClientProxy.getDeviceImage(Unknown Source)
+	at company.controller.servlet.ApiServlet.doGet(ApiServlet.java:176)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:527)
+	at company.controller.servlet.ApiServlet.service(ApiServlet.java:140)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:614)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1266)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:754)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:451)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.invokeTarget(WebAppFilterChain.java:197)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.doFilter(WebAppFilterChain.java:100)
+	at jakarta.servlet.http.HttpFilter.doFilter(HttpFilter.java:126)
+	at company.controller.filter.ExceptionFilter.doFilter(ExceptionFilter.java:25)
+	at jakarta.servlet.http.HttpFilter.doFilter(HttpFilter.java:97)
+	at com.ibm.ws.webcontainer.filter.FilterInstanceWrapper.doFilter(FilterInstanceWrapper.java:203)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.doFilter(WebAppFilterChain.java:93)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterManager.doFilter(WebAppFilterManager.java:1069)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterManager.invokeFilters(WebAppFilterManager.java:1260)
+	at com.ibm.ws.webcontainer.webapp.WebApp.handleRequest(WebApp.java:5096)
 	at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost$2.handleRequest(DynamicVirtualHost.java:328)
 	at com.ibm.ws.webcontainer.WebContainer.handleRequest(WebContainer.java:1047)
 	at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost$2.run(DynamicVirtualHost.java:293)
@@ -116,55 +134,18 @@ java.lang.NullPointerException
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: java.lang.NullPointerException
-	at java.base/java.util.Objects.requireNonNull(Objects.java:209)
-	at java.base/sun.nio.fs.UnixFileSystem.getPath(UnixFileSystem.java:263)
-	at java.base/java.nio.file.Path.of(Path.java:147)
-	at java.base/java.nio.file.Paths.get(Paths.java:69)
-	at company.user.repository.memory.SimpleFileRepository.save(SimpleFileRepository.java:39)
-	at company.user.service.UserService.lambda$updateImage$1(UserService.java:119)
-	at java.base/java.util.Optional.ifPresent(Optional.java:178)
-	at company.user.service.UserService.updateImage(UserService.java:117)
-	at company.user.controller.simple.UserSimpleController.lambda$putUserImage$2(UserSimpleController.java:88)
-	at java.base/java.util.Optional.ifPresentOrElse(Optional.java:196)
-	at company.user.controller.simple.UserSimpleController.putUserImage(UserSimpleController.java:87)
-	at company.controller.servlet.ApiServlet.doPut(ApiServlet.java:220)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:550)
-	at company.controller.servlet.ApiServlet.service(ApiServlet.java:131)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:614)
-	at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1266)
-	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:754)
-	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:451)
-	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.invokeTarget(WebAppFilterChain.java:197)
-	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.doFilter(WebAppFilterChain.java:100)
-	at jakarta.servlet.http.HttpFilter.doFilter(HttpFilter.java:126)
-	at company.controller.filter.ExceptionFilter.doFilter(ExceptionFilter.java:25)
-	at jakarta.servlet.http.HttpFilter.doFilter(HttpFilter.java:97)
-	at com.ibm.ws.webcontainer.filter.FilterInstanceWrapper.doFilter(FilterInstanceWrapper.java:203)
-	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.doFilter(WebAppFilterChain.java:93)
-	at com.ibm.ws.webcontainer.filter.WebAppFilterManager.doFilter(WebAppFilterManager.java:1069)
-	at com.ibm.ws.webcontainer.filter.WebAppFilterManager.invokeFilters(WebAppFilterManager.java:1260)
-	at com.ibm.ws.webcontainer.webapp.WebApp.handleRequest(WebApp.java:5096)
-	... 20 more
 
-[10/11/24, 16:01:31:672 CEST] 00000039 com.ibm.ws.config.xml.internal.ConfigRefresher               A CWWKG0016I: Starting server configuration update.
-[10/11/24, 16:01:31:678 CEST] 00000038 com.ibm.ws.config.xml.internal.ConfigRefresher               A CWWKG0017I: The server configuration was successfully updated in 0.006 seconds.
-[10/11/24, 16:01:38:989 CEST] 00000036 com.ibm.ws.webcontainer.util.ApplicationErrorUtils           E SRVE0777E: Exception thrown by application class 'java.util.Objects.requireNonNull:209'
-java.lang.NullPointerException
-	at java.base/java.util.Objects.requireNonNull(Objects.java:209)
-	at java.base/sun.nio.fs.UnixFileSystem.getPath(UnixFileSystem.java:263)
-	at java.base/java.nio.file.Path.of(Path.java:147)
-	at java.base/java.nio.file.Paths.get(Paths.java:69)
-	at company.user.repository.memory.SimpleFileRepository.save(SimpleFileRepository.java:39)
-	at company.user.service.UserService.lambda$updateImage$1(UserService.java:119)
-	at java.base/java.util.Optional.ifPresent(Optional.java:178)
-	at company.user.service.UserService.updateImage(UserService.java:117)
-	at company.user.controller.simple.UserSimpleController.lambda$putUserImage$2(UserSimpleController.java:88)
-	at java.base/java.util.Optional.ifPresentOrElse(Optional.java:196)
-	at company.user.controller.simple.UserSimpleController.putUserImage(UserSimpleController.java:87)
-	at company.controller.servlet.ApiServlet.doPut(ApiServlet.java:220)
+[10/17/24, 19:18:10:589 CEST] 0000003c com.ibm.ws.webcontainer.util.ApplicationErrorUtils           E SRVE0777E: Exception thrown by application class 'company.device.controller.simple.DeviceSimpleController.putDevice:76'
+company.controller.servlet.exception.BadRequestException: java.lang.IllegalArgumentException: The devices id "3c6f1eb1-8069-44ab-988f-d7fed2b65d87" is not unique
+	at company.device.controller.simple.DeviceSimpleController.putDevice(DeviceSimpleController.java:76)
+	at jdk.internal.reflect.GeneratedMethodAccessor441.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.jboss.weld.bean.proxy.AbstractBeanInstance.invoke(AbstractBeanInstance.java:38)
+	at org.jboss.weld.bean.proxy.ProxyMethodHandler.invoke(ProxyMethodHandler.java:106)
+	at company.device.controller.api.DeviceController$977532396$Proxy$_$$_WeldClientProxy.putDevice(Unknown Source)
+	at company.controller.servlet.ApiServlet.doPut(ApiServlet.java:207)
 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:550)
-	at company.controller.servlet.ApiServlet.service(ApiServlet.java:131)
+	at company.controller.servlet.ApiServlet.service(ApiServlet.java:140)
 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:614)
 	at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1266)
 	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:754)
@@ -200,202 +181,32 @@ java.lang.NullPointerException
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.IllegalArgumentException: The devices id "3c6f1eb1-8069-44ab-988f-d7fed2b65d87" is not unique
+	at company.datastore.component.DataStore.createDevice(DataStore.java:102)
+	at company.datastore.component.DataStore$Proxy$_$$_WeldClientProxy.createDevice(Unknown Source)
+	at company.device.repository.memory.DeviceInMemoryRepository.create(DeviceInMemoryRepository.java:49)
+	at company.device.repository.memory.DeviceInMemoryRepository.create(DeviceInMemoryRepository.java:19)
+	at jdk.internal.reflect.GeneratedMethodAccessor428.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.jboss.weld.bean.proxy.AbstractBeanInstance.invoke(AbstractBeanInstance.java:38)
+	at org.jboss.weld.bean.proxy.ProxyMethodHandler.invoke(ProxyMethodHandler.java:106)
+	at company.device.repository.api.DeviceRepository$Repository$1110212789$Proxy$_$$_WeldClientProxy.create(Unknown Source)
+	at company.device.service.DeviceService.create(DeviceService.java:92)
+	at company.device.service.DeviceService$Proxy$_$$_WeldClientProxy.create(Unknown Source)
+	at company.device.controller.simple.DeviceSimpleController.putDevice(DeviceSimpleController.java:74)
+	... 43 more
 
-[10/11/24, 16:02:09:398 CEST] 0000002b com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://localhost:9080/company/
-[10/11/24, 16:02:09:399 CEST] 0000002b com.ibm.ws.webcontainer.servlet                              I SRVE0253I: [company-1.0-SNAPSHOT] [/company] [company.controller.servlet.ApiServlet]: Destroy successful.
-[10/11/24, 16:02:09:401 CEST] 0000002b com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0009I: The application company-1.0-SNAPSHOT has stopped successfully.
-[10/11/24, 16:02:09:403 CEST] 0000002b com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application company-1.0-SNAPSHOT.
-[10/11/24, 16:02:09:403 CEST] 0000002b bm.ws.app.manager.war.internal.WARDeployedAppInfoFactoryImpl I CWWKZ0134I: The company-1.0-SNAPSHOT application is using the loose application definition at the /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/dropins/company-1.0-SNAPSHOT.war.xml location.
-[10/11/24, 16:02:09:412 CEST] 0000003c com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
-[10/11/24, 16:02:09:428 CEST] 0000002b com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: company-1.0-SNAPSHOT.
-[10/11/24, 16:02:09:428 CEST] 0000002b com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module company-1.0-SNAPSHOT has been bound to default_host.
-[10/11/24, 16:02:09:428 CEST] 0000002b com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://localhost:9080/company/
-[10/11/24, 16:02:09:435 CEST] 00000033 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/company
-[10/11/24, 16:02:09:435 CEST] 00000033 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
-[10/11/24, 16:02:09:445 CEST] 0000002c com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
-[10/11/24, 16:02:09:577 CEST] 00000033 com.ibm.ws.logging.internal.impl.IncidentImpl                I FFDC1015I: An FFDC Incident has been created: "java.lang.NoSuchMethodError: company.user.repository.memory.SimpleFileRepository: method 'void <init>()' not found com.ibm.ws.webcontainer.webapp.WebApp.notifyServletContextCreated 1341" at ffdc_24.10.11_16.02.09.0.log
-[10/11/24, 16:02:09:577 CEST] 00000033 com.ibm.ws.webcontainer.webapp                               E SRVE0283E: Exception caught while initializing context: java.lang.NoSuchMethodError: company.user.repository.memory.SimpleFileRepository: method 'void <init>()' not found
-	at company.configuration.listener.CreateServices.contextInitialized(CreateServices.java:35)
-	at com.ibm.ws.webcontainer.webapp.WebApp.notifyServletContextCreated(WebApp.java:2464)
-	at com.ibm.ws.webcontainer31.osgi.webapp.WebApp31.notifyServletContextCreated(WebApp31.java:512)
-	at com.ibm.ws.webcontainer.webapp.WebApp.initialize(WebApp.java:1062)
-	at com.ibm.ws.webcontainer.webapp.WebApp.initialize(WebApp.java:6722)
-	at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost.startWebApp(DynamicVirtualHost.java:484)
-	at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost.startWebApplication(DynamicVirtualHost.java:479)
-	at com.ibm.ws.webcontainer.osgi.WebContainer.startWebApplication(WebContainer.java:1208)
-	at com.ibm.ws.webcontainer.osgi.WebContainer.access$100(WebContainer.java:113)
-	at com.ibm.ws.webcontainer.osgi.WebContainer$3.run(WebContainer.java:996)
-	at com.ibm.ws.threading.internal.ExecutorServiceImpl$RunnableWrapper.run(ExecutorServiceImpl.java:298)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-
-[10/11/24, 16:02:09:578 CEST] 00000033 com.ibm.ws.webcontainer.webapp                               E SRVE0265E: Error occured while notifying listeners of web application start: java.lang.NoSuchMethodError: company.user.repository.memory.SimpleFileRepository: method 'void <init>()' not found
-	at company.configuration.listener.CreateServices.contextInitialized(CreateServices.java:35)
-	at com.ibm.ws.webcontainer.webapp.WebApp.notifyServletContextCreated(WebApp.java:2464)
-	at com.ibm.ws.webcontainer31.osgi.webapp.WebApp31.notifyServletContextCreated(WebApp31.java:512)
-	at com.ibm.ws.webcontainer.webapp.WebApp.initialize(WebApp.java:1062)
-	at com.ibm.ws.webcontainer.webapp.WebApp.initialize(WebApp.java:6722)
-	at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost.startWebApp(DynamicVirtualHost.java:484)
-	at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost.startWebApplication(DynamicVirtualHost.java:479)
-	at com.ibm.ws.webcontainer.osgi.WebContainer.startWebApplication(WebContainer.java:1208)
-	at com.ibm.ws.webcontainer.osgi.WebContainer.access$100(WebContainer.java:113)
-	at com.ibm.ws.webcontainer.osgi.WebContainer$3.run(WebContainer.java:996)
-	at com.ibm.ws.threading.internal.ExecutorServiceImpl$RunnableWrapper.run(ExecutorServiceImpl.java:298)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-
-[10/11/24, 16:02:09:578 CEST] 00000033 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0020I: Application company-1.0-SNAPSHOT not updated.
-[10/11/24, 16:02:09:582 CEST] 00000033 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://localhost:9080/company/
-[10/11/24, 16:02:09:598 CEST] 00000038 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
-[10/11/24, 16:02:09:662 CEST] 00000033 com.ibm.ws.logging.internal.impl.IncidentImpl                I FFDC1015I: An FFDC Incident has been created: "java.lang.NoSuchMethodError: company.user.repository.memory.SimpleFileRepository: method 'void <init>()' not found com.ibm.ws.webcontainer.osgi.DynamicVirtualHost startWebApp" at ffdc_24.10.11_16.02.09.1.log
-[10/11/24, 16:02:11:832 CEST] 0000003b com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application company-1.0-SNAPSHOT.
-[10/11/24, 16:02:11:833 CEST] 0000003b bm.ws.app.manager.war.internal.WARDeployedAppInfoFactoryImpl I CWWKZ0134I: The company-1.0-SNAPSHOT application is using the loose application definition at the /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/dropins/company-1.0-SNAPSHOT.war.xml location.
-[10/11/24, 16:02:11:873 CEST] 0000003b com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: company-1.0-SNAPSHOT.
-[10/11/24, 16:02:11:873 CEST] 0000003b com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module company-1.0-SNAPSHOT has been bound to default_host.
-[10/11/24, 16:02:11:873 CEST] 0000003b com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://localhost:9080/company/
-[10/11/24, 16:02:11:881 CEST] 00000033 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/company
-[10/11/24, 16:02:11:881 CEST] 00000033 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
-[10/11/24, 16:02:11:891 CEST] 00000037 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
-[10/11/24, 16:02:11:910 CEST] 00000033 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0003I: The application company-1.0-SNAPSHOT updated in 0.077 seconds.
-[10/11/24, 16:02:31:885 CEST] 00000029 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://localhost:9080/company/
-[10/11/24, 16:02:31:889 CEST] 00000029 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0009I: The application company-1.0-SNAPSHOT has stopped successfully.
-[10/11/24, 16:02:31:891 CEST] 00000029 com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application company-1.0-SNAPSHOT.
-[10/11/24, 16:02:31:892 CEST] 00000029 bm.ws.app.manager.war.internal.WARDeployedAppInfoFactoryImpl I CWWKZ0134I: The company-1.0-SNAPSHOT application is using the loose application definition at the /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/dropins/company-1.0-SNAPSHOT.war.xml location.
-[10/11/24, 16:02:31:908 CEST] 00000038 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
-[10/11/24, 16:02:31:918 CEST] 00000029 com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: company-1.0-SNAPSHOT.
-[10/11/24, 16:02:31:918 CEST] 00000029 com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module company-1.0-SNAPSHOT has been bound to default_host.
-[10/11/24, 16:02:31:918 CEST] 00000029 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://localhost:9080/company/
-[10/11/24, 16:02:31:925 CEST] 0000003b com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/company
-[10/11/24, 16:02:31:925 CEST] 0000003b com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
-[10/11/24, 16:02:31:931 CEST] 00000030 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
-[10/11/24, 16:02:31:957 CEST] 0000003b com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0003I: The application company-1.0-SNAPSHOT updated in 0.066 seconds.
-[10/11/24, 16:02:40:145 CEST] 00000033 com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [company-1.0-SNAPSHOT] [/company] [company.controller.servlet.ApiServlet]: Initialization successful.
-[10/11/24, 16:02:40:151 CEST] 00000033 com.ibm.ws.webcontainer.util.ApplicationErrorUtils           E SRVE0777E: Exception thrown by application class 'java.util.Objects.requireNonNull:209'
-java.lang.NullPointerException
-	at java.base/java.util.Objects.requireNonNull(Objects.java:209)
-	at java.base/sun.nio.fs.UnixFileSystem.getPath(UnixFileSystem.java:263)
-	at java.base/java.nio.file.Path.of(Path.java:147)
-	at java.base/java.nio.file.Paths.get(Paths.java:69)
-	at company.user.repository.memory.SimpleFileRepository.save(SimpleFileRepository.java:40)
-	at company.user.service.UserService.lambda$updateImage$1(UserService.java:119)
-	at java.base/java.util.Optional.ifPresent(Optional.java:178)
-	at company.user.service.UserService.updateImage(UserService.java:117)
-	at company.user.controller.simple.UserSimpleController.lambda$putUserImage$2(UserSimpleController.java:88)
-	at java.base/java.util.Optional.ifPresentOrElse(Optional.java:196)
-	at company.user.controller.simple.UserSimpleController.putUserImage(UserSimpleController.java:87)
-	at company.controller.servlet.ApiServlet.doPut(ApiServlet.java:220)
+[10/17/24, 19:19:31:190 CEST] 0000002c com.ibm.ws.webcontainer.util.ApplicationErrorUtils           E SRVE0777E: Exception thrown by application class 'company.device.controller.simple.DeviceSimpleController.putDevice:76'
+company.controller.servlet.exception.BadRequestException: java.lang.IllegalArgumentException: The devices id "3c6f1eb1-8069-44ab-988f-d7fed2b65d87" is not unique
+	at company.device.controller.simple.DeviceSimpleController.putDevice(DeviceSimpleController.java:76)
+	at jdk.internal.reflect.GeneratedMethodAccessor441.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.jboss.weld.bean.proxy.AbstractBeanInstance.invoke(AbstractBeanInstance.java:38)
+	at org.jboss.weld.bean.proxy.ProxyMethodHandler.invoke(ProxyMethodHandler.java:106)
+	at company.device.controller.api.DeviceController$977532396$Proxy$_$$_WeldClientProxy.putDevice(Unknown Source)
+	at company.controller.servlet.ApiServlet.doPut(ApiServlet.java:207)
 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:550)
-	at company.controller.servlet.ApiServlet.service(ApiServlet.java:131)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:614)
-	at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1266)
-	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:754)
-	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:451)
-	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.invokeTarget(WebAppFilterChain.java:197)
-	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.doFilter(WebAppFilterChain.java:100)
-	at jakarta.servlet.http.HttpFilter.doFilter(HttpFilter.java:126)
-	at company.controller.filter.ExceptionFilter.doFilter(ExceptionFilter.java:25)
-	at jakarta.servlet.http.HttpFilter.doFilter(HttpFilter.java:97)
-	at com.ibm.ws.webcontainer.filter.FilterInstanceWrapper.doFilter(FilterInstanceWrapper.java:203)
-	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.doFilter(WebAppFilterChain.java:93)
-	at com.ibm.ws.webcontainer.filter.WebAppFilterManager.doFilter(WebAppFilterManager.java:1069)
-	at com.ibm.ws.webcontainer.filter.WebAppFilterManager.invokeFilters(WebAppFilterManager.java:1260)
-	at com.ibm.ws.webcontainer.webapp.WebApp.handleRequest(WebApp.java:5096)
-	at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost$2.handleRequest(DynamicVirtualHost.java:328)
-	at com.ibm.ws.webcontainer.WebContainer.handleRequest(WebContainer.java:1047)
-	at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost$2.run(DynamicVirtualHost.java:293)
-	at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink$TaskWrapper.run(HttpDispatcherLink.java:1260)
-	at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink.wrapHandlerAndExecute(HttpDispatcherLink.java:476)
-	at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink.ready(HttpDispatcherLink.java:435)
-	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.handleDiscrimination(HttpInboundLink.java:569)
-	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.handleNewRequest(HttpInboundLink.java:503)
-	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.processRequest(HttpInboundLink.java:363)
-	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.ready(HttpInboundLink.java:330)
-	at com.ibm.ws.tcpchannel.internal.NewConnectionInitialReadCallback.sendToDiscriminators(NewConnectionInitialReadCallback.java:169)
-	at com.ibm.ws.tcpchannel.internal.NewConnectionInitialReadCallback.complete(NewConnectionInitialReadCallback.java:77)
-	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.requestComplete(WorkQueueManager.java:516)
-	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.attemptIO(WorkQueueManager.java:586)
-	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.workerRun(WorkQueueManager.java:970)
-	at com.ibm.ws.tcpchannel.internal.WorkQueueManager$Worker.run(WorkQueueManager.java:1059)
-	at com.ibm.ws.threading.internal.ExecutorServiceImpl$RunnableWrapper.run(ExecutorServiceImpl.java:298)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-
-[10/11/24, 16:02:40:153 CEST] 00000033 com.ibm.ws.webcontainer.webapp                               E SRVE0315E: An exception occurred: java.lang.Throwable: java.lang.NullPointerException
-	at com.ibm.ws.webcontainer.webapp.WebApp.handleRequest(WebApp.java:5154)
-	at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost$2.handleRequest(DynamicVirtualHost.java:328)
-	at com.ibm.ws.webcontainer.WebContainer.handleRequest(WebContainer.java:1047)
-	at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost$2.run(DynamicVirtualHost.java:293)
-	at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink$TaskWrapper.run(HttpDispatcherLink.java:1260)
-	at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink.wrapHandlerAndExecute(HttpDispatcherLink.java:476)
-	at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink.ready(HttpDispatcherLink.java:435)
-	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.handleDiscrimination(HttpInboundLink.java:569)
-	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.handleNewRequest(HttpInboundLink.java:503)
-	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.processRequest(HttpInboundLink.java:363)
-	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.ready(HttpInboundLink.java:330)
-	at com.ibm.ws.tcpchannel.internal.NewConnectionInitialReadCallback.sendToDiscriminators(NewConnectionInitialReadCallback.java:169)
-	at com.ibm.ws.tcpchannel.internal.NewConnectionInitialReadCallback.complete(NewConnectionInitialReadCallback.java:77)
-	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.requestComplete(WorkQueueManager.java:516)
-	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.attemptIO(WorkQueueManager.java:586)
-	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.workerRun(WorkQueueManager.java:970)
-	at com.ibm.ws.tcpchannel.internal.WorkQueueManager$Worker.run(WorkQueueManager.java:1059)
-	at com.ibm.ws.threading.internal.ExecutorServiceImpl$RunnableWrapper.run(ExecutorServiceImpl.java:298)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: java.lang.NullPointerException
-	at java.base/java.util.Objects.requireNonNull(Objects.java:209)
-	at java.base/sun.nio.fs.UnixFileSystem.getPath(UnixFileSystem.java:263)
-	at java.base/java.nio.file.Path.of(Path.java:147)
-	at java.base/java.nio.file.Paths.get(Paths.java:69)
-	at company.user.repository.memory.SimpleFileRepository.save(SimpleFileRepository.java:40)
-	at company.user.service.UserService.lambda$updateImage$1(UserService.java:119)
-	at java.base/java.util.Optional.ifPresent(Optional.java:178)
-	at company.user.service.UserService.updateImage(UserService.java:117)
-	at company.user.controller.simple.UserSimpleController.lambda$putUserImage$2(UserSimpleController.java:88)
-	at java.base/java.util.Optional.ifPresentOrElse(Optional.java:196)
-	at company.user.controller.simple.UserSimpleController.putUserImage(UserSimpleController.java:87)
-	at company.controller.servlet.ApiServlet.doPut(ApiServlet.java:220)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:550)
-	at company.controller.servlet.ApiServlet.service(ApiServlet.java:131)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:614)
-	at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1266)
-	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:754)
-	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:451)
-	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.invokeTarget(WebAppFilterChain.java:197)
-	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.doFilter(WebAppFilterChain.java:100)
-	at jakarta.servlet.http.HttpFilter.doFilter(HttpFilter.java:126)
-	at company.controller.filter.ExceptionFilter.doFilter(ExceptionFilter.java:25)
-	at jakarta.servlet.http.HttpFilter.doFilter(HttpFilter.java:97)
-	at com.ibm.ws.webcontainer.filter.FilterInstanceWrapper.doFilter(FilterInstanceWrapper.java:203)
-	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.doFilter(WebAppFilterChain.java:93)
-	at com.ibm.ws.webcontainer.filter.WebAppFilterManager.doFilter(WebAppFilterManager.java:1069)
-	at com.ibm.ws.webcontainer.filter.WebAppFilterManager.invokeFilters(WebAppFilterManager.java:1260)
-	at com.ibm.ws.webcontainer.webapp.WebApp.handleRequest(WebApp.java:5096)
-	... 20 more
-
-[10/11/24, 16:02:56:158 CEST] 0000003a com.ibm.ws.webcontainer.util.ApplicationErrorUtils           E SRVE0777E: Exception thrown by application class 'java.util.Objects.requireNonNull:209'
-java.lang.NullPointerException
-	at java.base/java.util.Objects.requireNonNull(Objects.java:209)
-	at java.base/sun.nio.fs.UnixFileSystem.getPath(UnixFileSystem.java:263)
-	at java.base/java.nio.file.Path.of(Path.java:147)
-	at java.base/java.nio.file.Paths.get(Paths.java:69)
-	at company.user.repository.memory.SimpleFileRepository.save(SimpleFileRepository.java:40)
-	at company.user.service.UserService.lambda$updateImage$1(UserService.java:119)
-	at java.base/java.util.Optional.ifPresent(Optional.java:178)
-	at company.user.service.UserService.updateImage(UserService.java:117)
-	at company.user.controller.simple.UserSimpleController.lambda$putUserImage$2(UserSimpleController.java:88)
-	at java.base/java.util.Optional.ifPresentOrElse(Optional.java:196)
-	at company.user.controller.simple.UserSimpleController.putUserImage(UserSimpleController.java:87)
-	at company.controller.servlet.ApiServlet.doPut(ApiServlet.java:220)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:550)
-	at company.controller.servlet.ApiServlet.service(ApiServlet.java:131)
+	at company.controller.servlet.ApiServlet.service(ApiServlet.java:140)
 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:614)
 	at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1266)
 	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:754)
@@ -431,19 +242,120 @@ java.lang.NullPointerException
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.IllegalArgumentException: The devices id "3c6f1eb1-8069-44ab-988f-d7fed2b65d87" is not unique
+	at company.datastore.component.DataStore.createDevice(DataStore.java:102)
+	at company.datastore.component.DataStore$Proxy$_$$_WeldClientProxy.createDevice(Unknown Source)
+	at company.device.repository.memory.DeviceInMemoryRepository.create(DeviceInMemoryRepository.java:49)
+	at company.device.repository.memory.DeviceInMemoryRepository.create(DeviceInMemoryRepository.java:19)
+	at jdk.internal.reflect.GeneratedMethodAccessor428.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.jboss.weld.bean.proxy.AbstractBeanInstance.invoke(AbstractBeanInstance.java:38)
+	at org.jboss.weld.bean.proxy.ProxyMethodHandler.invoke(ProxyMethodHandler.java:106)
+	at company.device.repository.api.DeviceRepository$Repository$1110212789$Proxy$_$$_WeldClientProxy.create(Unknown Source)
+	at company.device.service.DeviceService.create(DeviceService.java:92)
+	at company.device.service.DeviceService$Proxy$_$$_WeldClientProxy.create(Unknown Source)
+	at company.device.controller.simple.DeviceSimpleController.putDevice(DeviceSimpleController.java:74)
+	... 43 more
 
-[10/11/24, 16:03:18:615 CEST] 0000002b com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://localhost:9080/company/
-[10/11/24, 16:03:18:616 CEST] 0000002b com.ibm.ws.webcontainer.servlet                              I SRVE0253I: [company-1.0-SNAPSHOT] [/company] [company.controller.servlet.ApiServlet]: Destroy successful.
-[10/11/24, 16:03:18:618 CEST] 0000002b com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0009I: The application company-1.0-SNAPSHOT has stopped successfully.
-[10/11/24, 16:03:18:621 CEST] 0000002b com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application company-1.0-SNAPSHOT.
-[10/11/24, 16:03:18:622 CEST] 0000002b bm.ws.app.manager.war.internal.WARDeployedAppInfoFactoryImpl I CWWKZ0134I: The company-1.0-SNAPSHOT application is using the loose application definition at the /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/dropins/company-1.0-SNAPSHOT.war.xml location.
-[10/11/24, 16:03:18:634 CEST] 0000002c com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
-[10/11/24, 16:03:18:652 CEST] 0000002b com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: company-1.0-SNAPSHOT.
-[10/11/24, 16:03:18:652 CEST] 0000002b com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module company-1.0-SNAPSHOT has been bound to default_host.
-[10/11/24, 16:03:18:652 CEST] 0000002b com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://localhost:9080/company/
-[10/11/24, 16:03:18:660 CEST] 00000039 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/company
-[10/11/24, 16:03:18:660 CEST] 00000039 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
-[10/11/24, 16:03:18:663 CEST] 0000003b com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
-[10/11/24, 16:03:18:685 CEST] 00000039 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0003I: The application company-1.0-SNAPSHOT updated in 0.063 seconds.
-[10/11/24, 16:03:22:486 CEST] 00000032 com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [company-1.0-SNAPSHOT] [/company] [company.controller.servlet.ApiServlet]: Initialization successful.
-[10/11/24, 16:03:22:491 CEST] 00000032 SystemOut                                                    O File saved: /home/wiktor/company-jakartaee-servlet/company/target/liberty/wlp/usr/servers/defaultServer/c4804e0f-769e-4ab9-9ebe-0578fb4f00a6/image.png
+[10/17/24, 19:20:03:347 CEST] 00000028 com.ibm.ws.webcontainer.util.ApplicationErrorUtils           E SRVE0777E: Exception thrown by application class 'java.util.Optional.orElseThrow:403'
+company.controller.servlet.exception.NotFoundException
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at company.device.controller.simple.DeviceSimpleController.getBrandDevices(DeviceSimpleController.java:54)
+	at jdk.internal.reflect.GeneratedMethodAccessor445.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.jboss.weld.bean.proxy.AbstractBeanInstance.invoke(AbstractBeanInstance.java:38)
+	at org.jboss.weld.bean.proxy.ProxyMethodHandler.invoke(ProxyMethodHandler.java:106)
+	at company.device.controller.api.DeviceController$977532396$Proxy$_$$_WeldClientProxy.getBrandDevices(Unknown Source)
+	at company.controller.servlet.ApiServlet.doGet(ApiServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:527)
+	at company.controller.servlet.ApiServlet.service(ApiServlet.java:140)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:614)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1266)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:754)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:451)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.invokeTarget(WebAppFilterChain.java:197)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.doFilter(WebAppFilterChain.java:100)
+	at jakarta.servlet.http.HttpFilter.doFilter(HttpFilter.java:126)
+	at company.controller.filter.ExceptionFilter.doFilter(ExceptionFilter.java:25)
+	at jakarta.servlet.http.HttpFilter.doFilter(HttpFilter.java:97)
+	at com.ibm.ws.webcontainer.filter.FilterInstanceWrapper.doFilter(FilterInstanceWrapper.java:203)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.doFilter(WebAppFilterChain.java:93)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterManager.doFilter(WebAppFilterManager.java:1069)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterManager.invokeFilters(WebAppFilterManager.java:1260)
+	at com.ibm.ws.webcontainer.webapp.WebApp.handleRequest(WebApp.java:5096)
+	at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost$2.handleRequest(DynamicVirtualHost.java:328)
+	at com.ibm.ws.webcontainer.WebContainer.handleRequest(WebContainer.java:1047)
+	at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost$2.run(DynamicVirtualHost.java:293)
+	at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink$TaskWrapper.run(HttpDispatcherLink.java:1260)
+	at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink.wrapHandlerAndExecute(HttpDispatcherLink.java:476)
+	at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink.ready(HttpDispatcherLink.java:435)
+	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.handleDiscrimination(HttpInboundLink.java:569)
+	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.handleNewRequest(HttpInboundLink.java:503)
+	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.processRequest(HttpInboundLink.java:363)
+	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.ready(HttpInboundLink.java:330)
+	at com.ibm.ws.tcpchannel.internal.NewConnectionInitialReadCallback.sendToDiscriminators(NewConnectionInitialReadCallback.java:169)
+	at com.ibm.ws.tcpchannel.internal.NewConnectionInitialReadCallback.complete(NewConnectionInitialReadCallback.java:77)
+	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.requestComplete(WorkQueueManager.java:516)
+	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.attemptIO(WorkQueueManager.java:586)
+	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.workerRun(WorkQueueManager.java:970)
+	at com.ibm.ws.tcpchannel.internal.WorkQueueManager$Worker.run(WorkQueueManager.java:1059)
+	at com.ibm.ws.threading.internal.ExecutorServiceImpl$RunnableWrapper.run(ExecutorServiceImpl.java:298)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[10/17/24, 19:20:12:687 CEST] 0000003c com.ibm.ws.webcontainer.util.ApplicationErrorUtils           E SRVE0777E: Exception thrown by application class 'java.util.Optional.orElseThrow:403'
+company.controller.servlet.exception.NotFoundException
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at company.device.controller.simple.DeviceSimpleController.getBrandDevices(DeviceSimpleController.java:54)
+	at jdk.internal.reflect.GeneratedMethodAccessor445.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.jboss.weld.bean.proxy.AbstractBeanInstance.invoke(AbstractBeanInstance.java:38)
+	at org.jboss.weld.bean.proxy.ProxyMethodHandler.invoke(ProxyMethodHandler.java:106)
+	at company.device.controller.api.DeviceController$977532396$Proxy$_$$_WeldClientProxy.getBrandDevices(Unknown Source)
+	at company.controller.servlet.ApiServlet.doGet(ApiServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:527)
+	at company.controller.servlet.ApiServlet.service(ApiServlet.java:140)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:614)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1266)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:754)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:451)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.invokeTarget(WebAppFilterChain.java:197)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.doFilter(WebAppFilterChain.java:100)
+	at jakarta.servlet.http.HttpFilter.doFilter(HttpFilter.java:126)
+	at company.controller.filter.ExceptionFilter.doFilter(ExceptionFilter.java:25)
+	at jakarta.servlet.http.HttpFilter.doFilter(HttpFilter.java:97)
+	at com.ibm.ws.webcontainer.filter.FilterInstanceWrapper.doFilter(FilterInstanceWrapper.java:203)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.doFilter(WebAppFilterChain.java:93)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterManager.doFilter(WebAppFilterManager.java:1069)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterManager.invokeFilters(WebAppFilterManager.java:1260)
+	at com.ibm.ws.webcontainer.webapp.WebApp.handleRequest(WebApp.java:5096)
+	at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost$2.handleRequest(DynamicVirtualHost.java:328)
+	at com.ibm.ws.webcontainer.WebContainer.handleRequest(WebContainer.java:1047)
+	at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost$2.run(DynamicVirtualHost.java:293)
+	at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink$TaskWrapper.run(HttpDispatcherLink.java:1260)
+	at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink.wrapHandlerAndExecute(HttpDispatcherLink.java:476)
+	at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink.ready(HttpDispatcherLink.java:435)
+	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.handleDiscrimination(HttpInboundLink.java:569)
+	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.handleNewRequest(HttpInboundLink.java:503)
+	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.processRequest(HttpInboundLink.java:363)
+	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.ready(HttpInboundLink.java:330)
+	at com.ibm.ws.tcpchannel.internal.NewConnectionInitialReadCallback.sendToDiscriminators(NewConnectionInitialReadCallback.java:169)
+	at com.ibm.ws.tcpchannel.internal.NewConnectionInitialReadCallback.complete(NewConnectionInitialReadCallback.java:77)
+	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.requestComplete(WorkQueueManager.java:516)
+	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.attemptIO(WorkQueueManager.java:586)
+	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.workerRun(WorkQueueManager.java:970)
+	at com.ibm.ws.tcpchannel.internal.WorkQueueManager$Worker.run(WorkQueueManager.java:1059)
+	at com.ibm.ws.threading.internal.ExecutorServiceImpl$RunnableWrapper.run(ExecutorServiceImpl.java:298)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[10/17/24, 19:20:54:608 CEST] 00000017 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0085I: The server defaultServer is stopping because the JVM is exiting.
+[10/17/24, 19:20:54:611 CEST] 0000003f com.ibm.ws.runtime.update.internal.RuntimeUpdateManagerImpl  A CWWKE1100I: Waiting for up to 30 seconds for the server to quiesce.
+[10/17/24, 19:20:54:616 CEST] 0000003b com.ibm.ws.tcpchannel.internal.TCPChannel                    I CWWKO0220I: TCP Channel defaultHttpEndpoint has stopped listening for requests on host localhost  (IPv4: 127.0.0.1) port 9080.
+[10/17/24, 19:20:54:617 CEST] 0000003b com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://localhost:9080/company/
+[10/17/24, 19:20:54:619 CEST] 0000003f com.ibm.ws.runtime.update.internal.RuntimeUpdateManagerImpl  I CWWKE1101I: Server quiesce complete.
+[10/17/24, 19:20:54:630 CEST] 00000036 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0009I: The application company-1.0-SNAPSHOT has stopped successfully.
+[10/17/24, 19:20:54:705 CEST] 00000018 com.ibm.ws.kernel.launch.internal.ServerCommandListener      A CWWKE0055I: Server shutdown requested on Thursday, October 17, 2024 at 7:20 PM. The server defaultServer is shutting down.
+[10/17/24, 19:20:54:834 CEST] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0036I: The server defaultServer stopped after 4 minutes, 4.336 seconds.

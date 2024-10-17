@@ -1,0 +1,19 @@
+#Thu Oct 17 19:16:49 CEST 2024
+dev/api/ibm/schema/ibm-managed-bean-bnd_1_0.xsd=000e5fb4e1f752ab98e76f3e43920b63
+lib/com.ibm.ws.managedobject_1.0.94.jar=64461a484013add8c27c818e3ca2033f
+lib/com.ibm.ws.cdi.interfaces.jakarta_1.0.94.jar=e1f023673411e7f2f9856e7635a34521
+lib/io.openliberty.org.jboss.classfilewriter.1.3_1.3.94.jar=ba3743caf46e4841232a33e4496974c9
+lib/features/io.openliberty.cdi-4.0.mf=6325641e67dac20032e6b9e83fc3b804
+lib/com.ibm.ws.org.jboss.jdeparser.1.0.0_1.0.94.jar=a714880cb98ba2305ed2a0c129ff0a8a
+lib/com.ibm.ws.cdi.internal.jakarta_1.0.94.jar=77e95b3c864d02d5b13f5aec3682536e
+lib/io.openliberty.cdi.4.0.internal.weld_1.0.94.jar=246a8ad6dcaf252ef3a030974b0937fd
+dev/api/ibm/schema/ibm-managed-bean-bnd_1_1.xsd=9a494dab3af1ccd4f13f22cca4bd969c
+dev/spi/ibm/javadoc/io.openliberty.cdi.spi_1.1-javadoc.zip=09df41b187305e4ffd4d69972c00ca9b
+lib/io.openliberty.org.jboss.weld5_1.0.94.jar=964621ffe419a0e146b7a64cbf10edd3
+lib/io.openliberty.cdi.4.0.internal.interfaces_1.0.94.jar=70e7ef43e54167776bbfe539876b54f6
+dev/spi/ibm/io.openliberty.cdi.spi_1.1.94.jar=6bf6c1ad5fbb602beaf0827aa3690035
+lib/io.openliberty.org.jboss.logging35_1.0.94.jar=85da16901500eaafb1a96c506c0ab6ea
+lib/com.ibm.ws.cdi.weld.jakarta_1.0.94.jar=ca6d22341f2215651e8a0b42bf3dbb9c
+lib/io.openliberty.cdi.4.0.internal.services.fragment_1.0.94.jar=23cd1ba644c151a6bfe0a98d6192b232
+lib/io.openliberty.org.jboss.weld5.se_1.0.94.jar=54640c22b6bb0ffb8fe7f9de5bf3aba7
+dev/api/third-party/io.openliberty.cdi.4.0.thirdparty_1.0.94.jar=51e01a804a9a1a0cabe4a5f5f221e859

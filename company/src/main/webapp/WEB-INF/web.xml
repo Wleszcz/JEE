@@ -5,16 +5,16 @@
          version="6.0"
          metadata-complete="false">
 
-    <listener>
-        <listener-class>company.configuration.listener.CreateDataSource</listener-class>
-    </listener>
+<!--    <listener>-->
+<!--        <listener-class>company.configuration.listener.CreateDataSource</listener-class>-->
+<!--    </listener>-->
 
-    <listener>
-        <listener-class>company.configuration.listener.CreateServices</listener-class>
-    </listener>
+<!--    <listener>-->
+<!--        <listener-class>company.configuration.listener.CreateServices</listener-class>-->
+<!--    </listener>-->
 
-    <listener>
-        <listener-class>company.configuration.listener.CreateControllers</listener-class>
-    </listener>
+<!--    <listener>-->
+<!--        <listener-class>company.configuration.listener.CreateControllers</listener-class>-->
+<!--    </listener>-->
 
 </web-app>

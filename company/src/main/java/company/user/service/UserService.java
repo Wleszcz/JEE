@@ -5,6 +5,9 @@ import company.device.entity.Device;
 import company.user.entity.User;
 import company.user.repository.api.FileRepository;
 import company.user.repository.api.UserRepository;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import lombok.NoArgsConstructor;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,6 +18,8 @@ import java.util.UUID;
 /**
  * Service layer for all business actions regarding user entity.
  */
+@ApplicationScoped
+@NoArgsConstructor(force = true)
 public class UserService {
 
     /**
@@ -36,6 +41,7 @@ public class UserService {
      * @param repository   repository for device entity
      * @param passwordHash hash mechanism used for storing users' passwords
      */
+    @Inject
     public UserService(UserRepository repository, FileRepository fileRepository, Pbkdf2PasswordHash passwordHash) {
         this.repository = repository;
         this.fileRepository = fileRepository;

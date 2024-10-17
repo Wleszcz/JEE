@@ -10,6 +10,8 @@ import company.device.service.DeviceService;
 import company.component.DtoFunctionFactory;
 import company.controller.servlet.exception.BadRequestException;
 import company.controller.servlet.exception.NotFoundException;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
 
 import java.io.InputStream;
 import java.util.UUID;
@@ -17,6 +19,7 @@ import java.util.UUID;
 /**
  * Simple framework agnostic implementation of controller.
  */
+@RequestScoped
 public class DeviceSimpleController implements DeviceController {
 
     /**
@@ -33,6 +36,7 @@ public class DeviceSimpleController implements DeviceController {
      * @param service device service
      * @param factory factory producing functions for conversion between DTO and entities
      */
+    @Inject
     public DeviceSimpleController(DeviceService service, DtoFunctionFactory factory) {
         this.service = service;
         this.factory = factory;

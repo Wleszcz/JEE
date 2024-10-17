@@ -1,7 +1,12 @@
 package company.user.repository.memory;
 
 import company.user.repository.api.FileRepository;
+import jakarta.annotation.Resource;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
+import lombok.SneakyThrows;
 
+import javax.naming.InitialContext;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -13,6 +18,7 @@ import java.util.UUID;
  * A repository implementation for storing and managing PNG files.
  * Files are stored in directories named after UUIDs, and the files themselves are named "image.png".
  */
+@RequestScoped
 public class SimpleFileRepository implements FileRepository {
 
     // Base directory where UUID folders and PNG files will be stored
@@ -21,10 +27,11 @@ public class SimpleFileRepository implements FileRepository {
     /**
      * Constructs a PngFileRepository that stores files under the given base directory.
      *
-     * @param baseDirectory The directory where UUID-named folders will be created to store files.
      */
-    public SimpleFileRepository(String baseDirectory) {
-        this.baseDirectory = baseDirectory;
+    @Inject
+    @SneakyThrows
+    public SimpleFileRepository() {
+        this.baseDirectory = InitialContext.doLookup("FILE_STORAGE_DIR");;
     }
 
     /**

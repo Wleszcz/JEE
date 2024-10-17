@@ -1,7 +1,5 @@
 package company.user.controller.api;
 
-import company.device.dto.PatchDeviceRequest;
-import company.device.dto.PutDeviceRequest;
 import company.user.dto.GetUserResponse;
 import company.user.dto.GetUsersResponse;
 import company.user.dto.PatchUserRequest;

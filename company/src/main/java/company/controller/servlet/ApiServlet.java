@@ -6,6 +6,7 @@ import company.device.dto.PutDeviceRequest;
 import company.user.controller.api.UserController;
 import company.user.dto.PatchUserRequest;
 import company.user.dto.PutUserRequest;
+import jakarta.inject.Inject;
 import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;
 import jakarta.servlet.ServletException;
@@ -34,17 +35,17 @@ public class ApiServlet extends HttpServlet {
     /**
      * Controller for managing collections devices' representations.
      */
-    private DeviceController deviceController;
+    private final DeviceController deviceController;
 
     /**
      * Controller for managing collections Brands' representations.
      */
-    private BrandController brandController;
+    private final BrandController brandController;
 
     /**
      * Controller for managing Users.
      */
-    private UserController userController;
+    private final UserController userController;
 
     /**
      * Definition of paths supported by this servlet. Separate inner class provides composition for static fields.
@@ -123,6 +124,14 @@ public class ApiServlet extends HttpServlet {
      */
     private final Jsonb jsonb = JsonbBuilder.create();
 
+    @Inject
+    public ApiServlet(DeviceController deviceController, BrandController brandController, UserController userController) {
+        this.deviceController = deviceController;
+        this.brandController = brandController;
+        this.userController = userController;
+    }
+
+
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getMethod().equals("PATCH")) {
@@ -130,14 +139,6 @@ public class ApiServlet extends HttpServlet {
         } else {
             super.service(request, response);
         }
-    }
-
-    @Override
-    public void init() throws ServletException {
-        super.init();
-        deviceController = (DeviceController) getServletContext().getAttribute("deviceController");
-        brandController = (BrandController) getServletContext().getAttribute("brandController");
-        userController = (UserController) getServletContext().getAttribute("userController");
     }
 
     @SuppressWarnings("RedundantThrows")

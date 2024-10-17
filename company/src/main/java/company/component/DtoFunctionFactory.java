@@ -13,6 +13,7 @@ import company.user.dto.function.UpdateUserWithRequestFunction;
 import company.user.dto.function.UserToResponseFunction;
 import company.user.dto.function.UsersToResponseFunction;
 import company.user.entity.User;
+import jakarta.enterprise.context.ApplicationScoped;
 
 import java.util.function.Function;
 
@@ -20,6 +21,7 @@ import java.util.function.Function;
  * Factor for creating {@link Function} implementation for converting between various objects used in different layers.
  * Instead of injecting multiple function objects single factory is injected.
  */
+@ApplicationScoped
 public class DtoFunctionFactory {
 
     /**
