@@ -31,7 +31,7 @@ import java.util.UUID;
 public class InitializedData {
 
     /**
-     * Character service.
+     * Device service.
      */
     private final DeviceService deviceService;
 
@@ -41,7 +41,7 @@ public class InitializedData {
     private final UserService userService;
 
     /**
-     * Profession service.
+     * Brand service.
      */
     private final BrandService brandService;
 
@@ -52,9 +52,9 @@ public class InitializedData {
     private final RequestContextController requestContextController;
 
     /**
-     * @param characterService         character service
+     * @param deviceService         device service
      * @param userService              user service
-     * @param professionService        profession service
+     * @param brandService        brand service
      * @param requestContextController CDI request context controller
      */
     @Inject
