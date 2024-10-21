@@ -6,3 +6,9 @@
 
 ### VS Code ###
 .vscode/
+
+.classpath
+.project
+.settings/
+target/
+/company/target/

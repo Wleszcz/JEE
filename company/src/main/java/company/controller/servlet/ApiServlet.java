@@ -90,6 +90,11 @@ public class ApiServlet extends HttpServlet {
         public static final Pattern BRANDS = Pattern.compile("/brands/?");
 
         /**
+         * All Brands.
+         */
+        public static final Pattern BRAND = Pattern.compile("/brands/(%s)".formatted(UUID.pattern()));
+
+        /**
          * All devices of single Brand.
          */
         public static final Pattern BRAND_DEVICES = Pattern.compile("/brands/(%s)/devices/?".formatted(UUID.pattern()));
@@ -234,6 +239,10 @@ public class ApiServlet extends HttpServlet {
             if (path.matches(Patterns.DEVICE.pattern())) {
                 UUID uuid = extractUuid(Patterns.DEVICE, path);
                 deviceController.deleteDevice(uuid);
+                return;
+            } else if (path.matches(Patterns.BRAND.pattern())) {
+                UUID uuid = extractUuid(Patterns.BRAND, path);
+                brandController.deleteBrand(uuid);
                 return;
             } else if (path.matches(Patterns.USER_IMAGE.pattern())) {
                 UUID uuid = extractUuid(Patterns.USER_IMAGE, path);

@@ -2,6 +2,8 @@ package company.device.controller.api;
 
 import company.device.dto.GetBrandsResponse;
 
+import java.util.UUID;
+
 /**
  * Controller for managing collections Brands' representations.
  */
@@ -12,4 +14,5 @@ public interface BrandController {
      */
     GetBrandsResponse getBrands();
 
+    void deleteBrand(UUID brandId);
 }

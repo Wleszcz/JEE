@@ -1,11 +1,14 @@
 package company.device.controller.simple;
 
+import company.controller.servlet.exception.NotFoundException;
 import company.device.controller.api.BrandController;
 import company.device.dto.GetBrandsResponse;
 import company.device.service.BrandService;
 import company.component.DtoFunctionFactory;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
+
+import java.util.UUID;
 
 /**
  * Simple framework agnostic implementation of controller.
@@ -38,5 +41,16 @@ public class BrandSimpleController implements BrandController {
     public GetBrandsResponse getBrands() {
         return factory.BrandsToResponse().apply(service.findAll());
     }
+
+    @Override
+    public void deleteBrand(UUID brandId) {
+        service.find(brandId).ifPresentOrElse(
+                entity -> service.delete(brandId),
+                () -> {
+                    throw new NotFoundException();
+                }
+        );
+    }
+
 
 }

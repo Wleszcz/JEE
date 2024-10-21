@@ -135,7 +135,7 @@ Content-Type: application/json
 
 # Delete device.
 
-DELETE http://localhost:9080/company/api/devices/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+DELETE http://localhost:9080/company/api/devices/cc0b0577-bb6f-45b7-81d6-3db88e6ac19f
 
 ###
 
@@ -151,6 +151,12 @@ GET http://localhost:9080/company/api/brands/f5875513-bf7b-4ae1-b8a5-5b70a1b90e7
 
 ###
 
+# delete brand .
+
+DELETE http://localhost:9080/company/api/brands/f5875513-bf7b-4ae1-b8a5-5b70a1b90e76
+
+###
+
 # Get all brand devices. Not existing.
 
 GET http://localhost:9080/company/api/brands/d8b50a43-ed45-4441-9bcb-5db7782b47f6/devices
@@ -159,7 +165,7 @@ GET http://localhost:9080/company/api/brands/d8b50a43-ed45-4441-9bcb-5db7782b47f
 
 # Get all user devices.
 
-GET http://localhost:9080/company/api/users/81e1c2a9-7f57-439b-b53d-6db88b071e4e/devices
+GET http://localhost:9080/company/api/users/cc0b0577-bb6f-45b7-81d6-3db88e6ac19f/devices
 
 ###
 

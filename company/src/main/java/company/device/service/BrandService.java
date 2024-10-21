@@ -2,6 +2,7 @@ package company.device.service;
 
 import company.device.entity.Brand;
 import company.device.repository.api.BrandRepository;
+import company.device.repository.memory.BrandInMemoryRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import lombok.NoArgsConstructor;
@@ -54,4 +55,13 @@ public class BrandService {
         repository.create(Brand);
     }
 
+
+    /**
+     * Deletes existing device.
+     *
+     * @param id existing device's id to be deleted
+     */
+    public void delete(UUID id) {
+        repository.delete(repository.find(id).orElseThrow());
+    }
 }

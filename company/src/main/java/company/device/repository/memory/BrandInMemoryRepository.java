@@ -3,6 +3,7 @@ package company.device.repository.memory;
 import company.device.entity.Brand;
 import company.device.repository.api.BrandRepository;
 import company.datastore.component.DataStore;
+import company.device.repository.api.DeviceRepository;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 
@@ -49,7 +50,8 @@ public class BrandInMemoryRepository implements BrandRepository {
 
     @Override
     public void delete(Brand entity) {
-        throw new UnsupportedOperationException("Operation not implemented.");
+        store.findAllDevices().stream().filter(d -> d.getBrand().getId().equals(entity.getId())).forEach(d -> store.deleteDevice(d.getId()));
+        store.deleteBrand(entity.getId());
     }
 
     @Override

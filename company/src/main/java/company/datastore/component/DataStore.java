@@ -30,7 +30,7 @@ public class DataStore {
     /**
      * Set of all available Brands.
      */
-    private final Set<Brand> Brands = new HashSet<>();
+    private final Set<Brand> brands = new HashSet<>();
 
     /**
      * Set of all devices.
@@ -61,7 +61,7 @@ public class DataStore {
      * @return list (can be empty) of all Brands
      */
     public synchronized List<Brand> findAllBrands() {
-        return Brands.stream()
+        return brands.stream()
                 .map(cloningUtility::clone)
                 .collect(Collectors.toList());
     }
@@ -73,10 +73,16 @@ public class DataStore {
      * @throws IllegalArgumentException if Brand with provided id already exists
      */
     public synchronized void createBrand(Brand value) throws IllegalArgumentException {
-        if (Brands.stream().anyMatch(Brand -> Brand.getId().equals(value.getId()))) {
+        if (brands.stream().anyMatch(Brand -> Brand.getId().equals(value.getId()))) {
             throw new IllegalArgumentException("The Brand id \"%s\" is not unique".formatted(value.getId()));
         }
-        Brands.add(cloningUtility.clone(value));
+        brands.add(cloningUtility.clone(value));
+    }
+
+    public synchronized void deleteBrand(UUID id) throws IllegalArgumentException {
+        if (!brands.removeIf(brand -> brand.getId().equals(id))) {
+            throw new IllegalArgumentException("The brand with id \"%s\" does not exist".formatted(id));
+        }
     }
 
     /**
@@ -189,7 +195,7 @@ public class DataStore {
         }
 
         if (entity.getBrand() != null) {
-            entity.setBrand(Brands.stream()
+            entity.setBrand(brands.stream()
                     .filter(Brand -> Brand.getId().equals(value.getBrand().getId()))
                     .findFirst()
                     .orElseThrow(() -> new IllegalArgumentException("No Brand with id \"%s\".".formatted(value.getBrand().getId()))));
