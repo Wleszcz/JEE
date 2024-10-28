@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:f="jakarta.faces.core"
+                template="/WEB-INF/template/main.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="id" value="#{brandView.id}" required="true"/>
+        <f:viewAction action="#{brandView.init()}"/>
+    </f:metadata>
+
+    <ui:define name="content">
+        <article>
+            <header><h2><h:outputText value="#{brandView.brand.name}"/></h2></header>
+            <div class="container">
+                <div >
+                    <h:panelGrid columns="2" style="margin-bottom: 40px">
+                        <h:outputText style="font-weight: bold" value="Name: "/>
+                        <h:outputText value="#{brandView.brand.name}"/>
+                        <h:outputText style="font-weight: bold" value="Date of establishment: "/>
+                        <h:outputText value="#{brandView.brand.dateOfEstablishment}"/>
+                        <h:outputText style="font-weight: bold" value="Devices:"/>
+                        <h:outputText/>
+                        <ui:repeat value="#{brandView.devicesModel.devices}" var="device">
+                            <h:outputText value="#{device.name}" style="padding: 20px"/>
+                            <h:column>
+                                <f:facet name="header">View</f:facet>
+                                <h:link outcome="/device/device_view.xhtml" value="View">
+                                    <f:param name="id" value="#{device.id}"/>
+                                </h:link>
+                            </h:column>
+                        </ui:repeat>
+                    </h:panelGrid>
+                </div>
+            </div>
+        </article>
+    </ui:define>
+
+</ui:composition>

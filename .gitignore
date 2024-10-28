@@ -1,5 +1,5 @@
 ### IntelliJ IDEA ###
-.idea/
+../.idea/
 *.iws
 *.iml
 *.ipr
@@ -7,8 +7,44 @@
 ### VS Code ###
 .vscode/
 
+### Eclipse ###
 .classpath
 .project
 .settings/
+
+### Maven ###
 target/
+!src/main/resources/**/target/  # Include resources but exclude target directories
+!src/test/resources/**/target/
+
+### Gradle ###
+build/
+
+### Common directories ###
+out/
+*.log
+*.war
+*.ear
+*.jar
+
+### Temporary files ###
+*.tmp
+*.bak
+*.swp
+*~.nib
+
+### JEE Specific ###
+**/webapps/
+**/temp/
+**/logs/
+**/work/
+**/lib/
+**/cache/
+**/generated-sources/
+**/generated-test-sources/
+
+### Other IDEs ###
+nbproject/
+*/target
+/company/target
 /company/target/

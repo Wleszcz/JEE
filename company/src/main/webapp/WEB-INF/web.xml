@@ -5,16 +5,41 @@
          version="6.0"
          metadata-complete="false">
 
-<!--    <listener>-->
-<!--        <listener-class>company.configuration.listener.CreateDataSource</listener-class>-->
-<!--    </listener>-->
+    <context-param>
+        <param-name>jakarta.faces.FACELETS_SKIP_COMMENTS</param-name>
+        <param-value>true</param-value>
+    </context-param>
 
-<!--    <listener>-->
-<!--        <listener-class>company.configuration.listener.CreateServices</listener-class>-->
-<!--    </listener>-->
+    <context-param>
+        <param-name>jakarta.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param>
 
-<!--    <listener>-->
-<!--        <listener-class>company.configuration.listener.CreateControllers</listener-class>-->
-<!--    </listener>-->
+    <servlet>
+        <servlet-name>facesServlet</servlet-name>
+        <servlet-class>jakarta.faces.webapp.FacesServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>facesServlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.xhtml</welcome-file>
+    </welcome-file-list>
+
+
+    <!--    <listener>-->
+    <!--        <listener-class>company.configuration.listener.CreateDataSource</listener-class>-->
+    <!--    </listener>-->
+
+    <!--    <listener>-->
+    <!--        <listener-class>company.configuration.listener.CreateServices</listener-class>-->
+    <!--    </listener>-->
+
+    <!--    <listener>-->
+    <!--        <listener-class>company.configuration.listener.CreateControllers</listener-class>-->
+    <!--    </listener>-->
 
 </web-app>
