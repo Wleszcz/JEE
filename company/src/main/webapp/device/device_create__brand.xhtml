@@ -13,16 +13,14 @@
         <article>
             <header><h2>Create device - basic information</h2></header>
             <h:form styleClass="container" onreset="onReset()" enctype="multipart/form-data">
-                <div class="row">
-                    <div class="col-2 p-2 text-center">
-                        <h:commandButton styleClass="btn" value="Previous" immediate="true"
-                                         action="#{deviceCreate.goToBasicAction()}"/>
-                    </div>
-                    <div class="col-2 p-2 text-center">
-                        <h:commandButton styleClass="btn" value="Next"
-                                         action="#{deviceCreate.goToConfirmAction()}"/>
-                    </div>
-                </div>
+
+                <h:panelGrid columns="2" style="padding: 10px">
+                    <h:commandButton styleClass="btn" value="Previous" style="margin-left: 30px"
+                                     action="#{deviceCreate.goToBasicAction()}"/>
+                    <h:commandButton styleClass="btn" value="Next" style="margin-left: 30px"
+                                     action="#{deviceCreate.goToConfirmAction()}"/>
+                </h:panelGrid>
+
 
                 <div class="row">
                     <div class="col-4 p-2">
@@ -42,17 +40,48 @@
                             </ui:repeat>
                         </fieldset>
                     </div>
+                    <div class="col-4 p-2">
+                        <fieldset>
+                            <legend class="form-label fs-6">Brand:</legend>
+                            <!-- Instead of ui:repeat the h:selectOneRadio with f:selectItems can be used but then
+                            Faces renders table or list and custom styling with CSS libraties can be troublesome. -->
+                            <ui:repeat value="#{deviceCreate.users}" var="user">
+                                <div class="form-check">
+                                    <h:selectOneRadio id="radiod" group="usero"
+                                                      value="#{deviceCreate.device.user}"
+                                                      styleClass="form-check-input"
+                                                      enabledClass="form-check-label">
+                                        <f:selectItem itemValue="#{user.id}" itemLabel="#{user.name}"/>
+                                    </h:selectOneRadio>
+                                </div>
+                            </ui:repeat>
+                        </fieldset>
+                    </div>
+                    <div class="col-4 p-2">
+                        <fieldset>
+                            <legend class="form-label fs-6">Type:</legend>
+                            <!-- Instead of ui:repeat the h:selectOneRadio with f:selectItems can be used but then
+                            Faces renders table or list and custom styling with CSS libraties can be troublesome. -->
+                            <ui:repeat value="#{deviceCreate.deviceTypeList}" var="type">
+                                <div class="form-check">
+                                    <h:selectOneRadio id="type" group="typeo"
+                                                      value="#{deviceCreate.device.deviceType}"
+                                                      styleClass="form-check-input"
+                                                      enabledClass="form-check-label">
+                                        <f:selectItem itemValue="#{type}" itemLabel="#{type}"/>
+                                    </h:selectOneRadio>
+                                </div>
+                            </ui:repeat>
+                        </fieldset>
+                    </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-2 p-2 text-center">
-                        <h:button styleClass="btn btn-primary" value="Create" disabled="true"/>
-                    </div>
-                    <div class="col-2 p-2 text-center">
-                        <h:commandButton styleClass="btn btn-secondary" value="Cancel"
-                                         action="#{deviceCreate.cancelAction()}"/>
-                    </div>
-                </div>
+                <h:panelGrid columns="2" style="padding: 10px">
+                    <h:button styleClass="btn btn-primary" value="Create" disabled="true" style="margin-left: 30px"/>
+
+                    <h:commandButton styleClass="btn btn-secondary" value="Cancel" style="margin-left: 30px"
+                                     action="#{deviceCreate.cancelAction()}"/>
+                </h:panelGrid>
             </h:form>
         </article>
     </ui:define>

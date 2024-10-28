@@ -24,8 +24,8 @@
                         <h:outputText value="#{deviceView.device.price}"/>
                         <h:outputText style="font-weight: bold" value="Type: "/>
                         <h:outputText value="#{deviceView.device.deviceType}"/>
-                        <h:outputText style="font-weight: bold" value="User: "/>
-                        <h:outputText value="#{deviceView.device.user}"/>
+                        <h:outputText style="font-weight: bold" value="User: " rendered="#{not empty deviceView.device.user}"/>
+                        <h:outputText value="#{deviceView.device.user}" rendered="#{not empty deviceView.device.user}"/>
                     </h:panelGrid>
                 </div>
             </div>

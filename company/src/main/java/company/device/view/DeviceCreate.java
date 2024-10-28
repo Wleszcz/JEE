@@ -1,5 +1,8 @@
 package company.device.view;
 
+import company.device.entity.DeviceType;
+import company.device.model.UserModel;
+import company.user.service.UserService;
 import jakarta.enterprise.context.Conversation;
 import jakarta.enterprise.context.ConversationScoped;
 import jakarta.inject.Inject;
@@ -42,6 +45,7 @@ public class DeviceCreate implements Serializable {
      * Factory producing functions for conversion between models and entities.
      */
     private final ModelFunctionFactory factory;
+    private final UserService userService;
 
     /**
      * Device exposed to the view.
@@ -54,6 +58,9 @@ public class DeviceCreate implements Serializable {
      */
     @Getter
     private List<BrandModel> brands;
+
+    @Getter
+    private List<UserModel> users;
 
     /**
      * Injected conversation.
@@ -71,12 +78,13 @@ public class DeviceCreate implements Serializable {
             DeviceService deviceService,
             BrandService brandService,
             ModelFunctionFactory factory,
-            Conversation conversation
-    ) {
+            Conversation conversation,
+            UserService userService) {
         this.deviceService = deviceService;
         this.factory = factory;
         this.brandService = brandService;
         this.conversation = conversation;
+        this.userService = userService;
     }
 
     /**
@@ -90,6 +98,10 @@ public class DeviceCreate implements Serializable {
                     .map(factory.brandToModel())
                     .collect(Collectors.toList());
             System.out.println(brands);
+
+            users = userService.findAll().stream()
+                    .map(factory.userToModel())
+                    .collect(Collectors.toList());
             device = DeviceCreateModel.builder()
                     .id(UUID.randomUUID())
                     .build();
@@ -165,4 +177,7 @@ public class DeviceCreate implements Serializable {
         return "/view/api/v1/devices/new/portrait?cid=%s".formatted(getConversationId());
     }
 
+    public List<DeviceType> getDeviceTypeList() {
+        return List.of(DeviceType.TV, DeviceType.FRIDGE, DeviceType.PHONE, DeviceType.TABLET);
+    }
 }

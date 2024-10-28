@@ -78,8 +78,7 @@ public class DeviceEdit implements Serializable {
      */
     public String saveAction() {
         service.update(factory.updateDevice().apply(service.find(id).orElseThrow(), device));
-        String viewId = FacesContext.getCurrentInstance().getViewRoot().getViewId();
-        return viewId + "?faces-redirect=true&includeViewParams=true";
+        return "/device/device_list.xhtml?faces-redirect=true";
     }
 
 }

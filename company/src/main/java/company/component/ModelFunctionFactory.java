@@ -63,6 +63,14 @@ public class ModelFunctionFactory {
         return new BrandToModelFunction();
     }
 
+    public UserToModelFunction userToModel() {
+        return new UserToModelFunction();
+    }
+
+    public UsersToModelFunction usersToModel() {
+        return new UsersToModelFunction();
+    }
+
     public BrandsToModelFunction brandsToModel() {
         return new BrandsToModelFunction();
     }

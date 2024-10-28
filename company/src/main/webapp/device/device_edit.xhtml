@@ -14,50 +14,24 @@
         <article>
             <header><h2>Edit device info</h2></header>
             <h:form styleClass="container" onreset="onReset()" enctype="multipart/form-data">
-                <div class="row">
-                    <div class="col-4 p-2">
-                        <div class="form-outline">
-                            <h:inputText id="name" value="#{deviceEdit.device.name}" styleClass="form-control"/>
-                            <h:outputLabel for="name" value="Name:" styleClass="form-label"/>
-                        </div>
-                    </div>
-                </div>
+                <h:panelGrid columns="2" style="padding: 10px">
+                    <h:outputLabel for="name" value="Name:" styleClass="form-label"/>
+                    <h:inputText id="name" value="#{deviceEdit.device.name}" styleClass="form-control"/>
 
-                <div class="row">
-                    <div class="col-4 p-2">
-                        <div class="form-outline">
-                            <h:inputText id="age" value="#{deviceEdit.device.age}" styleClass="form-control"/>
-                            <h:outputLabel for="age" value="Age:" styleClass="form-label"/>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-4 p-2">
-                        <div class="form-outline">
-                            <h:inputFile id="portrait" value="#{deviceEdit.device.portrait}"
-                                         styleClass="form-control active"/>
-                            <h:outputLabel for="portrait" value="Portrait:" styleClass="form-label"/>
-                        </div>
-                    </div>
-                </div>
+                    <h:outputLabel for="price" value="PRICE:" styleClass="form-label"/>
+                    <h:inputText id="price" value="#{deviceEdit.device.price}" styleClass="form-control"/>
 
-                <div class="row">
-                    <div class="col-4 p-2">
-                        <div class="form-outline">
-                            <h:inputTextarea id="background" value="#{deviceEdit.device.background}"
-                                             styleClass="form-control" rows="4"/>
-                            <h:outputLabel for="background" value="Background:" styleClass="form-label"/>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-2 p-2 text-center">
+                    <h:outputLabel for="mass" value="Mass:" styleClass="form-label"/>
+                    <h:inputText id="mass" value="#{deviceEdit.device.mass}"
+                                 styleClass="form-control" rows="4"/>
+                </h:panelGrid>
+                <div class="row" style="display: flex; flex-direction: row">
+                    <div class="col-2 p-2 text-center" style="margin: 20px">
                         <h:commandButton styleClass="btn btn-primary" value="Update"
                                          action="#{deviceEdit.saveAction()}"/>
                     </div>
-                    <div class="col-2 p-2 text-center">
+                    <div class="col-2 p-2 text-center" style="margin: 20px">
                         <h:commandButton styleClass="btn btn-secondary" type="reset" value="Reset"/>
                     </div>
                 </div>

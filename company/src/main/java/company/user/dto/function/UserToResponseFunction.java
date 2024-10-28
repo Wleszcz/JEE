@@ -23,5 +23,4 @@ public class UserToResponseFunction implements Function<User, GetUserResponse> {
                 .email(user.getEmail())
                 .build();
     }
-
 }

@@ -13,39 +13,32 @@
         <article>
             <header><h2>Create device - basic information</h2></header>
             <h:form styleClass="container" onreset="onReset()" enctype="multipart/form-data">
-                <div class="row">
-                    <div class="col-2 p-2 text-center">
-                        <h:commandButton styleClass="btn" value="Previous" immediate="true"
-                                         action="#{deviceCreate.goToBrandAction()}"/>
-                    </div>
-                    <div class="col-2 p-2 text-center">
-                        <h:button styleClass="btn" value="Next" disabled="true"/>
-                    </div>
-                </div>
+                <h:panelGrid columns="2" style="padding: 10px">
+                    <h:commandButton styleClass="btn" value="Previous" style="margin-left: 30px"
+                                     action="#{deviceCreate.goToBrandAction()}"/>
+                    <h:button styleClass="btn" value="Next" disabled="true" style="margin-left: 30px"/>
+                </h:panelGrid>
 
-                <div class="row">
-                    <div class="col-4">
-                        <div class="row mb-2">
-                            <div class="col-6">
-                                Level &amp; Brand
-                            </div>
-                            <div class="col-6">
-                                <h:outputText value="#{deviceCreate.device.brand.name}"/>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-2 p-2 text-center">
-                        <h:commandButton styleClass="btn btn-primary" value="Create"
-                                         action="#{deviceCreate.saveAction()}"/>
-                    </div>
-                    <div class="col-2 p-2 text-center">
-                        <h:commandButton styleClass="btn btn-secondary" value="Cancel"
-                                         action="#{deviceCreate.cancelAction()}"/>
-                    </div>
-                </div>
+                <h:panelGrid columns="2">
+                    <h:outputText style="font-weight: bold" value="Brand ID: "/>
+                    <h:outputText value="#{deviceCreate.device.brand}"/>
+                    <h:outputText style="font-weight: bold" value="User ID: "/>
+                    <h:outputText value="#{deviceCreate.device.user}"/>
+                    <h:outputText style="font-weight: bold" value="Name: "/>
+                    <h:outputText value="#{deviceCreate.device.name}"/>
+                    <h:outputText style="font-weight: bold" value="Mass: "/>
+                    <h:outputText value="#{deviceCreate.device.mass}"/>
+                    <h:outputText style="font-weight: bold" value="Price: "/>
+                    <h:outputText value="#{deviceCreate.device.price}"/>
+                    <h:outputText style="font-weight: bold" value="Type: "/>
+                    <h:outputText value="#{deviceCreate.device.deviceType}"/>
+                </h:panelGrid>
+                <h:panelGrid columns="2" style="padding: 10px">
+                    <h:commandButton styleClass="btn btn-primary" value="Create"
+                                     action="#{deviceCreate.saveAction()}"/>
+                    <h:commandButton styleClass="btn btn-secondary" value="Cancel" style="margin-left: 30px"
+                                     action="#{deviceCreate.cancelAction()}"/>
+                </h:panelGrid>
             </h:form>
         </article>
     </ui:define>

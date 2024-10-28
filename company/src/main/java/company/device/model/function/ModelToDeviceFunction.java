@@ -1,5 +1,6 @@
 package company.device.model.function;
 
+import company.user.entity.User;
 import lombok.SneakyThrows;
 import company.device.entity.Device;
 import company.device.entity.Brand;
@@ -23,7 +24,10 @@ public class ModelToDeviceFunction implements Function<DeviceCreateModel, Device
                 .price(model.getPrice())
                 .deviceType(model.getDeviceType())
                 .brand(Brand.builder()
-                        .id(model.getBrand().getId())
+                        .id(model.getBrand())
+                        .build())
+                .user(User.builder()
+                        .id(model.getUser())
                         .build())
                 .build();
     }

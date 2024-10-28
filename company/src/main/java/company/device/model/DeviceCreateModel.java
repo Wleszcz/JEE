@@ -48,10 +48,10 @@ public class DeviceCreateModel {
     /**
      * Device's total experience.
      */
-    private User user;
+    private UUID user;
 
     /**
      * Name of the device's brand.
      */
-    private BrandModel brand;
+    private UUID brand;
 }
