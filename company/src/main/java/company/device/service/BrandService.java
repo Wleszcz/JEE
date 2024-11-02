@@ -2,9 +2,9 @@ package company.device.service;
 
 import company.device.entity.Brand;
 import company.device.repository.api.BrandRepository;
-import company.device.repository.memory.BrandInMemoryRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
@@ -35,6 +35,7 @@ public class BrandService {
      * @param id Brand's id
      * @return container with Brand entity
      */
+    @Transactional
     public Optional<Brand> find(UUID id) {
         return repository.find(id);
     }
@@ -42,6 +43,7 @@ public class BrandService {
     /**
      * @return all available Brands
      */
+    @Transactional
     public List<Brand> findAll() {
         return repository.findAll();
     }
@@ -51,6 +53,7 @@ public class BrandService {
      *
      * @param Brand new Brand to be saved
      */
+    @Transactional
     public void create(Brand Brand) {
         repository.create(Brand);
     }
@@ -61,10 +64,12 @@ public class BrandService {
      *
      * @param id existing device's id to be deleted
      */
+    @Transactional
     public void delete(UUID id) {
         repository.delete(repository.find(id).orElseThrow());
     }
 
+    @Transactional
     public void update(Brand Brand) {
         repository.update(Brand);
     }

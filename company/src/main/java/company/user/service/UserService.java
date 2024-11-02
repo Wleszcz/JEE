@@ -1,12 +1,11 @@
 package company.user.service;
 
 import company.crypto.component.Pbkdf2PasswordHash;
-import company.device.entity.Device;
 import company.user.entity.User;
-import company.user.repository.api.FileRepository;
 import company.user.repository.api.UserRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import lombok.NoArgsConstructor;
 
 import java.io.IOException;
@@ -27,10 +26,6 @@ public class UserService {
      */
     private final UserRepository repository;
 
-    /**
-     * Repository for user entity.
-     */
-    private final FileRepository fileRepository;
 
     /**
      * Hash mechanism used for storing users' passwords.
@@ -42,9 +37,8 @@ public class UserService {
      * @param passwordHash hash mechanism used for storing users' passwords
      */
     @Inject
-    public UserService(UserRepository repository, FileRepository fileRepository, Pbkdf2PasswordHash passwordHash) {
+    public UserService(UserRepository repository, Pbkdf2PasswordHash passwordHash) {
         this.repository = repository;
-        this.fileRepository = fileRepository;
         this.passwordHash = passwordHash;
     }
 
@@ -52,6 +46,7 @@ public class UserService {
      * @param id user's id
      * @return container (can be empty) with user
      */
+    @Transactional
     public Optional<User> find(UUID id) {
         return repository.find(id);
     }
@@ -59,6 +54,7 @@ public class UserService {
     /**
      * @return container (can be empty) with users
      */
+    @Transactional
     public List<User> findAll() {
         return repository.findAll();
     }
@@ -79,6 +75,7 @@ public class UserService {
      *
      * @param user new user to be saved
      */
+    @Transactional
     public void create(User user) {
         user.setPassword(passwordHash.generate(user.getPassword().toCharArray()));
         repository.create(user);
@@ -99,6 +96,7 @@ public class UserService {
      *
      * @param user device to be updated
      */
+    @Transactional
     public void update(User user) {
         repository.update(user);
     }
@@ -108,9 +106,9 @@ public class UserService {
      *
      * @param id existing device's id to be deleted
      */
+    @Transactional
     public void delete(UUID id) {
         repository.delete(repository.find(id).orElseThrow());
-        fileRepository.delete(id);
     }
 
     /**
@@ -119,10 +117,12 @@ public class UserService {
      * @param id device's id
      * @param is input stream containing new image
      */
+    @Transactional
     public void updateImage(UUID id, InputStream is) {
         repository.find(id).ifPresent(user -> {
             try {
-                fileRepository.save(id, is);
+                user.setImage(is.readAllBytes());
+                update(user);
             } catch (IOException ex) {
                 throw new IllegalStateException(ex);
             }
@@ -134,8 +134,9 @@ public class UserService {
      *
      * @param id user's id
      */
+    @Transactional
     public Optional<byte[]> getImage(UUID id) {
-        return fileRepository.read(id);
+        return Optional.ofNullable(find(id).get().getImage());
     }
 
     /**
@@ -143,7 +144,17 @@ public class UserService {
      *
      * @param id device's id
      */
+    @Transactional
     public void deleteUserImage(UUID id) {
-        fileRepository.delete(id);
+        repository.find(id).ifPresent(user -> {
+            try {
+                user.setImage(null);
+                update(user);
+            } catch (Exception ex) {
+                throw new IllegalStateException(ex);
+            }
+        });
     }
+
+
 }

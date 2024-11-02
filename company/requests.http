@@ -148,7 +148,7 @@ GET http://localhost:9080/company/api/brands
 
 # Get brand
 
-GET http://localhost:9080/company/api/brands/419cbc5b-e7c7-459b-96e4-7b49bd8add19
+GET http://localhost:9080/company/api/brands/f5875513-bf7b-4ae1-b8a5-5b70a1b90e76
 
 
 ###

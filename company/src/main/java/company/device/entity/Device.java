@@ -1,5 +1,6 @@
 package company.device.entity;
 
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -22,12 +23,14 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @ToString(callSuper = true)
-
+@Entity
+@Table(name = "devices")
 public class Device implements Serializable {
 
     /**
      * Unique id (primary key).
      */
+    @Id
     private UUID id;
 
     /**
@@ -43,11 +46,15 @@ public class Device implements Serializable {
     /**
      * Device's brand.
      */
+    @ManyToOne
+    @JoinColumn(name = "brand")
     private Brand brand;
 
     /**
      * Owner of this device.
      */
+    @ManyToOne
+    @JoinColumn(name = "user_name")
     private User user;
 
     /**
@@ -59,13 +66,5 @@ public class Device implements Serializable {
      * Devices type .
      */
     private DeviceType deviceType;
-
-
-    /**
-     * Devices Example image. Images in database are stored as blobs (binary large objects).
-     */
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
-    private byte[] image;
 
 }

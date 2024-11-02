@@ -132,32 +132,4 @@ public class DeviceRestController implements DeviceController {
         );
     }
 
-    @Override
-    public byte[] getDeviceImage(UUID id) {
-        return service.find(id)
-                .map(Device::getImage)
-                .orElseThrow(NotFoundException::new);
-    }
-
-    @Override
-    public void putDeviceImage(UUID id, InputStream portrait) {
-        service.find(id).ifPresentOrElse(
-                entity -> {
-                    service.updatePortrait(id, portrait);
-                    //This can be done with Response builder but requires method different return type.
-                    response.setHeader("Location", uriInfo.getBaseUriBuilder()
-                            .path(DeviceController.class, "getDevicePortrait")
-                            .build(id)
-                            .toString());
-                    //This can be done with Response builder but requires method different return type.
-                    //Calling HttpServletResponse#setStatus(int) is ignored.
-                    //Calling HttpServletResponse#sendError(int) causes response headers and body looking like error.
-                    throw new WebApplicationException(Response.Status.CREATED);
-                },
-                () -> {
-                    throw new NotFoundException();
-                }
-        );
-    }
-
 }

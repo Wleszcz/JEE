@@ -7,6 +7,7 @@ import company.user.entity.User;
 import company.user.repository.api.UserRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import lombok.NoArgsConstructor;
 
 import java.io.IOException;
@@ -55,6 +56,7 @@ public class DeviceService {
      * @param id device's id
      * @return container with device
      */
+    @Transactional
     public Optional<Device> find(UUID id) {
         return deviceRepository.find(id);
     }
@@ -64,6 +66,7 @@ public class DeviceService {
      * @param user existing user
      * @return selected device for user
      */
+    @Transactional
     public Optional<Device> find(User user, UUID id) {
         return deviceRepository.findByIdAndUser(id, user);
     }
@@ -71,6 +74,7 @@ public class DeviceService {
     /**
      * @return all available devices
      */
+    @Transactional
     public List<Device> findAll() {
         return deviceRepository.findAll();
     }
@@ -79,6 +83,7 @@ public class DeviceService {
      * @param user existing user, device's owner
      * @return all available devices of the selected user
      */
+    @Transactional
     public List<Device> findAll(User user) {
         return deviceRepository.findAllByUser(user);
     }
@@ -88,7 +93,14 @@ public class DeviceService {
      *
      * @param device new device
      */
+    @Transactional
     public void create(Device device) {
+        if (deviceRepository.find(device.getId()).isPresent()) {
+            throw new IllegalArgumentException("Character already exists.");
+        }
+        if (brandRepository.find(device.getBrand().getId()).isEmpty()) {
+            throw new IllegalArgumentException("Profession does not exists.");
+        }
         deviceRepository.create(device);
     }
 
@@ -97,6 +109,7 @@ public class DeviceService {
      *
      * @param device device to be updated
      */
+    @Transactional
     public void update(Device device) {
         deviceRepository.update(device);
     }
@@ -106,6 +119,8 @@ public class DeviceService {
      *
      * @param id existing device's id to be deleted
      */
+
+    @Transactional
     public void delete(UUID id) {
         deviceRepository.delete(deviceRepository.find(id).orElseThrow());
     }
@@ -116,22 +131,25 @@ public class DeviceService {
      * @param id device's id
      * @param is input stream containing new image
      */
-    public void updatePortrait(UUID id, InputStream is) {
-        deviceRepository.find(id).ifPresent(device -> {
-            try {
-                device.setImage(is.readAllBytes());
-                deviceRepository.update(device);
-            } catch (IOException ex) {
-                throw new IllegalStateException(ex);
-            }
-        });
-    }
+//    @Transactional
+//    public void updatePortrait(UUID id, InputStream is) {
+//        deviceRepository.find(id).ifPresent(device -> {
+//            try {
+//                device.setImage(is.readAllBytes());
+//                deviceRepository.update(device);
+//            } catch (IOException ex) {
+//                throw new IllegalStateException(ex);
+//            }
+//        });
+//    }
 
+    @Transactional
     public Optional<List<Device>> findAllByBrand(UUID id) {
         return brandRepository.find(id)
                 .map(deviceRepository::findAllByBrand);
     }
 
+    @Transactional
     public Optional<List<Device>> findAllByUser(UUID id) {
         return userRepository.find(id)
                 .map(deviceRepository::findAllByUser);

@@ -76,22 +76,22 @@ public interface DeviceController {
     @Path("/devices/{id}")
     void deleteDevice(@PathParam("id") UUID id);
 
-    /**
-     * @param id device's id
-     * @return device's image
-     */
-    @GET
-    @Path("/devices/{id}/image")
-    @Produces("image/png")
-    byte[] getDeviceImage(@PathParam("id") UUID id);
-
-    /**
-     * @param id       device's id
-     * @param image device's new avatar
-     */
-    @PUT
-    @Path("/devices/{id}/image")
-    @Consumes(MediaType.MULTIPART_FORM_DATA)
-    void putDeviceImage(@PathParam("id") UUID id, InputStream image);
+//    /**
+//     * @param id device's id
+//     * @return device's image
+//     */
+//    @GET
+//    @Path("/devices/{id}/image")
+//    @Produces("image/png")
+//    byte[] getDeviceImage(@PathParam("id") UUID id);
+//
+//    /**
+//     * @param id       device's id
+//     * @param image device's new avatar
+//     */
+//    @PUT
+//    @Path("/devices/{id}/image")
+//    @Consumes(MediaType.MULTIPART_FORM_DATA)
+//    void putDeviceImage(@PathParam("id") UUID id, InputStream image);
 
 }

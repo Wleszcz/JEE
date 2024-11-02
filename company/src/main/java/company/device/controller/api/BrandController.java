@@ -33,8 +33,8 @@ public interface BrandController {
     void deleteBrand(@PathParam("id") UUID id);
 
     /**
-     * @param id      character's id
-     * @param request new character representation
+     * @param id      device's id
+     * @param request new device representation
      */
     @PUT
     @Path("/brands/{id}")
@@ -42,8 +42,8 @@ public interface BrandController {
     void putBrand(@PathParam("id") UUID id, PutBrandRequest request);
 
     /**
-     * @param id      character's id
-     * @param request character update representation
+     * @param id      device's id
+     * @param request device update representation
      */
     @PATCH
     @Path("/brands/{id}")
