@@ -127,6 +127,15 @@ public class DataStore {
         }
     }
 
+    public synchronized void updateBrand(Brand value) throws IllegalArgumentException {
+        Brand entity = cloningUtility.clone(value);
+        if (brands.removeIf(brand -> brand.getId().equals(value.getId()))) {
+            brands.add(entity);
+        } else {
+            throw new IllegalArgumentException("The brand with id \"%s\" does not exist".formatted(value.getId()));
+        }
+    }
+
     /**
      * Deletes existing device.
      *

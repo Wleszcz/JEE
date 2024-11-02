@@ -135,13 +135,21 @@ Content-Type: application/json
 
 # Delete device.
 
-DELETE http://localhost:9080/company/api/devices/525d3e7b-bb1f-4c13-bf17-926d1a12e4c0
+DELETE http://localhost:9080/company/api/devices/8c2ea220-c28c-4e2e-97b3-61d32496cc13
 
 ###
 
 # Get all brands.
 
 GET http://localhost:9080/company/api/brands
+
+
+###
+
+# Get brand
+
+GET http://localhost:9080/company/api/brands/419cbc5b-e7c7-459b-96e4-7b49bd8add19
+
 
 ###
 
@@ -154,6 +162,32 @@ GET http://localhost:9080/company/api/brands/f5875513-bf7b-4ae1-b8a5-5b70a1b90e7
 # Get all brand devices. Not existing.
 
 GET http://localhost:9080/company/api/brands/d8b50a43-ed45-4441-9bcb-5db7782b47f6/devices
+
+
+###
+PUT http://localhost:9080/company/api/brands/419cbc5b-e7c7-459b-96e4-7b49bd8add19
+Content-Type: application/json
+
+{
+  "name": "nowa Marka",
+  "dateOfEstablishment": "1919-02-03"
+}
+
+###
+PATCH http://localhost:9080/company/api/brands/419cbc5b-e7c7-459b-96e4-7b49bd8add19
+Content-Type: application/json
+
+{
+  "dateOfEstablishment": "1920-02-03"
+}
+
+###
+
+# Delete brand.
+
+DELETE http://localhost:9080/company/api/brands/419cbc5b-e7c7-459b-96e4-7b49bd8add19
+
+###
 
 ###
 

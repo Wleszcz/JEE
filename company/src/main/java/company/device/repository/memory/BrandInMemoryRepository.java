@@ -56,7 +56,7 @@ public class BrandInMemoryRepository implements BrandRepository {
 
     @Override
     public void update(Brand entity) {
-        throw new UnsupportedOperationException("Operation not implemented.");
+        store.updateBrand(entity);
     }
 
 }

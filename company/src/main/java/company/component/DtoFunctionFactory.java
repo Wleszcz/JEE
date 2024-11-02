@@ -47,7 +47,7 @@ public class DtoFunctionFactory {
      *
      * @return BrandToResponseFunction instance
      */
-    public BrandToResponseFunction BrandToResponse() {
+    public BrandToResponseFunction brandToResponse() {
         return new BrandToResponseFunction();
     }
 
@@ -56,7 +56,7 @@ public class DtoFunctionFactory {
      *
      * @return BrandsToResponseFunction instance
      */
-    public BrandsToResponseFunction BrandsToResponse() {
+    public BrandsToResponseFunction brandsToResponse() {
         return new BrandsToResponseFunction();
     }
 
@@ -76,6 +76,20 @@ public class DtoFunctionFactory {
      */
     public UpdateDeviceWithRequestFunction updateDevice() {
         return new UpdateDeviceWithRequestFunction();
+    }
+
+
+    public RequestToBrandFunction requestToBrand() {
+        return new RequestToBrandFunction();
+    }
+
+    /**
+     * Returns a function to update a {@link Device}.
+     *
+     * @return UpdateDeviceFunction instance
+     */
+    public UpdateBrandWithRequestFunction updateBrand() {
+        return new UpdateBrandWithRequestFunction();
     }
 
     /**

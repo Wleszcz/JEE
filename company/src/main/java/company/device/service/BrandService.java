@@ -64,4 +64,8 @@ public class BrandService {
     public void delete(UUID id) {
         repository.delete(repository.find(id).orElseThrow());
     }
+
+    public void update(Brand Brand) {
+        repository.update(Brand);
+    }
 }
