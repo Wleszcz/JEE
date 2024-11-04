@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/WEB-INF/template/main.xhtml">
+
+    <ui:define name="content">
+        <article class="text--justified">
+            <header><h2>Login</h2></header>
+            <section>
+                <h:form styleClass="container"  onreset="onReset()">
+                    <div class="row">
+                        <div class="col-4 p-2">
+                            <div class="form-outline">
+                                <h:inputText id="username" name="j_username" type="text" class="form-control" value="#{userLogin.login}"/>
+                                <h:outputLabel for="username" styleClass="form-label" value="Name:"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4 p-2">
+                            <div class="form-outline">
+                                <h:inputSecret id="password" name="j_password" styleClass="form-control" value="#{userLogin.password}"/>
+                                <h:outputLabel for="password" class="form-label" value="Password:"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-2 p-2 text-center">
+                            <h:commandButton styleClass="btn btn-primary" type="submit" value="Login" action="#{userLogin.loginAction()}"/>
+                        </div>
+                        <div class="col-2 p-2 text-center">
+                            <h:commandButton styleClass="btn btn-secondary" type="reset" value="Reset"/>
+                        </div>
+                    </div>
+                </h:form>
+            </section>
+        </article>
+    </ui:define>
+
+</ui:composition>

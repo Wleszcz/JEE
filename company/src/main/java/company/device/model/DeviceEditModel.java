@@ -37,4 +37,10 @@ public class DeviceEditModel {
      */
     private DeviceType deviceType;
 
+
+    /**
+     * Character's owner.
+     */
+    private UserModel user;
+
 }

@@ -59,6 +59,21 @@ Content-Type: application/json
 ### -----------------------------------------------------------------------
 
 
+# Get all characters. No credentials.
+
+// @no-cookie-jar
+GET http://localhost:9080/simple-rpg/api/characters
+
+###
+
+# Get all characters. Wrong credentials.
+
+// @no-cookie-jar
+GET http://localhost:9080/simple-rpg/api/characters
+Authorization: Basic a2V2aW46d3JvbmdwYXNzd29yZA==
+
+###
+
 
 
 

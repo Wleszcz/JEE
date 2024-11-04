@@ -3,6 +3,7 @@ package company.device.view;
 import company.device.entity.DeviceType;
 import company.device.model.UserModel;
 import company.user.service.UserService;
+import jakarta.ejb.EJB;
 import jakarta.enterprise.context.Conversation;
 import jakarta.enterprise.context.ConversationScoped;
 import jakarta.inject.Inject;
@@ -34,12 +35,12 @@ public class DeviceCreate implements Serializable {
     /**
      * Service for managing devices.
      */
-    private final DeviceService deviceService;
+    private DeviceService deviceService;
 
     /**
      * Service for managing brands.
      */
-    private final BrandService brandService;
+    private BrandService brandService;
 
     /**
      * Factory producing functions for conversion between models and entities.
@@ -75,17 +76,30 @@ public class DeviceCreate implements Serializable {
      */
     @Inject
     public DeviceCreate(
-            DeviceService deviceService,
-            BrandService brandService,
             ModelFunctionFactory factory,
             Conversation conversation,
             UserService userService) {
-        this.deviceService = deviceService;
         this.factory = factory;
-        this.brandService = brandService;
         this.conversation = conversation;
         this.userService = userService;
     }
+
+    /**
+     * @param deviceService service for managing characters
+     */
+    @EJB
+    public void setDeviceService( DeviceService deviceService) {
+        this.deviceService = deviceService;
+    }
+
+    /**
+     * @param brandService service for managing professions
+     */
+    @EJB
+    public void setBrandService(BrandService brandService) {
+        this.brandService = brandService;
+    }
+
 
     /**
      * In order to prevent calling service on different steps of JSF request lifecycle, model property is cached within
@@ -161,7 +175,7 @@ public class DeviceCreate implements Serializable {
      * @return devices list navigation case
      */
     public String saveAction() {
-        deviceService.create(factory.modelToDevice().apply(device));
+        deviceService.createForCallerPrincipal(factory.modelToDevice().apply(device));
         conversation.end();
         return "/device/device_list.xhtml?faces-redirect=true";
     }

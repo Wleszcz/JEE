@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:f="jakarta.faces.core"
+                template="/WEB-INF/template/main.xhtml">
+
+    <ui:define name="content">
+        <article class="text--justified">
+            <header><h2>Users</h2></header>
+
+            <h:dataTable value="#{userList.users.users}" var="user"
+                         styleClass="table align-middle mb-0 bg-white" headerClass="bg-light">
+                <h:column>
+                    <f:facet name="header">Login</f:facet>
+                    <h:outputText value="#{user.login}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Delete</f:facet>
+                    <h:form>
+                        <h:commandButton styleClass="btn" value="Delete"
+                                         action="#{userList.deleteAction(user)}"/>
+                    </h:form>
+                </h:column>
+            </h:dataTable>
+        </article>
+    </ui:define>
+
+</ui:composition>

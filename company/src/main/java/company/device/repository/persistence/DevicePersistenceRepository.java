@@ -1,9 +1,10 @@
-package company.repository.persistence;
+package company.device.repository.persistence;
 
 import company.device.entity.Brand;
 import company.device.entity.Device;
 import company.device.repository.api.DeviceRepository;
 import company.user.entity.User;
+import jakarta.enterprise.context.Dependent;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
@@ -19,7 +20,7 @@ import java.util.UUID;
  * Because services are CDI application scoped beans (technically singletons) then repositories must be thread scoped in
  * order to ensure single entity manager for single thread.
  */
-@RequestScoped
+@Dependent
 public class DevicePersistenceRepository implements DeviceRepository {
 
     /**

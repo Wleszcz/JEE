@@ -1,4 +1,4 @@
 /**
  * Controllers interfaces. Can be used to provide different implementations of controller functionality.
  */
-package company.user.controller;
+package company.user.controller.rest;

@@ -1,4 +1,4 @@
-package company.configuration.observer;
+package company.configuration.singleton;
 
 import company.device.entity.Brand;
 import company.device.entity.Device;
@@ -8,13 +8,15 @@ import company.device.service.DeviceService;
 import company.user.entity.User;
 import company.user.entity.UserRoles;
 import company.user.service.UserService;
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.enterprise.context.Initialized;
-import jakarta.enterprise.context.control.RequestContextController;
-import jakarta.enterprise.event.Observes;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.security.DeclareRoles;
+import jakarta.annotation.security.RunAs;
+import jakarta.ejb.*;
 import jakarta.inject.Inject;
+import jakarta.security.enterprise.SecurityContext;
+import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
-
+import lombok.extern.java.Log;
 
 import java.io.InputStream;
 import java.time.LocalDate;
@@ -27,51 +29,53 @@ import java.util.UUID;
  * database with default content. When using persistence storage application instance should be initialized only during
  * first run in order to init database with starting data. Good place to create first default admin user.
  */
-@ApplicationScoped
+@Singleton
+@Startup
+@TransactionAttribute(value = TransactionAttributeType.NOT_SUPPORTED)
+@NoArgsConstructor
+@DependsOn("InitializeAdminService")
+@DeclareRoles({UserRoles.ADMIN, UserRoles.USER})
+@RunAs(UserRoles.ADMIN)
+@Log
 public class InitializedData {
 
     /**
      * Device service.
      */
-    private final DeviceService deviceService;
+    private DeviceService deviceService;
 
     /**
      * User service.
      */
-    private final UserService userService;
+    private UserService userService;
 
     /**
      * Brand service.
      */
-    private final BrandService brandService;
+    private BrandService brandService;
 
-    /**
-     * The CDI container provides a built-in instance of {@link RequestContextController} that is dependent scoped for
-     * the purposes of activating and deactivating.
-     */
-    private final RequestContextController requestContextController;
-
-    /**
-     * @param deviceService         device service
-     * @param userService              user service
-     * @param brandService        brand service
-     * @param requestContextController CDI request context controller
-     */
     @Inject
-    public InitializedData(
-            DeviceService deviceService,
-            UserService userService,
-            BrandService brandService,
-            RequestContextController requestContextController
-    ) {
+    private SecurityContext securityContext;
+
+    @EJB
+    public void setDeviceService(DeviceService deviceService) {
         this.deviceService = deviceService;
-        this.userService = userService;
-        this.brandService = brandService;
-        this.requestContextController = requestContextController;
     }
 
-    public void contextInitialized(@Observes @Initialized(ApplicationScoped.class) Object init) {
-        init();
+    /**
+     * @param userService user service
+     */
+    @EJB
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
+    /**
+     * @param brandService profession service
+     */
+    @EJB
+    public void setBrandService(BrandService brandService) {
+        this.brandService = brandService;
     }
 
     /**
@@ -79,9 +83,8 @@ public class InitializedData {
      * created only once.
      */
     @SneakyThrows
+    @PostConstruct
     private void init() {
-        requestContextController.activate();// start request scope in order to inject request scoped repositories
-
         if (userService.find("admin").isEmpty()) {
             User admin = User.builder()
                     .id(UUID.fromString("c4804e0f-769e-4ab9-9ebe-0578fb4f00a6"))
@@ -196,7 +199,6 @@ public class InitializedData {
             deviceService.create(flat10000);
             deviceService.create(tablet);
         }
-        requestContextController.deactivate();
     }
 
     /**

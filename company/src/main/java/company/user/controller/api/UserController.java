@@ -4,6 +4,8 @@ import company.user.dto.GetUserResponse;
 import company.user.dto.GetUsersResponse;
 import company.user.dto.PatchUserRequest;
 import company.user.dto.PutUserRequest;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.MediaType;
 
 import java.io.InputStream;
 import java.util.UUID;
@@ -11,29 +13,42 @@ import java.util.UUID;
 /**
  * Controller for managing collections Users' representations.
  */
+@Path("")
 public interface UserController {
 
     /**
      * @return all Users representation
      */
+    @GET
+    @Path("/users")
+    @Produces(MediaType.APPLICATION_JSON)
     GetUsersResponse getUsers();
 
     /**
      * @return single User
      */
-    GetUserResponse getUser(UUID id);
+    @GET
+    @Path("/users/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    GetUserResponse getUser(@PathParam("id") UUID id);
 
     /**
      * @param id      user's id
      * @param request new user representation
      */
-    void putUser(UUID id, PutUserRequest request);
+    @PUT
+    @Path("/users/{id}")
+    @Consumes({MediaType.APPLICATION_JSON})
+    void putUser(@PathParam("id")UUID id, PutUserRequest request);
 
     /**
      * @param id      user's id
      * @param request user update representation
      */
-    void patchUser(UUID id, PatchUserRequest request);
+    @PATCH
+    @Path("/users/{id}")
+    @Consumes({MediaType.APPLICATION_JSON})
+    void patchUser(@PathParam("id") UUID id, PatchUserRequest request);
 
 
     /**

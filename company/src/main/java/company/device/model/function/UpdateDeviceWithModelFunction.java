@@ -1,5 +1,6 @@
 package company.device.model.function;
 
+import company.user.entity.User;
 import lombok.SneakyThrows;
 import company.device.entity.Device;
 import company.device.model.DeviceEditModel;
@@ -15,14 +16,17 @@ public class UpdateDeviceWithModelFunction implements BiFunction<Device, DeviceE
 
     @Override
     @SneakyThrows
-    public Device apply(Device entity, DeviceEditModel request) {
+    public Device apply(Device entity, DeviceEditModel model) {
         return Device.builder()
                 .id(entity.getId())
-                .name(request.getName())
-                .mass(request.getMass())
-                .price(request.getPrice())
+                .name(model.getName())
+                .mass(model.getMass())
+                .price(model.getPrice())
                 .deviceType(entity.getDeviceType())
                 .brand(entity.getBrand())
+                .user(User.builder()
+                        .id(model.getUser().getId())
+                        .build())
                 .build();
     }
 

@@ -42,7 +42,7 @@ public class ModelFunctionFactory {
      * @return new instance
      */
     public DeviceToEditModelFunction deviceToEditModel() {
-        return new DeviceToEditModelFunction();
+        return new DeviceToEditModelFunction(userToModel());
     }
 
     /**
@@ -84,5 +84,6 @@ public class ModelFunctionFactory {
     public UpdateDeviceWithModelFunction updateDevice() {
         return new UpdateDeviceWithModelFunction();
     }
+
 
 }

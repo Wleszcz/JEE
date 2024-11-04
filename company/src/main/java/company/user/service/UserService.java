@@ -3,9 +3,9 @@ package company.user.service;
 import company.crypto.component.Pbkdf2PasswordHash;
 import company.user.entity.User;
 import company.user.repository.api.UserRepository;
-import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.ejb.LocalBean;
+import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
-import jakarta.transaction.Transactional;
 import lombok.NoArgsConstructor;
 
 import java.io.IOException;
@@ -17,8 +17,9 @@ import java.util.UUID;
 /**
  * Service layer for all business actions regarding user entity.
  */
-@ApplicationScoped
 @NoArgsConstructor(force = true)
+@LocalBean
+@Stateless
 public class UserService {
 
     /**
@@ -46,7 +47,6 @@ public class UserService {
      * @param id user's id
      * @return container (can be empty) with user
      */
-    @Transactional
     public Optional<User> find(UUID id) {
         return repository.find(id);
     }
@@ -54,7 +54,6 @@ public class UserService {
     /**
      * @return container (can be empty) with users
      */
-    @Transactional
     public List<User> findAll() {
         return repository.findAll();
     }
@@ -75,7 +74,6 @@ public class UserService {
      *
      * @param user new user to be saved
      */
-    @Transactional
     public void create(User user) {
         user.setPassword(passwordHash.generate(user.getPassword().toCharArray()));
         repository.create(user);
@@ -91,12 +89,12 @@ public class UserService {
                 .map(user -> passwordHash.verify(password.toCharArray(), user.getPassword()))
                 .orElse(false);
     }
+
     /**
      * Updates existing device.
      *
      * @param user device to be updated
      */
-    @Transactional
     public void update(User user) {
         repository.update(user);
     }
@@ -106,7 +104,6 @@ public class UserService {
      *
      * @param id existing device's id to be deleted
      */
-    @Transactional
     public void delete(UUID id) {
         repository.delete(repository.find(id).orElseThrow());
     }
@@ -117,7 +114,6 @@ public class UserService {
      * @param id device's id
      * @param is input stream containing new image
      */
-    @Transactional
     public void updateImage(UUID id, InputStream is) {
         repository.find(id).ifPresent(user -> {
             try {
@@ -134,7 +130,6 @@ public class UserService {
      *
      * @param id user's id
      */
-    @Transactional
     public Optional<byte[]> getImage(UUID id) {
         return Optional.ofNullable(find(id).get().getImage());
     }
@@ -144,7 +139,6 @@ public class UserService {
      *
      * @param id device's id
      */
-    @Transactional
     public void deleteUserImage(UUID id) {
         repository.find(id).ifPresent(user -> {
             try {
@@ -155,6 +149,4 @@ public class UserService {
             }
         });
     }
-
-
 }

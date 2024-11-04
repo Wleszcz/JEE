@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/WEB-INF/template/main.xhtml">
+
+    <ui:define name="content">
+        <article class="text--justified">
+            <header><h2>Login</h2></header>
+            <section>
+                <form class="container" action="j_security_check" onreset="onReset()" method="post">
+                    <div class="row">
+                        <div class="col-4 p-2">
+                            <div class="form-outline">
+                                <input id="username" name="j_username" type="text" class="form-control"/>
+                                <label for="username" class="form-label">Name:</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4 p-2">
+                            <div class="form-outline">
+                                <input id="password" name="j_password" type="password" class="form-control"/>
+                                <label for="password" class="form-label">Password:</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-2 p-2 text-center">
+                            <button class="btn btn-primary" type="submit">Login</button>
+                        </div>
+                        <div class="col-2 p-2 text-center">
+                            <button class="btn btn-secondary" type="reset">Reset</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </article>
+    </ui:define>
+
+</ui:composition>

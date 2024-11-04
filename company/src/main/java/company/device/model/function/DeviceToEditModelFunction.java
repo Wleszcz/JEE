@@ -11,6 +11,17 @@ import java.util.function.Function;
  */
 public class DeviceToEditModelFunction implements Function<Device, DeviceEditModel>, Serializable {
 
+    /**
+     */
+    private final UserToModelFunction userToModelFunction;
+
+    /**
+     */
+    public DeviceToEditModelFunction(UserToModelFunction userToModelFunction) {
+        this.userToModelFunction = userToModelFunction;
+    }
+
+
     @Override
     public DeviceEditModel apply(Device entity) {
         return DeviceEditModel.builder()
@@ -18,6 +29,7 @@ public class DeviceToEditModelFunction implements Function<Device, DeviceEditMod
                 .mass(entity.getMass())
                 .price(entity.getPrice())
                 .deviceType(entity.getDeviceType())
+                .user(userToModelFunction.apply(entity.getUser()))
                 .build();
     }
 

@@ -22,6 +22,7 @@ public class UpdateDeviceWithRequestFunction implements BiFunction<Device, Patch
                 .deviceType(request.getDeviceType())
                 .mass(entity.getMass())
                 .brand(entity.getBrand())
+                .user(entity.getUser())
                 .build();
     }
 

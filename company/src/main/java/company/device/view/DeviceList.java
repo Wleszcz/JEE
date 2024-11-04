@@ -1,6 +1,7 @@
 package company.device.view;
 
 import company.component.ModelFunctionFactory;
+import jakarta.ejb.EJB;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
@@ -17,7 +18,7 @@ public class DeviceList {
     /**
      * Service for managing devices.
      */
-    private final DeviceService service;
+    private DeviceService service;
 
     /**
      * Devices list exposed to the view.
@@ -34,9 +35,16 @@ public class DeviceList {
      * @param factory factory producing functions for conversion between models and entities
      */
     @Inject
-    public DeviceList(DeviceService service, ModelFunctionFactory factory) {
-        this.service = service;
+    public DeviceList(ModelFunctionFactory factory) {
         this.factory = factory;
+    }
+
+    /**
+     * @param service service for managing characters
+     */
+    @EJB
+    public void setService(DeviceService service) {
+        this.service = service;
     }
 
     /**
@@ -47,7 +55,7 @@ public class DeviceList {
      */
     public DevicesModel getDevices() {
         if (devices == null) {
-            devices = factory.devicesToModel().apply(service.findAll());
+            devices = factory.devicesToModel().apply(service.findAllForCallerPrincipal());
         }
         return devices;
     }

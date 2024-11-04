@@ -1,6 +1,8 @@
 package company.device.controller.rest;
 
 import company.component.DtoFunctionFactory;
+import company.user.entity.UserRoles;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.ws.rs.BadRequestException;
@@ -27,12 +29,13 @@ import java.util.UUID;
  * Simple framework agnostic implementation of controller.
  */
 @Path("")//Annotation required by the specification.
+@RolesAllowed(UserRoles.USER)
 public class DeviceRestController implements DeviceController {
 
     /**
      * Device service.
      */
-    private final DeviceService service;
+    private DeviceService service;
 
     /**
      * Factory producing functions for conversion between DTO and entities.

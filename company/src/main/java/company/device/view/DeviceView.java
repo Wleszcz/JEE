@@ -1,5 +1,6 @@
 package company.device.view;
 
+import jakarta.ejb.EJB;
 import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
@@ -27,7 +28,7 @@ public class DeviceView implements Serializable {
     /**
      * Service for managing devices.
      */
-    private final DeviceService service;
+    private DeviceService service;
 
     /**
      * Factory producing functions for conversion between models and entities.
@@ -49,14 +50,21 @@ public class DeviceView implements Serializable {
 
 
     /**
-     * @param service service for managing devices
      * @param factory factory producing functions for conversion between models and entities
      */
     @Inject
-    public DeviceView(DeviceService service, ModelFunctionFactory factory) {
-        this.service = service;
+    public DeviceView(ModelFunctionFactory factory) {
         this.factory = factory;
     }
+
+    /**
+     * @param service service for managing characters
+     */
+    @EJB
+    public void setService(DeviceService service) {
+        this.service = service;
+    }
+
 
     /**
      * In order to prevent calling service on different steps of JSF request lifecycle, model property is cached within

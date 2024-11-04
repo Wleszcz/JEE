@@ -1,5 +1,6 @@
 package company.device.view;
 
+import jakarta.ejb.EJB;
 import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
@@ -27,7 +28,7 @@ public class DeviceEdit implements Serializable {
     /**
      * Service for managing devices.
      */
-    private final DeviceService service;
+    private DeviceService service;
 
     /**
      * Factory producing functions for conversion between models and entities.
@@ -49,21 +50,27 @@ public class DeviceEdit implements Serializable {
 
 
     /**
-     * @param service service for managing devices
      * @param factory factory producing functions for conversion between models and entities
      */
     @Inject
-    public DeviceEdit(DeviceService service, ModelFunctionFactory factory) {
-        this.service = service;
+    public DeviceEdit(ModelFunctionFactory factory) {
         this.factory = factory;
     }
+    /**
+     * @param service service for managing characters
+     */
+    @EJB
+    public void setService(DeviceService service) {
+        this.service = service;
+    }
+
 
     /**
      * In order to prevent calling service on different steps of JSF request lifecycle, model property is cached within
      * field and initialized during init of the view.
      */
     public void init() throws IOException {
-        Optional<Device> device = service.find(id);
+        Optional<Device> device = service.findForCallerPrincipal(id);
         if (device.isPresent()) {
             this.device = factory.deviceToEditModel().apply(device.get());
         } else {

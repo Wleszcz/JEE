@@ -46,6 +46,9 @@ public class PutDeviceRequest {
      */
     private UUID brand;
 
+
+    private UUID user;
+
     /**
      * Device's type.
      */

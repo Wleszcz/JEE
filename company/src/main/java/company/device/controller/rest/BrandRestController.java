@@ -4,6 +4,9 @@ import company.component.DtoFunctionFactory;
 import company.device.controller.api.DeviceController;
 import company.device.dto.PatchBrandRequest;
 import company.device.dto.PutBrandRequest;
+import company.user.entity.UserRoles;
+import jakarta.annotation.security.RolesAllowed;
+import jakarta.ejb.EJB;
 import jakarta.inject.Inject;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.ws.rs.BadRequestException;
@@ -30,7 +33,7 @@ public class BrandRestController implements BrandController {
     /**
      * Brand service.
      */
-    private final BrandService service;
+    private BrandService service;
 
     /**
      * Factory producing functions for conversion between DTO and entities.
@@ -58,18 +61,28 @@ public class BrandRestController implements BrandController {
      * @param factory factory producing functions for conversion between DTO and entities
      */
     @Inject
-    public BrandRestController(BrandService service, DtoFunctionFactory factory, UriInfo uriInfo) {
-        this.service = service;
+    public BrandRestController(DtoFunctionFactory factory, UriInfo uriInfo) {
         this.factory = factory;
         this.uriInfo = uriInfo;
     }
 
+    /**
+     * @param service profession service
+     */
+    @EJB
+    public void setService(BrandService service) {
+        this.service = service;
+    }
+
+
     @Override
+    @RolesAllowed(UserRoles.USER)
     public GetBrandsResponse getBrands() {
         return factory.brandsToResponse().apply(service.findAll());
     }
 
     @Override
+    @RolesAllowed(UserRoles.USER)
     public GetBrandResponse getBrand(UUID id) {
         return service.find(id)
                 .map(factory.brandToResponse())
@@ -77,6 +90,7 @@ public class BrandRestController implements BrandController {
     }
 
     @Override
+    @RolesAllowed(UserRoles.ADMIN)//Secure implementation, not the interface
     public void deleteBrand(UUID id) {
         service.find(id).ifPresentOrElse(
                 entity -> service.delete(id),
@@ -87,6 +101,7 @@ public class BrandRestController implements BrandController {
     }
 
     @Override
+    @RolesAllowed(UserRoles.ADMIN)//Secure implementation, not the interface
     public void putBrand(UUID id, PutBrandRequest request) {
         try {
             service.create(factory.requestToBrand().apply(id, request));
@@ -101,6 +116,7 @@ public class BrandRestController implements BrandController {
     }
 
     @Override
+    @RolesAllowed(UserRoles.ADMIN)//Secure implementation, not the interface
     public void patchBrand(UUID id, PatchBrandRequest request) {
         service.find(id).ifPresentOrElse(
                 entity -> service.update(factory.updateBrand().apply(entity, request)),
