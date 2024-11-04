@@ -1,11 +1,11 @@
 package company.user.view;
 
-import company.component.ModelFunctionFactory;
-import company.device.model.UsersModel;
-import company.user.service.UserService;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import company.component.ModelFunctionFactory;
+import company.user.model.UsersModel;
+import company.user.service.UserService;
 
 /**
  * View bean for rendering list of users.
@@ -20,7 +20,7 @@ public class UserList {
     private final UserService service;
 
     /**
-     * users list exposed to the view.
+     * Characters list exposed to the view.
      */
     private UsersModel users;
 

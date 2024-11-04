@@ -1,6 +1,7 @@
 package company.device.model;
 
 import company.device.entity.DeviceType;
+import company.user.model.UserModel;
 import jakarta.servlet.http.Part;
 import lombok.*;
 

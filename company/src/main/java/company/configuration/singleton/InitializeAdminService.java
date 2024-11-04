@@ -59,7 +59,6 @@ public class InitializeAdminService {
     @PostConstruct
     @SneakyThrows
     private void init() {
-        System.out.println("CUUJ");
         if (userRepository.findByLogin("admin-service").isEmpty()) {
 
             User admin = User.builder()
@@ -74,6 +73,8 @@ public class InitializeAdminService {
                     .build();
 
             userRepository.create(admin);
+            System.out.println(userRepository.findByLogin("admin-service").get().getName());
+
         }
     }
 

@@ -40,23 +40,23 @@
                             </ui:repeat>
                         </fieldset>
                     </div>
-                    <div class="col-4 p-2">
-                        <fieldset>
-                            <legend class="form-label fs-6">Brand:</legend>
-                            <!-- Instead of ui:repeat the h:selectOneRadio with f:selectItems can be used but then
-                            Faces renders table or list and custom styling with CSS libraties can be troublesome. -->
-                            <ui:repeat value="#{deviceCreate.users}" var="user">
-                                <div class="form-check">
-                                    <h:selectOneRadio id="radiod" group="usero"
-                                                      value="#{deviceCreate.device.user}"
-                                                      styleClass="form-check-input"
-                                                      enabledClass="form-check-label">
-                                        <f:selectItem itemValue="#{user.id}" itemLabel="#{user.name}"/>
-                                    </h:selectOneRadio>
-                                </div>
-                            </ui:repeat>
-                        </fieldset>
-                    </div>
+<!--                    <div class="col-4 p-2">-->
+<!--                        <fieldset>-->
+<!--                            <legend class="form-label fs-6">Brand:</legend>-->
+<!--                            &lt;!&ndash; Instead of ui:repeat the h:selectOneRadio with f:selectItems can be used but then-->
+<!--                            Faces renders table or list and custom styling with CSS libraties can be troublesome. &ndash;&gt;-->
+<!--                            <ui:repeat value="#{deviceCreate.users}" var="user">-->
+<!--                                <div class="form-check">-->
+<!--                                    <h:selectOneRadio id="radiod" group="usero"-->
+<!--                                                      value="#{deviceCreate.device.user}"-->
+<!--                                                      styleClass="form-check-input"-->
+<!--                                                      enabledClass="form-check-label">-->
+<!--                                        <f:selectItem itemValue="#{user.id}" itemLabel="#{user.name}"/>-->
+<!--                                    </h:selectOneRadio>-->
+<!--                                </div>-->
+<!--                            </ui:repeat>-->
+<!--                        </fieldset>-->
+<!--                    </div>-->
                     <div class="col-4 p-2">
                         <fieldset>
                             <legend class="form-label fs-6">Type:</legend>

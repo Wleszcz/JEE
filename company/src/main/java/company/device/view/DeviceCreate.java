@@ -1,7 +1,6 @@
 package company.device.view;
 
 import company.device.entity.DeviceType;
-import company.device.model.UserModel;
 import company.user.service.UserService;
 import jakarta.ejb.EJB;
 import jakarta.enterprise.context.Conversation;
@@ -46,7 +45,7 @@ public class DeviceCreate implements Serializable {
      * Factory producing functions for conversion between models and entities.
      */
     private final ModelFunctionFactory factory;
-    private final UserService userService;
+    private UserService userService;
 
     /**
      * Device exposed to the view.
@@ -60,8 +59,8 @@ public class DeviceCreate implements Serializable {
     @Getter
     private List<BrandModel> brands;
 
-    @Getter
-    private List<UserModel> users;
+//    @Getter
+//    private List<UserModel> users;
 
     /**
      * Injected conversation.
@@ -69,19 +68,15 @@ public class DeviceCreate implements Serializable {
     private final Conversation conversation;
 
     /**
-     * @param deviceService  service for managing devices
-     * @param brandService service for managing brands
      * @param factory           factory producing functions for conversion between models and entities
      * @param conversation      injected conversation
      */
     @Inject
     public DeviceCreate(
             ModelFunctionFactory factory,
-            Conversation conversation,
-            UserService userService) {
+            Conversation conversation) {
         this.factory = factory;
         this.conversation = conversation;
-        this.userService = userService;
     }
 
     /**
@@ -90,6 +85,15 @@ public class DeviceCreate implements Serializable {
     @EJB
     public void setDeviceService( DeviceService deviceService) {
         this.deviceService = deviceService;
+    }
+
+
+    /**
+     * @param userService service for managing characters
+     */
+    @EJB
+    public void setUserService( UserService userService) {
+        this.userService = userService;
     }
 
     /**
@@ -113,9 +117,9 @@ public class DeviceCreate implements Serializable {
                     .collect(Collectors.toList());
             System.out.println(brands);
 
-            users = userService.findAll().stream()
-                    .map(factory.userToModel())
-                    .collect(Collectors.toList());
+//            users = userService.findAll().stream()
+//                    .map(factory.userToModel())
+//                    .collect(Collectors.toList());
             device = DeviceCreateModel.builder()
                     .id(UUID.randomUUID())
                     .build();
@@ -193,5 +197,9 @@ public class DeviceCreate implements Serializable {
 
     public List<DeviceType> getDeviceTypeList() {
         return List.of(DeviceType.TV, DeviceType.FRIDGE, DeviceType.PHONE, DeviceType.TABLET);
+    }
+
+    public String getDeviceBrandName(){
+        return this.brands.stream().filter(b -> b.getId().equals(device.getBrand())).findFirst().orElseThrow().getName();
     }
 }

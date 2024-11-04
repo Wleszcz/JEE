@@ -2,14 +2,12 @@ package company.user.dto.function;
 
 import company.user.dto.GetUserResponse;
 import company.user.entity.User;
-import jakarta.enterprise.context.Dependent;
 
 import java.util.function.Function;
 
 /**
  * Converts {@link User} to {@link GetUserResponse}.
  */
-@Dependent
 public class UserToResponseFunction implements Function<User, GetUserResponse> {
 
     @Override
@@ -23,4 +21,5 @@ public class UserToResponseFunction implements Function<User, GetUserResponse> {
                 .email(user.getEmail())
                 .build();
     }
+
 }

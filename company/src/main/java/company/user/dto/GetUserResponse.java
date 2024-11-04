@@ -1,13 +1,6 @@
 package company.user.dto;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -26,7 +19,7 @@ import java.util.UUID;
 public class GetUserResponse {
 
     /**
-     * Unique id identifying device.
+     * Unique id identifying character.
      */
     private UUID id;
 

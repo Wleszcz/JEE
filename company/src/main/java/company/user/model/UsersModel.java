@@ -1,12 +1,13 @@
-package company.device.model;
+package company.user.model;
 
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
 /**
- * JSF view model class in order to not use entity classes. Represents single brand to be displayed or selected.
+ * JSF view model class in order to not use entity classes. Represents list of users to be displayed.
  */
 @Getter
 @Setter
@@ -15,10 +16,10 @@ import java.util.UUID;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @ToString
 @EqualsAndHashCode
-public class UsersModel {
+public class UsersModel implements Serializable {
 
     /**
-     * Represents single device in list.
+     * Represents single user in list.
      */
     @Getter
     @Setter
@@ -30,19 +31,21 @@ public class UsersModel {
     public static class User {
 
         /**
-         * Unique id identifying brand.
+         * Unique id identifying character.
          */
         private UUID id;
 
-        /**
-         * Name of the device.
-         */
         private String name;
+
+        /**
+         * Name of the character.
+         */
+        private String login;
 
     }
 
     /**
-     * Name of the selected devices.
+     * List of users.
      */
     @Singular
     private List<User> users;

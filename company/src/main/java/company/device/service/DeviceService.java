@@ -130,7 +130,7 @@ public class DeviceService {
      *
      * @param device new device
      */
-    @RolesAllowed(UserRoles.ADMIN)
+    @RolesAllowed(UserRoles.USER)
     public void create(Device device) {
         if (deviceRepository.find(device.getId()).isPresent()) {
             throw new IllegalArgumentException("Character already exists.");

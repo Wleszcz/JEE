@@ -94,7 +94,6 @@ public class InitializedData {
                     .birthDate(LocalDate.of(1990, 10, 21))
                     .email("admin@simplerpg.example.com")
                     .password("adminadmin")
-                    .image(getResourceAsByteArray("../avatar/tv.png"))//package relative path
                     .roles(List.of(UserRoles.ADMIN, UserRoles.USER))
                     .build();
 
@@ -105,7 +104,6 @@ public class InitializedData {
                     .surname("Pear")
                     .birthDate(LocalDate.of(2001, 1, 16))
                     .email("kevin@example.com")
-                    .image(getResourceAsByteArray("../avatar/lodufka.png"))//package relative path
                     .password("useruser")
                     .roles(List.of(UserRoles.USER))
                     .build();
@@ -117,7 +115,6 @@ public class InitializedData {
                     .surname("Grape")
                     .birthDate(LocalDate.of(2002, 3, 19))
                     .email("alice@example.com")
-                    .image(getResourceAsByteArray("../avatar/ph.png"))//package relative path
                     .password("useruser")
                     .roles(List.of(UserRoles.USER))
                     .build();

@@ -1,7 +1,5 @@
-package company.device.model.function;
+package company.user.model.function;
 
-import company.device.entity.Brand;
-import company.device.model.BrandModel;
 import company.user.entity.User;
 import company.user.model.UserModel;
 
@@ -9,16 +7,15 @@ import java.io.Serializable;
 import java.util.function.Function;
 
 /**
- * Converts {@link Brand} to {@link BrandModel}.
  */
 public class UserToModelFunction implements Function<User, UserModel>, Serializable {
-
 
     @Override
     public UserModel apply(User entity) {
         return UserModel.builder()
                 .id(entity.getId())
-                .name(entity.getName())
+                .login(entity.getLogin())
                 .build();
     }
+
 }

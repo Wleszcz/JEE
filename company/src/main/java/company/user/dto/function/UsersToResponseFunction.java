@@ -2,7 +2,6 @@ package company.user.dto.function;
 
 import company.user.dto.GetUsersResponse;
 import company.user.entity.User;
-import jakarta.enterprise.context.Dependent;
 
 import java.util.List;
 import java.util.function.Function;
@@ -10,7 +9,6 @@ import java.util.function.Function;
 /**
  * Converts {@link List<User>} to {@link GetUsersResponse}.
  */
-@Dependent
 public class UsersToResponseFunction implements Function<List<User>, GetUsersResponse> {
 
     @Override

@@ -13,7 +13,7 @@
         <feature>appSecurity-5.0</feature>
     </featureManager>
 
-    <application type="war" location="simple-rpg-1.0-SNAPSHOT.war">
+    <application type="war" location="company-1.0-SNAPSHOT.war">
         <application-bnd>
             <security-role name="admin">
                 <group name="admin" access-id="group:jdbc/CompanyDevices/admin"/>

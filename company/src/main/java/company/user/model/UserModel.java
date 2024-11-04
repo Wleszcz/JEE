@@ -1,12 +1,11 @@
-package company.device.model;
+package company.user.model;
 
 import lombok.*;
 
-import java.util.Date;
 import java.util.UUID;
 
 /**
- * JSF view model class in order to not use entity classes. Represents single brand to be displayed or selected.
+ * JSF view model class in order to not use entity classes. Represents single user to be displayed.
  */
 @Getter
 @Setter
@@ -17,14 +16,16 @@ import java.util.UUID;
 @EqualsAndHashCode
 public class UserModel {
 
+
     /**
-     * Brand's id.
+     * User's id.
      */
     private UUID id;
 
     /**
-     * Name of the brand.
+     * Name of the character.
      */
-    private String name;
+    private String login;
 
+    private String name;
 }

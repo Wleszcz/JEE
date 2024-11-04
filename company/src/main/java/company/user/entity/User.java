@@ -2,13 +2,7 @@ package company.user.entity;
 
 import company.device.entity.Device;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
@@ -67,18 +61,16 @@ public class User implements Serializable {
     /**
      * User's contact email.
      */
-
+    @Column(nullable = false, unique = true)
     private String email;
 
     /**
-     * List of user's devices.
+     * List of user's characters.
      */
     @ToString.Exclude//It's common to exclude lists from toString
     @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<Device> devices;
-
-
 
     /**
      * User's security roles.
@@ -88,12 +80,4 @@ public class User implements Serializable {
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles;
 
-    /**
-     * Devices Example image. Images in database are stored as blobs (binary large objects).
-     */
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
-    @Lob
-    @Basic(fetch = FetchType.EAGER)
-    private byte[] image;
 }

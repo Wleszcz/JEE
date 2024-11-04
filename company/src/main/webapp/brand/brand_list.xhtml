@@ -26,14 +26,14 @@
                     </h:link>
                 </h:column>
 
-                <h:column>
+                <h:column rendered="#{facesContext.externalContext.isUserInRole('admin')}">
                     <f:facet name="header">Edit</f:facet>
                     <h:link outcome="/brand/brand_edit.xhtml" value="Edit">
                         <f:param name="id" value="#{brand.id}"/>
                     </h:link>
                 </h:column>
 
-                <h:column>
+                <h:column rendered="#{facesContext.externalContext.isUserInRole('admin')}">
                     <f:facet name="header">Delete</f:facet>
                     <h:form>
                         <h:commandButton styleClass="btn" value="Delete"
@@ -43,7 +43,7 @@
 
                 <f:facet name="footer">
                     <h:button styleClass="btn" outcome="/brand/brand_create__basic.xhtml"
-                              value="Create new brand"/>
+                              value="Create new brand" rendered="#{facesContext.externalContext.isUserInRole('admin')}" />
                 </f:facet>
             </h:dataTable>
         </article>
