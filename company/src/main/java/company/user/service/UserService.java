@@ -1,5 +1,6 @@
 package company.user.service;
 
+import company.device.repository.api.DeviceRepository;
 import jakarta.annotation.security.PermitAll;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.ejb.LocalBean;
@@ -28,6 +29,8 @@ public class UserService {
      */
     private final UserRepository repository;
 
+    private final DeviceRepository deviceRepository;
+
     /**
      * Hash mechanism used for storing users' passwords.
      */
@@ -40,10 +43,12 @@ public class UserService {
     @Inject
     public UserService(
             UserRepository repository,
+            DeviceRepository deviceRepository,
             @SuppressWarnings("CdiInjectionPointsInspection") Pbkdf2PasswordHash passwordHash
     ) {
         this.repository = repository;
         this.passwordHash = passwordHash;
+        this.deviceRepository = deviceRepository;
     }
 
     /**
@@ -58,7 +63,7 @@ public class UserService {
      * @param id user's id
      * @return container (can be empty) with user
      */
-    @RolesAllowed(UserRoles.ADMIN)
+    @PermitAll
     public Optional<User> find(UUID id) {
         return repository.find(id);
     }
@@ -69,7 +74,7 @@ public class UserService {
      * @param login user's login
      * @return container (can be empty) with user
      */
-    @RolesAllowed(UserRoles.ADMIN)
+    @PermitAll
     public Optional<User> find(String login) {
         return repository.findByLogin(login);
     }
@@ -92,7 +97,9 @@ public class UserService {
      */
     @RolesAllowed(UserRoles.ADMIN)
     public void delete(UUID id) {
-        repository.delete(repository.find(id).orElseThrow());
+        User user = repository.find(id).orElse(null);
+        user.getDevices().stream().forEach(device -> deviceRepository.delete(device));
+        repository.delete(user);
     }
 
     /**

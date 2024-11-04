@@ -22,7 +22,7 @@
             <div class="container">
                 <header class="mb-4 mt-4">
                     <h1>Company
-                        <h:graphicImage height="50px" width="50px" style="margin-bottom: -17px"
+                        <h:graphicImage height="50px" width="50px" style="margin-bottom: -17px" alt="domek"
                                         value="https://png.pngtree.com/png-vector/20230421/ourmid/pngtree-condominium-line-icon-vector-png-image_6717865.png"/>
                     </h1>
                     <h:form styleClass="container d-flex  align-items-center justify-content-end"
@@ -45,10 +45,19 @@
                             <li class="nav-item mx-2">
                                 <h:link styleClass="btn btn-primary" outcome="/brand/brand_list.xhtml">Brands</h:link>
                             </li>
+<!--                            <li class="nav-item mx-2">-->
+<!--                                <h:link styleClass="btn btn-primary" outcome="/register.xhtml">Register</h:link>-->
+<!--                            </li>-->
                             <h:panelGroup rendered="#{facesContext.externalContext.isUserInRole('admin')}">
                                 <li class="nav-item">
                                     <h:link styleClass="nav-link"
                                             outcome="/user/user_list.xhtml">Users</h:link>
+                                </li>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{facesContext.externalContext.userPrincipal == null}">
+                                <li class="nav-item" style="margin-left: 850px">
+                                    <h:link styleClass="nav-link"
+                                            outcome="/register.xhtml">Register</h:link>
                                 </li>
                             </h:panelGroup>
                         </ul>

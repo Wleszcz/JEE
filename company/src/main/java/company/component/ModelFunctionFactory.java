@@ -54,6 +54,10 @@ public class ModelFunctionFactory {
         return new ModelToDeviceFunction();
     }
 
+    public ModelToUserFunction modelToUser() {
+        return new ModelToUserFunction();
+    }
+
     /**
      * Returns a function to convert a single {@link Brand} to {@link BrandModel}.
      *

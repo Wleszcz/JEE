@@ -168,8 +168,6 @@ public class DeviceCreate implements Serializable {
      * @return confirmation navigation case
      */
     public String goToConfirmAction() {
-        device.setMass(0);
-        device.setPrice(0);
         return "/device/device_create__confirm.xhtml?faces-redirect=true";
     }
 

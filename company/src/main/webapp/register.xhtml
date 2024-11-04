@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:f="jakarta.faces.core"
+                template="/WEB-INF/template/main.xhtml">
+
+    <f:metadata>
+        <f:viewAction action="#{userCreate.init()}"/>
+    </f:metadata>
+
+    <ui:define name="content">
+        <article>
+            <header><h2>Register</h2></header>
+            <h:form styleClass="container" onreset="onReset()" enctype="multipart/form-data">
+
+                <h:panelGrid columns="2" style="padding: 10px">
+                    <h:outputLabel for="name" value="Name:" styleClass="form-label"/>
+                    <h:inputText id="name" value="#{userCreate.user.name}" styleClass="form-control"/>
+
+
+                    <h:outputLabel for="price" value="Surname:" styleClass="form-label"/>
+                    <h:inputText id="price" value="#{userCreate.user.surname}" styleClass="form-control"/>
+
+                    <h:outputLabel for="mass" value="email" styleClass="form-label"/>
+                    <h:inputText id="mass" value="#{userCreate.user.email}"
+                                 styleClass="form-control" rows="4"/>
+
+                    <h:outputLabel for="login" value="login" styleClass="form-label"/>
+                    <h:inputText id="login" value="#{userCreate.user.login}"
+                                 styleClass="form-control" rows="4"/>
+
+                    <h:outputLabel for="pass" value="password" styleClass="form-label"/>
+                    <h:inputSecret id="pass" value="#{userCreate.user.password}"
+                                 styleClass="form-control" rows="4"/>
+                </h:panelGrid>
+
+                <h:panelGrid columns="2" style="padding: 10px">
+                    <h:commandButton styleClass="btn btn-primary" value="Create"
+                                     action="#{userCreate.saveAction()}"/>
+                    <h:commandButton styleClass="btn btn-secondary" value="Cancel" style="margin-left: 30px"
+                                     action="#{userCreate.cancelAction()}"/>
+                </h:panelGrid>
+            </h:form>
+        </article>
+    </ui:define>
+
+</ui:composition>
