@@ -6,8 +6,6 @@
                 template="/WEB-INF/template/main.xhtml">
 
     <ui:define name="content">
-        <h:outputStylesheet library="device" name="css/device_list.css"/><!-- Automatically relocated to head. -->
-
         <article class="text--justified">
             <header><h2>Brands</h2></header>
 
@@ -48,7 +46,7 @@
 
                     <f:facet name="footer">
                         <h:button styleClass="btn" outcome="/brand/brand_create__basic.xhtml"
-                                  value="Create new brand"
+                                  value="#{msg.createBrand}"
                                   rendered="#{facesContext.externalContext.isUserInRole('admin')}"/>
                     </f:facet>
                 </h:dataTable>

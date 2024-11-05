@@ -6,18 +6,18 @@
                 template="/WEB-INF/template/main.xhtml">
 
     <f:metadata>
-        <f:viewParam name="id" value="#{deviceEdit.id}" required="true"/>
-        <f:viewAction action="#{deviceEdit.init()}"/>
+        <f:viewParam name="id" value="#{brandEdit.id}" required="true"/>
+        <f:viewAction action="#{brandEdit.init()}"/>
     </f:metadata>
 
     <ui:define name="content">
         <article>
-            <header><h2>Edit device info</h2></header>
+            <header><h2>Edit brand info</h2></header>
             <h:form styleClass="container" onreset="onReset()" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-4 p-2">
                         <div class="form-outline">
-                            <h:inputText id="name" value="#{deviceEdit.device.name}" styleClass="form-control"/>
+                            <h:inputText id="name" value="#{brandEdit.brand.name}" styleClass="form-control"/>
                             <h:outputLabel for="name" value="Name:" styleClass="form-label"/>
                         </div>
                     </div>
@@ -26,39 +26,24 @@
                 <div class="row">
                     <div class="col-4 p-2">
                         <div class="form-outline">
-                            <h:inputText id="age" value="#{deviceEdit.device.age}" styleClass="form-control"/>
-                            <h:outputLabel for="age" value="Age:" styleClass="form-label"/>
+                            <h:outputLabel for="dateInput" value="Select Date:" />
+                            <h:inputText id="dateInput"
+                                         value="#{brandEdit.brand.dateOfEstablishment}"
+                                         required="true"
+                                         requiredMessage="Data jest wymagana." >
+                                <f:converter converterId="localDateConverter" />
+                            </h:inputText>
+
+                            <h:message for="dateInput" style="color:red;" />
                         </div>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-4 p-2">
-                        <div class="form-outline">
-                            <h:inputFile id="portrait" value="#{deviceEdit.device.portrait}"
-                                         styleClass="form-control active"/>
-                            <h:outputLabel for="portrait" value="Portrait:" styleClass="form-label"/>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-4 p-2">
-                        <div class="form-outline">
-                            <h:inputTextarea id="background" value="#{deviceEdit.device.background}"
-                                             styleClass="form-control" rows="4"/>
-                            <h:outputLabel for="background" value="Background:" styleClass="form-label"/>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="row">
                     <div class="col-2 p-2 text-center">
-                        <h:commandButton styleClass="btn btn-primary" value="Update"
-                                         action="#{deviceEdit.saveAction()}"/>
-                    </div>
-                    <div class="col-2 p-2 text-center">
-                        <h:commandButton styleClass="btn btn-secondary" type="reset" value="Reset"/>
+                        <h:commandButton styleClass="btn btn-primary" value="Create"
+                                         action="#{brandEdit.saveAction()}"/>
                     </div>
                 </div>
             </h:form>

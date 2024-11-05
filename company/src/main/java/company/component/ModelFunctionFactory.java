@@ -45,6 +45,10 @@ public class ModelFunctionFactory {
         return new DeviceToEditModelFunction(userToModel());
     }
 
+    public BrandToEditModelFunction brandToEditModel() {
+        return new BrandToEditModelFunction();
+    }
+
     /**
      * Returns a function to convert a single {@link DeviceModel} to {@link Device}.
      *
@@ -52,6 +56,10 @@ public class ModelFunctionFactory {
      */
     public ModelToDeviceFunction modelToDevice() {
         return new ModelToDeviceFunction();
+    }
+
+    public ModelToBrandFunction modelToBrand() {
+        return new ModelToBrandFunction();
     }
 
     public ModelToUserFunction modelToUser() {
@@ -87,6 +95,9 @@ public class ModelFunctionFactory {
      */
     public UpdateDeviceWithModelFunction updateDevice() {
         return new UpdateDeviceWithModelFunction();
+    }
+    public UpdateBrandWithModelFunction updateBrand() {
+        return new UpdateBrandWithModelFunction();
     }
 
 
