@@ -5,15 +5,18 @@ import company.device.model.BrandsModel;
 import company.device.model.DevicesModel;
 import company.device.service.BrandService;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+
+import java.io.Serializable;
 
 /**
  * View bean for rendering list of brands.
  */
-@RequestScoped
+@ViewScoped
 @Named
-public class BrandList {
+public class BrandList implements Serializable {
 
     /**
      * Service for managing brands.
@@ -59,9 +62,9 @@ public class BrandList {
      * @param brand brand to be removed
      * @return navigation case to list_brands
      */
-    public String deleteAction(BrandsModel.Brand brand) {
+    public void deleteAction(BrandsModel.Brand brand) {
         service.delete(brand.getId());
-        return "brand_list?faces-redirect=true";
+        this.brands = null;
     }
 
 }

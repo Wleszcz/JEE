@@ -3,17 +3,20 @@ package company.device.view;
 import company.component.ModelFunctionFactory;
 import jakarta.ejb.EJB;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import company.device.model.DevicesModel;
 import company.device.service.DeviceService;
 
+import java.io.Serializable;
+
 /**
  * View bean for rendering list of devices.
  */
-@RequestScoped
+@ViewScoped
 @Named
-public class DeviceList {
+public class DeviceList implements Serializable {
 
     /**
      * Service for managing devices.
@@ -31,7 +34,6 @@ public class DeviceList {
     private final ModelFunctionFactory factory;
 
     /**
-     * @param service device service
      * @param factory factory producing functions for conversion between models and entities
      */
     @Inject
@@ -66,9 +68,9 @@ public class DeviceList {
      * @param device device to be removed
      * @return navigation case to list_devices
      */
-    public String deleteAction(DevicesModel.Device device) {
+    public void deleteAction(DevicesModel.Device device) {
         service.delete(device.getId());
-        return "device_list?faces-redirect=true";
+        devices = null;
     }
 
 }

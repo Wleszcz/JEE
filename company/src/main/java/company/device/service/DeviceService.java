@@ -18,6 +18,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 /**
  * Service layer for all business actions regarding device entity.
  */
@@ -25,6 +29,8 @@ import java.util.UUID;
 @Stateless
 @NoArgsConstructor(force = true)
 public class DeviceService {
+
+    private static final Logger logger = LoggerFactory.getLogger(DeviceService.class);
 
     /**
      * Repository for device entity.
@@ -139,6 +145,7 @@ public class DeviceService {
             throw new IllegalArgumentException("Profession does not exists.");
         }
         deviceRepository.create(device);
+        logger.info("Device with ID: {} has been created.", device.getId());
     }
 
 
@@ -166,6 +173,7 @@ public class DeviceService {
     public void update(Device device) {
         checkAdminRoleOrOwner(deviceRepository.find(device.getId()));
         deviceRepository.update(device);
+        logger.info("Device with ID: {} has been edited.", device.getId());
     }
 
     /**
@@ -177,6 +185,7 @@ public class DeviceService {
     public void delete(UUID id) {
         checkAdminRoleOrOwner(deviceRepository.find(id));
         deviceRepository.delete(deviceRepository.find(id).orElseThrow());
+        logger.info("Device with ID: {} has been deleted.", id);
     }
 
     /**

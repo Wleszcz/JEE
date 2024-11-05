@@ -11,41 +11,48 @@
         <article class="text--justified">
             <header><h2>Brands</h2></header>
 
-            <h:dataTable value="#{brandList.brands.brands}" var="brand"
-                         styleClass="table align-middle mb-0 bg-white" headerClass="bg-light">
+            <h:form id="brandForm">
+                <h:dataTable value="#{brandList.brands.brands}" var="brand" id="brandTable"
+                             styleClass="table align-middle mb-0 bg-white" headerClass="bg-light">
 
-                <h:column>
-                    <f:facet name="header">Name</f:facet>
-                    <h:outputText value="#{brand.name}"/>
-                </h:column>
+                    <h:column>
+                        <f:facet name="header">Name</f:facet>
+                        <h:outputText value="#{brand.name}"/>
+                    </h:column>
 
-                <h:column>
-                    <f:facet name="header">View</f:facet>
-                    <h:link outcome="/brand/brand_view.xhtml" value="View">
-                        <f:param name="id" value="#{brand.id}"/>
-                    </h:link>
-                </h:column>
+                    <h:column>
+                        <f:facet name="header">View</f:facet>
+                        <h:link outcome="/brand/brand_view.xhtml" value="View">
+                            <f:param name="id" value="#{brand.id}"/>
+                        </h:link>
+                    </h:column>
 
-                <h:column rendered="#{facesContext.externalContext.isUserInRole('admin')}">
-                    <f:facet name="header">Edit</f:facet>
-                    <h:link outcome="/brand/brand_edit.xhtml" value="Edit">
-                        <f:param name="id" value="#{brand.id}"/>
-                    </h:link>
-                </h:column>
+                    <h:column rendered="#{facesContext.externalContext.isUserInRole('admin')}">
+                        <f:facet name="header">
+                            <h:outputText value="#{msg.edit}"/>
+                        </f:facet>
+                        <h:link outcome="/brand/brand_edit.xhtml" value="Edit">
+                            <f:param name="id" value="#{brand.id}"/>
+                        </h:link>
+                    </h:column>
 
-                <h:column rendered="#{facesContext.externalContext.isUserInRole('admin')}">
-                    <f:facet name="header">Delete</f:facet>
-                    <h:form>
-                        <h:commandButton styleClass="btn" value="Delete"
-                                         action="#{brandList.deleteAction(brand)}"/>
-                    </h:form>
-                </h:column>
+                    <h:column rendered="#{facesContext.externalContext.isUserInRole('admin')}">
+                        <f:facet name="header">Delete</f:facet>
+                        <h:form>
+                            <h:commandButton styleClass="btn" value="Delete"
+                                             actionListener="#{brandList.deleteAction(brand)}">
+                                <f:ajax execute="@this" render="brandTable"/>
+                            </h:commandButton>
+                        </h:form>
+                    </h:column>
 
-                <f:facet name="footer">
-                    <h:button styleClass="btn" outcome="/brand/brand_create__basic.xhtml"
-                              value="Create new brand" rendered="#{facesContext.externalContext.isUserInRole('admin')}" />
-                </f:facet>
-            </h:dataTable>
+                    <f:facet name="footer">
+                        <h:button styleClass="btn" outcome="/brand/brand_create__basic.xhtml"
+                                  value="Create new brand"
+                                  rendered="#{facesContext.externalContext.isUserInRole('admin')}"/>
+                    </f:facet>
+                </h:dataTable>
+            </h:form>
         </article>
     </ui:define>
 

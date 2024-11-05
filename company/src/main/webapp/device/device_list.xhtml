@@ -9,43 +9,54 @@
         <h:outputStylesheet library="device" name="css/device_list.css"/><!-- Automatically relocated to head. -->
 
         <article class="text--justified">
-            <header><h2>Devices</h2></header>
+            <header><h:outputText value="#{msg.devices}" styleClass="h2"/></header>
 
-            <h:dataTable value="#{deviceList.devices.devices}" var="brand"
-                         styleClass="table align-middle mb-0 bg-white" headerClass="bg-light">
+            <h:form id="deviceForm">
+                <h:dataTable value="#{deviceList.devices.devices}" var="brand" id="deviceTable"
+                             styleClass="table align-middle mb-0 bg-white" headerClass="bg-light">
 
-                <h:column>
-                    <f:facet name="header">Name</f:facet>
-                    <h:outputText value="#{brand.name}"/>
-                </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msg.name}"/>
+                        </f:facet>
+                        <h:outputText value="#{brand.name}"/>
+                    </h:column>
 
-                <h:column>
-                    <f:facet name="header">View</f:facet>
-                    <h:link outcome="/device/device_view.xhtml" value="View">
-                        <f:param name="id" value="#{brand.id}"/>
-                    </h:link>
-                </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msg.view}"/>
+                        </f:facet>
+                        <h:link outcome="/device/device_view.xhtml" value="#{msg.view}">
+                            <f:param name="id" value="#{brand.id}"/>
+                        </h:link>
+                    </h:column>
 
-                <h:column>
-                    <f:facet name="header">Edit</f:facet>
-                    <h:link outcome="/device/device_edit.xhtml" value="Edit">
-                        <f:param name="id" value="#{brand.id}"/>
-                    </h:link>
-                </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msg.edit}"/>
+                        </f:facet>
+                        <h:link outcome="/device/device_edit.xhtml" value="#{msg.edit}">
+                            <f:param name="id" value="#{brand.id}"/>
+                        </h:link>
+                    </h:column>
 
-                <h:column>
-                    <f:facet name="header">Delete</f:facet>
-                    <h:form>
-                        <h:commandButton styleClass="btn" value="Delete"
-                                         action="#{deviceList.deleteAction(brand)}"/>
-                    </h:form>
-                </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{msg.delete}"/></f:facet>
+                        <h:form>
+                            <h:commandButton styleClass="btn" value="#{msg.delete}"
+                                             actionListener="#{deviceList.deleteAction(brand)}">
+                                <f:ajax execute="@this" render="deviceTable"/>
+                            </h:commandButton>
+                        </h:form>
+                    </h:column>
 
-                <f:facet name="footer">
-                    <h:button styleClass="btn" outcome="/device/device_create__basic.xhtml"
-                              value="Create new device" style="margin: 20px"/>
-                </f:facet>
-            </h:dataTable>
+                    <f:facet name="footer">
+                        <h:button styleClass="btn" outcome="/device/device_create__basic.xhtml"
+                                  value="#{msg.createDevice}" style="margin: 20px"/>
+                    </f:facet>
+                </h:dataTable>
+            </h:form>
         </article>
     </ui:define>
 

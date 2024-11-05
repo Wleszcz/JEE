@@ -10,6 +10,8 @@ import jakarta.ejb.Stateless;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import lombok.NoArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,6 +24,8 @@ import java.util.UUID;
 @Stateless
 @NoArgsConstructor(force = true)
 public class BrandService {
+    private static final Logger logger = LoggerFactory.getLogger(DeviceService.class);
+
 
     /**
      * Repository for Brand entity.
@@ -56,11 +60,12 @@ public class BrandService {
     /**
      * Stores new Brand in the data store.
      *
-     * @param Brand new Brand to be saved
+     * @param brand new Brand to be saved
      */
     @RolesAllowed(UserRoles.ADMIN)
-    public void create(Brand Brand) {
-        repository.create(Brand);
+    public void create(Brand brand) {
+        repository.create(brand);
+        logger.info("Brand with ID: {} has been created.", brand.getId());
     }
 
 
@@ -72,10 +77,12 @@ public class BrandService {
     @RolesAllowed(UserRoles.ADMIN)
     public void delete(UUID id) {
         repository.delete(repository.find(id).orElseThrow());
+        logger.info("Brand with ID: {} has been deleted.", id);
     }
 
     @RolesAllowed(UserRoles.ADMIN)
-    public void update(Brand Brand) {
-        repository.update(Brand);
+    public void update(Brand brand) {
+        repository.update(brand);
+        logger.info("Brand with ID: {} has been edited.", brand.getId());
     }
 }

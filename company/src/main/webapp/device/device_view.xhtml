@@ -16,15 +16,15 @@
             <div class="container">
                 <div class="row">
                     <h:panelGrid columns="2" style="margin-bottom: 40px">
-                        <h:outputText style="font-weight: bold" value="Brand: "/>
+                        <h:outputText style="font-weight: bold" value="#{msg.brand}: "/>
                         <h:outputText value="#{deviceView.device.brand}"/>
-                        <h:outputText style="font-weight: bold" value="Mass: "/>
+                        <h:outputText style="font-weight: bold" value="#{msg.mass}: "/>
                         <h:outputText value="#{deviceView.device.mass}"/>
-                        <h:outputText style="font-weight: bold" value="Price: "/>
+                        <h:outputText style="font-weight: bold" value="#{msg.price}: "/>
                         <h:outputText value="#{deviceView.device.price}"/>
-                        <h:outputText style="font-weight: bold" value="Type: "/>
+                        <h:outputText style="font-weight: bold" value="#{msg.type}: "/>
                         <h:outputText value="#{deviceView.device.deviceType}"/>
-                        <h:outputText style="font-weight: bold" value="User: " rendered="#{not empty deviceView.device.user}"/>
+                        <h:outputText style="font-weight: bold" value="#{msg.user}: " rendered="#{not empty deviceView.device.user}"/>
                         <h:outputText value="#{deviceView.device.user}" rendered="#{not empty deviceView.device.user}"/>
                     </h:panelGrid>
                 </div>
