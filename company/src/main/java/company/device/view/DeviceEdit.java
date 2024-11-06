@@ -74,8 +74,7 @@ public class DeviceEdit implements Serializable {
         Optional<Device> device = service.findForCallerPrincipal(id);
         if (device.isPresent()) {
             this.device = factory.deviceToEditModel().apply(device.get());
-            deviceEntity =service.find(id).orElseThrow();
-            System.out.println(this.device.getVersion());
+            deviceEntity = service.find(id).orElseThrow();
         } else {
             FacesContext.getCurrentInstance().getExternalContext().responseSendError(HttpServletResponse.SC_NOT_FOUND, "Device not found");
         }

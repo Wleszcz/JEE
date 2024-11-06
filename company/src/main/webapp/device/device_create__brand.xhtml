@@ -28,13 +28,13 @@
                             <legend class="form-label fs-6">Brand:</legend>
                             <!-- Instead of ui:repeat the h:selectOneRadio with f:selectItems can be used but then
                             Faces renders table or list and custom styling with CSS libraties can be troublesome. -->
-                            <ui:repeat value="#{deviceCreate.brands}" var="brand">
+                            <ui:repeat value="#{deviceCreate.brands}" var="device">
                                 <div class="form-check">
                                     <h:selectOneRadio id="radioId" group="brando"
                                                       value="#{deviceCreate.device.brand}"
                                                       styleClass="form-check-input"
                                                       enabledClass="form-check-label">
-                                        <f:selectItem itemValue="#{brand.id}" itemLabel="#{brand.name}"/>
+                                        <f:selectItem itemValue="#{device.id}" itemLabel="#{device.name}"/>
                                     </h:selectOneRadio>
                                 </div>
                             </ui:repeat>

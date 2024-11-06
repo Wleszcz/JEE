@@ -25,6 +25,7 @@ public class UpdateDeviceWithModelFunction implements BiFunction<Device, DeviceE
                 .deviceType(entity.getDeviceType())
                 .brand(entity.getBrand())
                 .version(entity.getVersion())
+                .createdAt(entity.getCreatedAt())
                 .user(User.builder()
                         .id(model.getUser().getId())
                         .build())

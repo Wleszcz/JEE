@@ -18,6 +18,8 @@ public class DevicesToModelFunction implements Function<List<Device>, DevicesMod
                         .map(device -> DevicesModel.Device.builder()
                                 .id(device.getId())
                                 .name(device.getName())
+                                .createdAt(device.getCreatedAt())
+                                .updatedAt(device.getUpdatedAt())
                                 .build())
                         .toList())
                 .build();

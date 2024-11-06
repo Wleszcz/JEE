@@ -10,18 +10,18 @@
             <header><h2>Brands</h2></header>
 
             <h:form id="brandForm">
-                <h:dataTable value="#{brandList.brands.brands}" var="brand" id="brandTable"
+                <h:dataTable value="#{brandList.brands.brands}" var="device" id="brandTable"
                              styleClass="table align-middle mb-0 bg-white" headerClass="bg-light">
 
                     <h:column>
                         <f:facet name="header">Name</f:facet>
-                        <h:outputText value="#{brand.name}"/>
+                        <h:outputText value="#{device.name}"/>
                     </h:column>
 
                     <h:column>
                         <f:facet name="header">View</f:facet>
                         <h:link outcome="/brand/brand_view.xhtml" value="View">
-                            <f:param name="id" value="#{brand.id}"/>
+                            <f:param name="id" value="#{device.id}"/>
                         </h:link>
                     </h:column>
 
@@ -30,7 +30,7 @@
                             <h:outputText value="#{msg.edit}"/>
                         </f:facet>
                         <h:link outcome="/brand/brand_edit.xhtml" value="Edit">
-                            <f:param name="id" value="#{brand.id}"/>
+                            <f:param name="id" value="#{device.id}"/>
                         </h:link>
                     </h:column>
 
@@ -38,7 +38,7 @@
                         <f:facet name="header">Delete</f:facet>
                         <h:form>
                             <h:commandButton styleClass="btn" value="Delete"
-                                             actionListener="#{brandList.deleteAction(brand)}">
+                                             actionListener="#{brandList.deleteAction(device)}">
                                 <f:ajax execute="@this" render="brandTable"/>
                             </h:commandButton>
                         </h:form>

@@ -3,6 +3,7 @@ package company.device.model;
 import lombok.*;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -39,6 +40,10 @@ public class DevicesModel implements Serializable {
          * Name of the device.
          */
         private String name;
+
+        private LocalDateTime createdAt;
+
+        private LocalDateTime updatedAt;
 
     }
 

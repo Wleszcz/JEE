@@ -1,5 +1,6 @@
 package company.device.dto;
 
+import jakarta.persistence.Column;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,6 +11,7 @@ import lombok.Setter;
 import lombok.Singular;
 import lombok.ToString;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -47,7 +49,6 @@ public class GetDevicesResponse {
          * Name of the device.
          */
         private String name;
-
     }
 
     /**
