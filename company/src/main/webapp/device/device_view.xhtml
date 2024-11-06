@@ -26,6 +26,8 @@
                         <h:outputText value="#{deviceView.device.deviceType}"/>
                         <h:outputText style="font-weight: bold" value="#{msg.user}: " rendered="#{not empty deviceView.device.user}"/>
                         <h:outputText value="#{deviceView.device.user}" rendered="#{not empty deviceView.device.user}"/>
+                        <h:outputText style="font-weight: bold" value="#{msg.version}: "/>
+                        <h:outputText value="#{deviceView.device.version}"/>
                     </h:panelGrid>
                 </div>
             </div>

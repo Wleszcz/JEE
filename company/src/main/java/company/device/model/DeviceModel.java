@@ -47,4 +47,6 @@ public class DeviceModel {
      */
     private String brand;
 
+    private Integer version;
+
 }

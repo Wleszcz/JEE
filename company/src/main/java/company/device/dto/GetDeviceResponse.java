@@ -79,4 +79,6 @@ public class GetDeviceResponse {
      */
     private DeviceType deviceType;
 
+    private Integer version;
+
 }

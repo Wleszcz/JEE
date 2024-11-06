@@ -20,6 +20,7 @@ public class DeviceToResponseFunction implements Function<Device, GetDeviceRespo
                 .price(entity.getPrice())
                 .deviceType(entity.getDeviceType())
                 .mass(entity.getMass())
+                .version(entity.getVersion())
                 .brand(GetDeviceResponse.Brand.builder()
                         .id(entity.getBrand().getId())
                         .name(entity.getBrand().getName())

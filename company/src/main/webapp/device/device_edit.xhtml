@@ -13,7 +13,8 @@
     <ui:define name="content">
         <article>
             <header><h2>Edit device info</h2></header>
-            <h:form styleClass="container" onreset="onReset()" enctype="multipart/form-data">
+
+            <h:form styleClass="container">
                 <h:panelGrid columns="2" style="padding: 10px">
                     <h:outputLabel for="name" value="Name:" styleClass="form-label"/>
                     <h:inputText id="name" value="#{deviceEdit.device.name}" styleClass="form-control"/>
@@ -32,7 +33,7 @@
                                          action="#{deviceEdit.saveAction()}"/>
                     </div>
                     <div class="col-2 p-2 text-center" style="margin: 20px">
-                        <h:commandButton styleClass="btn btn-secondary" type="reset" value="Reset"/>
+                        <h:commandButton styleClass="btn btn-secondary" value="Reset" action="#{deviceEdit.reset()}"/>
                     </div>
                 </div>
             </h:form>

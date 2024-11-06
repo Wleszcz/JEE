@@ -20,6 +20,7 @@ public class DeviceToModelFunction implements Function<Device, DeviceModel>, Ser
                 .deviceType(entity.getDeviceType())
                 .user(entity.getUser().getName())
                 .brand(entity.getBrand().getName())
+                .version(entity.getVersion())
                 .build();
     }
 

@@ -44,4 +44,5 @@ public class DeviceEditModel {
      */
     private UserModel user;
 
+    private Integer version;
 }

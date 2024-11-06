@@ -67,4 +67,7 @@ public class Device implements Serializable {
      */
     private DeviceType deviceType;
 
+    @Version
+    private Integer version;
+
 }

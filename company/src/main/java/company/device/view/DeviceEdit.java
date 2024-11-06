@@ -1,10 +1,12 @@
 package company.device.view;
 
 import jakarta.ejb.EJB;
+import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import jakarta.persistence.OptimisticLockException;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.Getter;
 import lombok.Setter;
@@ -48,7 +50,6 @@ public class DeviceEdit implements Serializable {
     @Getter
     private DeviceEditModel device;
 
-
     /**
      * @param factory factory producing functions for conversion between models and entities
      */
@@ -64,7 +65,7 @@ public class DeviceEdit implements Serializable {
         this.service = service;
     }
 
-
+    Device deviceEntity;
     /**
      * In order to prevent calling service on different steps of JSF request lifecycle, model property is cached within
      * field and initialized during init of the view.
@@ -73,6 +74,8 @@ public class DeviceEdit implements Serializable {
         Optional<Device> device = service.findForCallerPrincipal(id);
         if (device.isPresent()) {
             this.device = factory.deviceToEditModel().apply(device.get());
+            deviceEntity =service.find(id).orElseThrow();
+            System.out.println(this.device.getVersion());
         } else {
             FacesContext.getCurrentInstance().getExternalContext().responseSendError(HttpServletResponse.SC_NOT_FOUND, "Device not found");
         }
@@ -83,9 +86,23 @@ public class DeviceEdit implements Serializable {
      *
      * @return navigation case to the same page
      */
-    public String saveAction() {
-        service.update(factory.updateDevice().apply(service.find(id).orElseThrow(), device));
-        return "/device/device_list.xhtml?faces-redirect=true";
+    public String saveAction() throws IOException {
+        try {
+            service.update(factory.updateDevice().apply(deviceEntity, device));
+            return "/device/device_list.xhtml?faces-redirect=true";
+        }
+        catch (Exception e) {
+            String versionError = "Wystąpił konflikt wersji. Dane zostały zmodyfikowane przez innego użytkownika. Czy chcesz kontynuować ?";
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, versionError, versionError);
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+            deviceEntity.setVersion(deviceEntity.getVersion()+1);
+            return null;
+        }
+    }
+
+    public String reset() throws IOException {
+        init();
+        return null;
     }
 
 }
