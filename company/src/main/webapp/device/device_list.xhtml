@@ -10,7 +10,34 @@
         <article class="text--justified">
             <header><h:outputText value="#{msg.devices}" styleClass="h2"/></header>
 
+
             <h:form id="deviceForm">
+                <h:panelGrid columns="2" style="padding: 10px">
+
+                    <h:outputLabel for="price" value="#{msg.price}" styleClass="form-label"/>
+                    <h:inputText id="price" value="#{deviceList.deviceSearchArgs.price}"/>
+
+                    <h:outputLabel for="mass" value="#{msg.mass}" styleClass="form-label"/>
+                    <h:inputText id="mass" value="#{deviceList.deviceSearchArgs.mass}"/>
+
+                    <h:outputLabel for="type" value="Type:" styleClass="form-label"/>
+                    <ui:repeat value="#{deviceList.deviceTypeList}" var="type">
+                        <div class="form-check">
+                            <h:selectOneRadio id="type" group="typeo"
+                                              value="#{deviceList.deviceSearchArgs.deviceType}"
+                                              label="Device Type"
+                                              styleClass="form-check-input"
+                                              enabledClass="form-check-label">
+                                <f:selectItem itemValue="#{type}" itemLabel="#{type}"/>
+                            </h:selectOneRadio>
+                        </div>
+                    </ui:repeat>
+                    <h:commandButton styleClass="btn" action="#{deviceList.searchDevices}" value="#{msg.search}" style="margin: 20px">
+<!--                        <f:ajax execute="@this" render="deviceTable" />-->
+                    </h:commandButton>
+                    <h:outputLabel/>
+                </h:panelGrid>
+
                 <h:dataTable value="#{deviceList.devices.devices}" var="device" id="deviceTable"
                              styleClass="table align-middle mb-0 bg-white" headerClass="bg-light">
 

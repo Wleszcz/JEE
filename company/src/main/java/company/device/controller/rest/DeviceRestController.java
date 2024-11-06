@@ -76,7 +76,7 @@ public class DeviceRestController implements DeviceController {
 
     @Override
     public GetDevicesResponse getDevices() {
-        return factory.devicesToResponse().apply(service.findAll());
+        return factory.devicesToResponse().apply(service.findAll(null));
     }
 
     @Override

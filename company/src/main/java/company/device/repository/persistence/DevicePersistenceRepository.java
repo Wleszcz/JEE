@@ -4,6 +4,7 @@ import company.device.entity.Brand;
 import company.device.entity.Device;
 import company.device.entity.Device_;
 import company.device.repository.api.DeviceRepository;
+import company.device.serachArgs.DeviceSearchArgs;
 import company.user.entity.User;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -11,8 +12,10 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -49,6 +52,35 @@ public class DevicePersistenceRepository implements DeviceRepository {
         query.select(root);
         return em.createQuery(query).getResultList();
     }
+
+
+    @Override
+    public List<Device> findAll(DeviceSearchArgs deviceSearchArgs) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Device> query = cb.createQuery(Device.class);
+        Root<Device> root = query.from(Device.class);
+        query.select(root);
+
+        List<Predicate> predicates = new ArrayList<>();
+
+        if (deviceSearchArgs != null) {
+            if (deviceSearchArgs.getMass() != null) {
+                predicates.add(cb.equal(root.get(Device_.mass), deviceSearchArgs.getMass()));
+            }
+            if (deviceSearchArgs.getPrice() != null) {
+                predicates.add(cb.equal(root.get(Device_.price), deviceSearchArgs.getPrice()));
+            }
+            if (deviceSearchArgs.getDeviceType() != null) {
+                predicates.add(cb.equal(root.get(Device_.deviceType), deviceSearchArgs.getDeviceType()));
+            }
+        }
+
+        if (!predicates.isEmpty()) {
+            query.where(cb.and(predicates.toArray(new Predicate[0])));
+        }
+        return em.createQuery(query).getResultList();
+    }
+
 
     @Override
     public void create(Device entity) {
@@ -96,6 +128,36 @@ public class DevicePersistenceRepository implements DeviceRepository {
             return Optional.empty();
         }
     }
+
+
+    @Override
+    public List<Device> findAllByUser(User user, DeviceSearchArgs deviceSearchArgs) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Device> query = cb.createQuery(Device.class);
+        Root<Device> root = query.from(Device.class);
+
+        List<Predicate> predicates = new ArrayList<>();
+        predicates.add(cb.equal(root.get(Device_.user), user));
+
+        if (deviceSearchArgs != null) {
+            if (deviceSearchArgs.getMass() != null) {
+                predicates.add(cb.equal(root.get(Device_.mass), deviceSearchArgs.getMass()));
+            }
+            if (deviceSearchArgs.getPrice() != null) {
+                predicates.add(cb.equal(root.get(Device_.price), deviceSearchArgs.getPrice()));
+            }
+            if (deviceSearchArgs.getDeviceType() != null) {
+                predicates.add(cb.equal(root.get(Device_.deviceType), deviceSearchArgs.getDeviceType()));
+            }
+        }
+
+        if (!predicates.isEmpty()) {
+            query.where(cb.and(predicates.toArray(new Predicate[0])));
+        }
+
+        return em.createQuery(query).getResultList();
+    }
+
 
     @Override
     public List<Device> findAllByUser(User user) {

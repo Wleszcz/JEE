@@ -1,15 +1,19 @@
 package company.device.view;
 
 import company.component.ModelFunctionFactory;
+import company.device.entity.DeviceType;
+import company.device.model.DevicesModel;
+import company.device.serachArgs.DeviceSearchArgs;
+import company.device.service.DeviceService;
 import jakarta.ejb.EJB;
-import jakarta.enterprise.context.RequestScoped;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
-import company.device.model.DevicesModel;
-import company.device.service.DeviceService;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * View bean for rendering list of devices.
@@ -36,9 +40,15 @@ public class DeviceList implements Serializable {
     /**
      * @param factory factory producing functions for conversion between models and entities
      */
+
+    @Getter
+    @Setter
+    private DeviceSearchArgs deviceSearchArgs;
+
     @Inject
     public DeviceList(ModelFunctionFactory factory) {
         this.factory = factory;
+        this.deviceSearchArgs = new DeviceSearchArgs();
     }
 
     /**
@@ -57,7 +67,7 @@ public class DeviceList implements Serializable {
      */
     public DevicesModel getDevices() {
         if (devices == null) {
-            devices = factory.devicesToModel().apply(service.findAllForCallerPrincipal());
+            devices = factory.devicesToModel().apply(service.findAllForCallerPrincipal(this.deviceSearchArgs));
         }
         return devices;
     }
@@ -71,6 +81,15 @@ public class DeviceList implements Serializable {
     public void deleteAction(DevicesModel.Device device) {
         service.delete(device.getId());
         devices = null;
+    }
+
+    public List<DeviceType> getDeviceTypeList() {
+        return List.of(DeviceType.TV, DeviceType.FRIDGE, DeviceType.PHONE, DeviceType.TABLET);
+    }
+
+
+    public void searchDevices() {
+        this.devices = factory.devicesToModel().apply(service.findAllForCallerPrincipal(this.deviceSearchArgs));
     }
 
 }

@@ -3,6 +3,7 @@ package company.device.service;
 import company.device.entity.Device;
 import company.device.repository.api.BrandRepository;
 import company.device.repository.api.DeviceRepository;
+import company.device.serachArgs.DeviceSearchArgs;
 import company.user.entity.User;
 import company.user.entity.UserRoles;
 import company.user.repository.api.UserRepository;
@@ -104,8 +105,8 @@ public class DeviceService {
     /**
      * @return all available devices
      */
-    public List<Device> findAll() {
-        return deviceRepository.findAll();
+    public List<Device> findAll(DeviceSearchArgs deviceSearchArgs) {
+        return deviceRepository.findAll(deviceSearchArgs);
     }
 
     /**
@@ -113,21 +114,21 @@ public class DeviceService {
      * @return all available devices of the selected user
      */
     @RolesAllowed(UserRoles.USER)
-    public List<Device> findAll(User user) {
-        return deviceRepository.findAllByUser(user);
+    public List<Device> findAll(User user, DeviceSearchArgs deviceSearchArgs) {
+        return deviceRepository.findAllByUser(user, deviceSearchArgs);
     }
 
     /**
      * @return all available characters to th authenticated user
      */
     @RolesAllowed(UserRoles.USER)
-    public List<Device> findAllForCallerPrincipal() {
+    public List<Device> findAllForCallerPrincipal(DeviceSearchArgs deviceSearchArgs) {
         if (securityContext.isCallerInRole(UserRoles.ADMIN)) {
-            return findAll();
+            return findAll(deviceSearchArgs);
         }
         User user = userRepository.findByLogin(securityContext.getCallerPrincipal().getName())
                 .orElseThrow(IllegalStateException::new);
-        return findAll(user);
+        return findAll(user, deviceSearchArgs);
     }
 
 

@@ -2,6 +2,7 @@ package company.device.repository.api;
 
 import company.device.entity.Device;
 import company.device.entity.Brand;
+import company.device.serachArgs.DeviceSearchArgs;
 import company.repository.api.Repository;
 import company.user.entity.User;
 
@@ -13,6 +14,9 @@ import java.util.UUID;
  * Repository for device entity. Repositories should be used in business layer (e.g.: in services).
  */
 public interface DeviceRepository extends Repository<Device, UUID> {
+
+
+    List<Device> findAll(DeviceSearchArgs deviceSearchArgs);
 
     /**
      * Seeks for single user's device.
@@ -30,6 +34,14 @@ public interface DeviceRepository extends Repository<Device, UUID> {
      * @return list (can be empty) of user's devices
      */
     List<Device> findAllByUser(User user);
+
+    /**
+     * Seeks for all user's devices.
+     *
+     * @param user devices' owner
+     * @return list (can be empty) of user's devices
+     */
+    List<Device> findAllByUser(User user, DeviceSearchArgs deviceSearchArgs);
 
     /**
      * Seeks for all Brand's devices.
