@@ -1,11 +1,18 @@
 package company.device.repository.persistence;
 
 import company.device.entity.Brand;
+import company.device.entity.Device;
 import company.device.repository.api.BrandRepository;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.Dependent;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -16,18 +23,18 @@ import java.util.UUID;
  * safe). Because services are CDI application scoped beans (technically singletons) then repositories must be thread
  * scoped in order to ensure single entity manager for single thread.
  */
-@Dependent
+@ApplicationScoped
 public class BrandPersistenceRepository implements BrandRepository {
+
+    @Inject
+    public BrandPersistenceRepository(EntityManager em) {
+        this.em = em;
+    }
 
     /**
      * Connection with the database (not thread safe).
      */
-    private EntityManager em;
-
-    @PersistenceContext
-    public void setEm(EntityManager em) {
-        this.em = em;
-    }
+    private final EntityManager em;
 
     @Override
     public Optional<Brand> find(UUID id) {
@@ -36,11 +43,18 @@ public class BrandPersistenceRepository implements BrandRepository {
 
     @Override
     public List<Brand> findAll() {
-        return em.createQuery("select p from Brand p", Brand.class).getResultList();
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Brand> query = cb.createQuery(Brand.class);
+        Root<Brand> root = query.from(Brand.class);
+        query.select(root);
+        return em.createQuery(query).getResultList();
     }
 
     @Override
     public void create(Brand entity) {
+        if (!em.isJoinedToTransaction()) {
+            em.joinTransaction();
+        }
         em.persist(entity);
     }
 
@@ -49,12 +63,23 @@ public class BrandPersistenceRepository implements BrandRepository {
         /* Clearing cache used as workaround when not handling both sides of relationships, not recommended. */
 //        em.getEntityManagerFactory().getCache().evictAll(); //Clearing 2nd level cache.
 //        em.clear(); //Clearing 1st level cache.
+        if (!em.isJoinedToTransaction()) {
+            em.joinTransaction();
+        }
         em.remove(em.find(Brand.class, entity.getId()));
     }
 
     @Override
     public void update(Brand entity) {
+        if (!em.isJoinedToTransaction()) {
+            em.joinTransaction();
+        }
         em.merge(entity);
     }
+    @Override
+    public void detach(Brand entity) {
+        em.detach(entity);
+    }
+
 
 }

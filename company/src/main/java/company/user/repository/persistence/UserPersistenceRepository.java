@@ -1,6 +1,9 @@
 package company.user.repository.persistence;
 
+import company.device.entity.Brand;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.Dependent;
+import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;
@@ -17,16 +20,16 @@ import java.util.UUID;
  * Because services are CDI application scoped beans (technically singletons) then repositories must be thread scoped in
  * order to ensure single entity manager for single thread.
  */
-@Dependent
+@ApplicationScoped
 public class UserPersistenceRepository implements UserRepository {
 
     /**
      * Connection with the database (not thread safe).
      */
-    private EntityManager em;
+    private final EntityManager em;
 
-    @PersistenceContext
-    public void setEm(EntityManager em) {
+    @Inject
+    public UserPersistenceRepository(EntityManager em) {
         this.em = em;
     }
 
@@ -42,17 +45,31 @@ public class UserPersistenceRepository implements UserRepository {
 
     @Override
     public void create(User entity) {
+        if (!em.isJoinedToTransaction()) {
+            em.joinTransaction();
+        }
         em.persist(entity);
     }
 
     @Override
     public void delete(User entity) {
+        if (!em.isJoinedToTransaction()) {
+            em.joinTransaction();
+        }
         em.remove(em.find(User.class, entity.getId()));
     }
 
     @Override
     public void update(User entity) {
+        if (!em.isJoinedToTransaction()) {
+            em.joinTransaction();
+        }
         em.merge(entity);
+    }
+
+    @Override
+    public void detach(User entity) {
+        em.detach(entity);
     }
 
     @Override

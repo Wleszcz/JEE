@@ -1,5 +1,6 @@
 package company.device.entity;
 
+import company.entity.VersionAndCreationDateAuditable;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -26,7 +27,7 @@ import java.util.UUID;
 @ToString(callSuper = true)
 @Entity
 @Table(name = "devices")
-public class Device implements Serializable {
+public class Device extends VersionAndCreationDateAuditable implements Serializable {
 
     /**
      * Unique id (primary key).
@@ -67,23 +68,4 @@ public class Device implements Serializable {
      * Devices type .
      */
     private DeviceType deviceType;
-
-    @Version
-    private Integer version;
-
-    @Column(name = "created_at", updatable = false)
-    private LocalDateTime createdAt;
-
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
-
-    @PrePersist
-    public void prePersist() {
-        createdAt = LocalDateTime.now();
-    }
-
-    @PreUpdate
-    public void preUpdate() {
-        updatedAt = LocalDateTime.now();
-    }
 }

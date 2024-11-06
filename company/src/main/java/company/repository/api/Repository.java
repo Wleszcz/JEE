@@ -49,4 +49,12 @@ public interface Repository<E, K> {
      */
     void update(E entity);
 
+    /**
+     * Detaches entity from persistence context.
+     *
+     * @param entity entity to be detached
+     */
+    void detach(E entity);
+
+
 }
