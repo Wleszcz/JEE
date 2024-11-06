@@ -12,6 +12,7 @@
     <ui:define name="content">
         <article>
             <header><h2>Create device - basic information</h2></header>
+            <h:messages globalOnly="true" style="color: red;" />
             <h:form styleClass="container" onreset="onReset()" enctype="multipart/form-data">
                 <h:panelGrid columns="2" style="padding: 10px">
                     <h:button styleClass="btn" value="Previous" disabled="true" style="margin-left: 30px"/>
@@ -19,17 +20,19 @@
                                      action="#{deviceCreate.goToBrandAction()}"/>
                 </h:panelGrid>
 
-                <h:panelGrid columns="2" style="padding: 10px">
+                <h:panelGrid columns="3" style="padding: 10px">
                     <h:outputLabel for="name" value="Name:" styleClass="form-label"/>
-                    <h:inputText id="name" value="#{deviceCreate.device.name}" styleClass="form-control"/>
-
+                    <h:inputText id="name" value="#{deviceCreate.device.name}" styleClass="form-control" label="Name" required="true" validatorMessage="Należy uzupełnić nazwę"/>
+                    <h:message for="name" style="color: red; font-size: small;" />
 
                     <h:outputLabel for="price" value="PRICE:" styleClass="form-label"/>
-                    <h:inputText id="price" value="#{deviceCreate.device.price}" styleClass="form-control"/>
+                    <h:inputText id="price" value="#{deviceCreate.device.price}" styleClass="form-control" label="Price" required="true" validatorMessage="Należy uzupełnić cenę"/>
+                    <h:message for="price" style="color: red; font-size: small;" />
 
                     <h:outputLabel for="mass" value="Mass:" styleClass="form-label"/>
-                    <h:inputText id="mass" value="#{deviceCreate.device.mass}"
-                                     styleClass="form-control" rows="4"/>
+                    <h:inputText id="mass" value="#{deviceCreate.device.mass}" label="Mass"
+                                     styleClass="form-control" rows="4"  required="true" validatorMessage="Należy uzupełnić masę"/>
+                    <h:message for="mass" style="color: red; font-size: small;" />
                 </h:panelGrid>
                 <h:panelGrid columns="2" style="padding: 10px">
                         <h:button styleClass="btn btn-primary" value="Create" disabled="true" style="margin-left: 30px"/>

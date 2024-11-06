@@ -198,6 +198,6 @@ public class DeviceCreate implements Serializable {
     }
 
     public String getDeviceBrandName(){
-        return this.brands.stream().filter(b -> b.getId().equals(device.getBrand())).findFirst().orElseThrow().getName();
+        return this.brands.stream().filter(b -> b.getId().equals(device.getBrand())).findFirst().orElse(BrandModel.builder().name("").build()).getName();
     }
 }

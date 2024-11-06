@@ -21,4 +21,13 @@
         <converter-id>localDateConverter</converter-id>
         <converter-class>company.view.converter.LocalDateConverter</converter-class>
     </converter>
+    <validator>
+        <validator-id>deviceTypeValidator</validator-id>
+        <validator-class>company.view.validators.DeviceTypeValidator</validator-class>
+    </validator>
+    <validator>
+        <validator-id>brandValidator</validator-id>
+        <validator-class>company.view.validators.BrandValidator</validator-class>
+    </validator>
+
 </faces-config>

@@ -12,7 +12,7 @@
     <ui:define name="content">
         <article>
             <header><h2>Create device - basic information</h2></header>
-            <h:form styleClass="container" onreset="onReset()" enctype="multipart/form-data">
+            <h:form styleClass="container" onreset="onReset()">
 
                 <h:panelGrid columns="2" style="padding: 10px">
                     <h:commandButton styleClass="btn" value="Previous" style="margin-left: 30px"
@@ -26,50 +26,36 @@
                     <div class="col-4 p-2">
                         <fieldset>
                             <legend class="form-label fs-6">Brand:</legend>
-                            <!-- Instead of ui:repeat the h:selectOneRadio with f:selectItems can be used but then
-                            Faces renders table or list and custom styling with CSS libraties can be troublesome. -->
                             <ui:repeat value="#{deviceCreate.brands}" var="device">
                                 <div class="form-check">
-                                    <h:selectOneRadio id="radioId" group="brando"
+                                    <h:selectOneRadio id="radioId" group="brando" required="true"
                                                       value="#{deviceCreate.device.brand}"
+                                                      label="Brand"
                                                       styleClass="form-check-input"
                                                       enabledClass="form-check-label">
                                         <f:selectItem itemValue="#{device.id}" itemLabel="#{device.name}"/>
+                                        <f:validator validatorId="brandValidator"/>
                                     </h:selectOneRadio>
+                                    <h:message for="radioId" style="color: red; font-size: small;" />
                                 </div>
                             </ui:repeat>
                         </fieldset>
                     </div>
-<!--                    <div class="col-4 p-2">-->
-<!--                        <fieldset>-->
-<!--                            <legend class="form-label fs-6">Brand:</legend>-->
-<!--                            &lt;!&ndash; Instead of ui:repeat the h:selectOneRadio with f:selectItems can be used but then-->
-<!--                            Faces renders table or list and custom styling with CSS libraties can be troublesome. &ndash;&gt;-->
-<!--                            <ui:repeat value="#{deviceCreate.users}" var="user">-->
-<!--                                <div class="form-check">-->
-<!--                                    <h:selectOneRadio id="radiod" group="usero"-->
-<!--                                                      value="#{deviceCreate.device.user}"-->
-<!--                                                      styleClass="form-check-input"-->
-<!--                                                      enabledClass="form-check-label">-->
-<!--                                        <f:selectItem itemValue="#{user.id}" itemLabel="#{user.name}"/>-->
-<!--                                    </h:selectOneRadio>-->
-<!--                                </div>-->
-<!--                            </ui:repeat>-->
-<!--                        </fieldset>-->
-<!--                    </div>-->
+
                     <div class="col-4 p-2">
                         <fieldset>
                             <legend class="form-label fs-6">Type:</legend>
-                            <!-- Instead of ui:repeat the h:selectOneRadio with f:selectItems can be used but then
-                            Faces renders table or list and custom styling with CSS libraties can be troublesome. -->
                             <ui:repeat value="#{deviceCreate.deviceTypeList}" var="type">
                                 <div class="form-check">
-                                    <h:selectOneRadio id="type" group="typeo"
+                                    <h:selectOneRadio id="type" group="typeo" required="true"
                                                       value="#{deviceCreate.device.deviceType}"
+                                                      label="Device Type"
                                                       styleClass="form-check-input"
                                                       enabledClass="form-check-label">
                                         <f:selectItem itemValue="#{type}" itemLabel="#{type}"/>
+                                        <f:validator validatorId="deviceTypeValidator"/>
                                     </h:selectOneRadio>
+                                    <h:message for="type" style="color: red; font-size: small;" />
                                 </div>
                             </ui:repeat>
                         </fieldset>
