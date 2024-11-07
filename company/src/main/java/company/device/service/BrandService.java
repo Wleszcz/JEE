@@ -44,7 +44,7 @@ public class BrandService {
      * @param id Brand's id
      * @return container with Brand entity
      */
-    @PermitAll
+    @RolesAllowed({UserRoles.ADMIN, UserRoles.USER})
     public Optional<Brand> find(UUID id) {
         return repository.find(id);
     }
@@ -52,7 +52,7 @@ public class BrandService {
     /**
      * @return all available Brands
      */
-    @PermitAll
+    @RolesAllowed({UserRoles.ADMIN, UserRoles.USER})
     public List<Brand> findAll() {
         return repository.findAll();
     }
